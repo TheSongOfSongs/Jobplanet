@@ -7,6 +7,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,19 +36,44 @@
                                     <constraint firstAttribute="height" constant="1" id="ruN-b3-IKZ"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SPU-AK-Pgc">
+                                <rect key="frame" x="0.0" y="100" width="390" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="mOW-Tj-Uvc">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jGv-e9-rIJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cnb-vm-cMM">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZGo-5W-QQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IEE-5E-A18"/>
                             <constraint firstItem="5s8-Gm-4Ax" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TBP-ga-dvv"/>
+                            <constraint firstItem="SPU-AK-Pgc" firstAttribute="top" secondItem="ZGo-5W-QQW" secondAttribute="bottom" id="VTh-MQ-TE8"/>
                             <constraint firstItem="5s8-Gm-4Ax" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="avc-dh-ZZk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZGo-5W-QQW" secondAttribute="trailing" id="cNf-TQ-GDQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SPU-AK-Pgc" secondAttribute="bottom" id="cqW-W0-VTg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SPU-AK-Pgc" secondAttribute="trailing" id="isq-3X-8P3"/>
+                            <constraint firstItem="SPU-AK-Pgc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lae-HL-nYf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5s8-Gm-4Ax" secondAttribute="trailing" id="uap-vr-kTh"/>
                             <constraint firstItem="ZGo-5W-QQW" firstAttribute="top" secondItem="5s8-Gm-4Ax" secondAttribute="bottom" id="w2U-hz-TPZ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="SPU-AK-Pgc" id="37g-p9-Wwy"/>
                         <outlet property="searchBar" destination="5s8-Gm-4Ax" id="0Or-18-HKe"/>
                     </connections>
                 </viewController>
@@ -58,7 +84,7 @@
     </scenes>
     <resources>
         <namedColor name="jpGreen">
-            <color red="0.23203974960000001" green="0.76483416559999995" blue="0.38136619329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23199999332427979" green="0.76499998569488525" blue="0.38100001215934753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -33,6 +33,8 @@
 		761614DD297A89B0008CAE86 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614DC297A89B0008CAE86 /* Rating.swift */; };
 		761614DF297AB524008CAE86 /* HorizontalTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614DE297AB524008CAE86 /* HorizontalTheme.swift */; };
 		761614E1297AB63A008CAE86 /* RecommendRecruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614E0297AB63A008CAE86 /* RecommendRecruit.swift */; };
+		761614E7297AD6C4008CAE86 /* RecruitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614E5297AD6C4008CAE86 /* RecruitCollectionViewCell.swift */; };
+		761614E8297AD6C4008CAE86 /* RecruitCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761614E6297AD6C4008CAE86 /* RecruitCollectionViewCell.xib */; };
 		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
 		B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +91,8 @@
 		761614DC297A89B0008CAE86 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		761614DE297AB524008CAE86 /* HorizontalTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTheme.swift; sourceTree = "<group>"; };
 		761614E0297AB63A008CAE86 /* RecommendRecruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendRecruit.swift; sourceTree = "<group>"; };
+		761614E5297AD6C4008CAE86 /* RecruitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitCollectionViewCell.swift; sourceTree = "<group>"; };
+		761614E6297AD6C4008CAE86 /* RecruitCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitCollectionViewCell.xib; sourceTree = "<group>"; };
 		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet_JobplanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				761614C2297A610B008CAE86 /* Enums */,
 				761614D1297A75A7008CAE86 /* Model */,
 				761614B9297A5CCA008CAE86 /* Network */,
+				761614E4297AD689008CAE86 /* UICollectionViewCell */,
 				76161489297A4E72008CAE86 /* AppDelegate.swift */,
 				7616148B297A4E72008CAE86 /* SceneDelegate.swift */,
 				7616148D297A4E72008CAE86 /* ViewController.swift */,
@@ -240,6 +245,15 @@
 				761614D4297A7D9E008CAE86 /* RecruitItems.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		761614E4297AD689008CAE86 /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				761614E5297AD6C4008CAE86 /* RecruitCollectionViewCell.swift */,
+				761614E6297AD6C4008CAE86 /* RecruitCollectionViewCell.xib */,
+			);
+			path = UICollectionViewCell;
 			sourceTree = "<group>";
 		};
 		BEEE9C05DC3FB0FDB237B2C0 /* Pods */ = {
@@ -367,6 +381,7 @@
 				76161496297A4E73008CAE86 /* LaunchScreen.storyboard in Resources */,
 				76161493297A4E73008CAE86 /* Assets.xcassets in Resources */,
 				76161491297A4E72008CAE86 /* Main.storyboard in Resources */,
+				761614E8297AD6C4008CAE86 /* RecruitCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +526,7 @@
 				7616148C297A4E72008CAE86 /* SceneDelegate.swift in Sources */,
 				761614D3297A7D24008CAE86 /* RecruitItem.swift in Sources */,
 				761614DF297AB524008CAE86 /* HorizontalTheme.swift in Sources */,
+				761614E7297AD6C4008CAE86 /* RecruitCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
