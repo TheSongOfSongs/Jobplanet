@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F9A8DA2389D0356E042CCA3 /* Pods_Jobplanet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E17E6D85AFC9D1D9E07FD4 /* Pods_Jobplanet.framework */; };
 		7616148A297A4E72008CAE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76161489297A4E72008CAE86 /* AppDelegate.swift */; };
 		7616148C297A4E72008CAE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616148B297A4E72008CAE86 /* SceneDelegate.swift */; };
 		7616148E297A4E72008CAE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616148D297A4E72008CAE86 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 		761614A1297A4E73008CAE86 /* JobplanetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614A0297A4E73008CAE86 /* JobplanetTests.swift */; };
 		761614AB297A4E73008CAE86 /* JobplanetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614AA297A4E73008CAE86 /* JobplanetUITests.swift */; };
 		761614AD297A4E73008CAE86 /* JobplanetUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614AC297A4E73008CAE86 /* JobplanetUITestsLaunchTests.swift */; };
+		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
+		B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06B82D7299E644FA9174AF5C /* Pods-Jobplanet-JobplanetUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.release.xcconfig"; sourceTree = "<group>"; };
+		45A15F56C44A3537D3A38677 /* Pods-JobplanetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobplanetTests.debug.xcconfig"; path = "Target Support Files/Pods-JobplanetTests/Pods-JobplanetTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobplanetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64F0CBB659D5E992379656AA /* Pods-Jobplanet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.debug.xcconfig"; sourceTree = "<group>"; };
+		7133DD6E064764BBD34D7366 /* Pods-JobplanetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobplanetTests.release.xcconfig"; path = "Target Support Files/Pods-JobplanetTests/Pods-JobplanetTests.release.xcconfig"; sourceTree = "<group>"; };
 		76161486297A4E72008CAE86 /* Jobplanet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobplanet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76161489297A4E72008CAE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7616148B297A4E72008CAE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,10 @@
 		761614A6297A4E73008CAE86 /* JobplanetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobplanetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		761614AA297A4E73008CAE86 /* JobplanetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobplanetUITests.swift; sourceTree = "<group>"; };
 		761614AC297A4E73008CAE86 /* JobplanetUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobplanetUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet_JobplanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.release.xcconfig"; sourceTree = "<group>"; };
+		F4E17E6D85AFC9D1D9E07FD4 /* Pods_Jobplanet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F9A8DA2389D0356E042CCA3 /* Pods_Jobplanet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68C0E239F7EE10EF49B9C8E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4E17E6D85AFC9D1D9E07FD4 /* Pods_Jobplanet.framework */,
+				CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */,
+				5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7616147D297A4E72008CAE86 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				7616149F297A4E73008CAE86 /* JobplanetTests */,
 				761614A9297A4E73008CAE86 /* JobplanetUITests */,
 				76161487297A4E72008CAE86 /* Products */,
+				BEEE9C05DC3FB0FDB237B2C0 /* Pods */,
+				68C0E239F7EE10EF49B9C8E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +154,20 @@
 			path = JobplanetUITests;
 			sourceTree = "<group>";
 		};
+		BEEE9C05DC3FB0FDB237B2C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64F0CBB659D5E992379656AA /* Pods-Jobplanet.debug.xcconfig */,
+				D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */,
+				A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */,
+				06B82D7299E644FA9174AF5C /* Pods-Jobplanet-JobplanetUITests.release.xcconfig */,
+				45A15F56C44A3537D3A38677 /* Pods-JobplanetTests.debug.xcconfig */,
+				7133DD6E064764BBD34D7366 /* Pods-JobplanetTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 761614B0297A4E73008CAE86 /* Build configuration list for PBXNativeTarget "Jobplanet" */;
 			buildPhases = (
+				0BB7791C97A4468946694FE4 /* [CP] Check Pods Manifest.lock */,
 				76161482297A4E72008CAE86 /* Sources */,
 				76161483297A4E72008CAE86 /* Frameworks */,
 				76161484297A4E72008CAE86 /* Resources */,
+				755923A121CB64034E8E26E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 761614B3297A4E73008CAE86 /* Build configuration list for PBXNativeTarget "JobplanetTests" */;
 			buildPhases = (
+				993A5FBCB569DF43B4787AB9 /* [CP] Check Pods Manifest.lock */,
 				76161498297A4E73008CAE86 /* Sources */,
 				76161499297A4E73008CAE86 /* Frameworks */,
 				7616149A297A4E73008CAE86 /* Resources */,
@@ -169,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 761614B6297A4E73008CAE86 /* Build configuration list for PBXNativeTarget "JobplanetUITests" */;
 			buildPhases = (
+				1C135CC8A1D0D1571CAC3DE0 /* [CP] Check Pods Manifest.lock */,
 				761614A2297A4E73008CAE86 /* Sources */,
 				761614A3297A4E73008CAE86 /* Frameworks */,
 				761614A4297A4E73008CAE86 /* Resources */,
+				F4F008E9BA3A47435C8A4504 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +298,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BB7791C97A4468946694FE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jobplanet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1C135CC8A1D0D1571CAC3DE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jobplanet-JobplanetUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		755923A121CB64034E8E26E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jobplanet/Pods-Jobplanet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jobplanet/Pods-Jobplanet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jobplanet/Pods-Jobplanet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		993A5FBCB569DF43B4787AB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JobplanetTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4F008E9BA3A47435C8A4504 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		76161482297A4E72008CAE86 /* Sources */ = {
@@ -432,6 +581,7 @@
 		};
 		761614B1297A4E73008CAE86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64F0CBB659D5E992379656AA /* Pods-Jobplanet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -461,6 +611,7 @@
 		};
 		761614B2297A4E73008CAE86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -490,6 +641,7 @@
 		};
 		761614B4297A4E73008CAE86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A15F56C44A3537D3A38677 /* Pods-JobplanetTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -510,6 +662,7 @@
 		};
 		761614B5297A4E73008CAE86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7133DD6E064764BBD34D7366 /* Pods-JobplanetTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -530,6 +683,7 @@
 		};
 		761614B7297A4E73008CAE86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +702,7 @@
 		};
 		761614B8297A4E73008CAE86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06B82D7299E644FA9174AF5C /* Pods-Jobplanet-JobplanetUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
