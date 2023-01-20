@@ -12,7 +12,6 @@ import XCTest
 final class JobplanetSlowTests: XCTestCase {
     
     var urlSession: URLSession!
-    let networkService = NetworkService()
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -36,7 +35,7 @@ final class JobplanetSlowTests: XCTestCase {
     
     func testAPI(typeOf list: List) throws {
         // given
-        let url = networkService.urlBuilder(of: list).url!
+        let url = NetworkService.urlBuilder(of: list).url!
         let promise = expectation(description: "Completion handler invoked")
         var statusCode: Int?
         var responseError: Error?
