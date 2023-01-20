@@ -29,7 +29,7 @@ final class NetworkService {
         return .success(data)
     }
     
-    private func urlBuilder(of list: List) -> URLComponents {
+    func urlBuilder(of list: List) -> URLComponents {
         let path: String = {
             let lastPath: String = {
                 switch list {

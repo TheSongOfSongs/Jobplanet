@@ -20,6 +20,7 @@
 		761614BB297A5CE3008CAE86 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614BA297A5CE3008CAE86 /* NetworkService.swift */; };
 		761614C4297A6119008CAE86 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614C3297A6119008CAE86 /* List.swift */; };
 		761614C6297A6314008CAE86 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614C5297A6314008CAE86 /* APIServiceError.swift */; };
+		761614C9297A6898008CAE86 /* JobplanetSlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614C8297A6898008CAE86 /* JobplanetSlowTests.swift */; };
 		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
 		B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		761614BA297A5CE3008CAE86 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		761614C3297A6119008CAE86 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		761614C5297A6314008CAE86 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
+		761614C8297A6898008CAE86 /* JobplanetSlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobplanetSlowTests.swift; sourceTree = "<group>"; };
 		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet_JobplanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				76161488297A4E72008CAE86 /* Jobplanet */,
 				7616149F297A4E73008CAE86 /* JobplanetTests */,
+				761614C7297A6865008CAE86 /* JobplanetSlowTests */,
 				761614A9297A4E73008CAE86 /* JobplanetUITests */,
 				76161487297A4E72008CAE86 /* Products */,
 				BEEE9C05DC3FB0FDB237B2C0 /* Pods */,
@@ -177,6 +180,14 @@
 				761614C3297A6119008CAE86 /* List.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		761614C7297A6865008CAE86 /* JobplanetSlowTests */ = {
+			isa = PBXGroup;
+			children = (
+				761614C8297A6898008CAE86 /* JobplanetSlowTests.swift */,
+			);
+			path = JobplanetSlowTests;
 			sourceTree = "<group>";
 		};
 		BEEE9C05DC3FB0FDB237B2C0 /* Pods */ = {
@@ -444,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				761614C9297A6898008CAE86 /* JobplanetSlowTests.swift in Sources */,
 				761614A1297A4E73008CAE86 /* JobplanetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
