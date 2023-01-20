@@ -8,12 +8,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupSearchBar()
     }
-
-
+    
+    // MARK: setup
+    func setupSearchBar() {
+        searchBar.delegate = self
+        
+        let image = UIImage(named: "img_logo_search")
+        searchBar.setImage(image, for: .search, state: .normal)
+        searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        searchBar.searchTextField.backgroundColor = .clear
+    }
 }
 
+// TODO: UISearchBarDelegate
+extension ViewController: UISearchBarDelegate {
+    
+}
