@@ -38,8 +38,8 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        let cell = UINib(nibName: "RecruitCollectionViewCell", bundle: nil)
-        collectionView.register(cell, forCellWithReuseIdentifier: "RecruitCollectionViewCell")
+        let cell = UINib(nibName: RecruitCollectionViewCell.identifier, bundle: nil)
+        collectionView.register(cell, forCellWithReuseIdentifier: RecruitCollectionViewCell.identifier)
     }
     
     func setCollectionViewSize() {
@@ -65,7 +65,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // 채용 버튼 탭 되었을 경우
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecruitCollectionViewCell", for: indexPath) as? RecruitCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecruitCollectionViewCell.identifier, for: indexPath) as? RecruitCollectionViewCell else {
             return UICollectionViewCell()
         }
         
