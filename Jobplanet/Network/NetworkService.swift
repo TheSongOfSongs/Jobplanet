@@ -36,7 +36,7 @@ final class NetworkService {
     }
     
     func cellItems() async throws -> Result<[JSONObject], APIServiceError> {
-        let result = try await data(of: .company)
+        let result = try await data(of: .cell)
         
         switch result {
         case .success(let data):
@@ -57,7 +57,7 @@ final class NetworkService {
                 switch list {
                 case .recruit:
                     return "/test_data_recruit_items.json"
-                case .company:
+                case .cell:
                     return "/test_data_cell_items.json"
                 }
             }()

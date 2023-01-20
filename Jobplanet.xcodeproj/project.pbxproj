@@ -25,7 +25,7 @@
 		761614C6297A6314008CAE86 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614C5297A6314008CAE86 /* APIServiceError.swift */; };
 		761614C9297A6898008CAE86 /* JobplanetSlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614C8297A6898008CAE86 /* JobplanetSlowTests.swift */; };
 		761614CC297A73AA008CAE86 /* MockData1_recruit.json in Resources */ = {isa = PBXBuildFile; fileRef = 761614CB297A73AA008CAE86 /* MockData1_recruit.json */; };
-		761614CE297A73E0008CAE86 /* MockData1_company.json in Resources */ = {isa = PBXBuildFile; fileRef = 761614CD297A73E0008CAE86 /* MockData1_company.json */; };
+		761614CE297A73E0008CAE86 /* MockData1_cell.json in Resources */ = {isa = PBXBuildFile; fileRef = 761614CD297A73E0008CAE86 /* MockData1_cell.json */; };
 		761614D0297A750C008CAE86 /* JobplanetFakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614CF297A750C008CAE86 /* JobplanetFakeTests.swift */; };
 		761614D3297A7D24008CAE86 /* RecruitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614D2297A7D24008CAE86 /* RecruitItem.swift */; };
 		761614D5297A7D9E008CAE86 /* RecruitItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614D4297A7D9E008CAE86 /* RecruitItems.swift */; };
@@ -81,7 +81,7 @@
 		761614C5297A6314008CAE86 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		761614C8297A6898008CAE86 /* JobplanetSlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobplanetSlowTests.swift; sourceTree = "<group>"; };
 		761614CB297A73AA008CAE86 /* MockData1_recruit.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockData1_recruit.json; sourceTree = "<group>"; };
-		761614CD297A73E0008CAE86 /* MockData1_company.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockData1_company.json; sourceTree = "<group>"; };
+		761614CD297A73E0008CAE86 /* MockData1_cell.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockData1_cell.json; sourceTree = "<group>"; };
 		761614CF297A750C008CAE86 /* JobplanetFakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobplanetFakeTests.swift; sourceTree = "<group>"; };
 		761614D2297A7D24008CAE86 /* RecruitItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitItem.swift; sourceTree = "<group>"; };
 		761614D4297A7D9E008CAE86 /* RecruitItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitItems.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				761614CB297A73AA008CAE86 /* MockData1_recruit.json */,
-				761614CD297A73E0008CAE86 /* MockData1_company.json */,
+				761614CD297A73E0008CAE86 /* MockData1_cell.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -375,7 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				761614CC297A73AA008CAE86 /* MockData1_recruit.json in Resources */,
-				761614CE297A73E0008CAE86 /* MockData1_company.json in Resources */,
+				761614CE297A73E0008CAE86 /* MockData1_cell.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,7 +30,7 @@ final class JobplanetSlowTests: XCTestCase {
     
     ///  회사  정보 가져오는 API가 제대로 작동하는지  확인하는 테스트
     func testCompanyAPI() throws {
-        try testAPI(typeOf: .company)
+        try testAPI(typeOf: .cell)
     }
     
     func testAPI(typeOf list: List) throws {

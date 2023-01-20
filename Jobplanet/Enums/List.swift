@@ -11,5 +11,5 @@ enum List {
     /// 채용
     case recruit
     /// 기업
-    case company
+    case cell
 }

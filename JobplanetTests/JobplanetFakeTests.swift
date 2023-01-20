@@ -67,13 +67,13 @@ final class JobplanetFakeTests: XCTestCase {
     func testCellDataToArray() async throws {
         // 문서로 저장된 MockData 가져오기
         let testBundle = Bundle(for: type(of: self))
-        let filePath = testBundle.path(forResource: "MockData1_company", ofType: "json")!
+        let filePath = testBundle.path(forResource: "MockData1_cell", ofType: "json")!
         let fileURL = URL(fileURLWithPath: filePath)
         let data = try Data(contentsOf: fileURL)
         
         // Mock URLSession 만들기
         let urlSessionStub: URLSessionStub = {
-            let url = NetworkService.urlBuilder(of: .company).url!
+            let url = NetworkService.urlBuilder(of: .cell).url!
             let response = HTTPURLResponse(url: url,
                                            statusCode: 200,
                                            httpVersion: nil,
