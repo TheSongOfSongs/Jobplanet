@@ -17,6 +17,7 @@ class RecruitCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        imageView.makeCornerRounded(radius: 8)
     }
 }
