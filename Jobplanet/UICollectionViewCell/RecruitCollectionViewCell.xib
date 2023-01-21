@@ -50,15 +50,15 @@
                         <color key="textColor" name="jpGray1"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQq-fg-QSH">
-                        <rect key="frame" x="0.0" y="378.33333333333331" width="455" height="20"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQq-fg-QSH" customClass="AppealsView" customModule="Jobplanet" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="376.33333333333331" width="455" height="20"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="AOX-ML-Cdy"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYd-RS-gC0">
-                        <rect key="frame" x="0.0" y="403.33333333333331" width="34" height="15.666666666666686"/>
+                        <rect key="frame" x="0.0" y="401.33333333333331" width="34" height="15.666666666666686"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                         <color key="textColor" name="jpGray1"/>
                         <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                 <constraint firstItem="CYd-RS-gC0" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="8fw-HR-Jqr"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="QZD-Yx-JZ2" secondAttribute="trailing" id="8tN-Vg-rg9"/>
                 <constraint firstItem="ni3-bd-MgY" firstAttribute="centerY" secondItem="rLr-yq-PbN" secondAttribute="centerY" id="8uX-Dg-zX9"/>
-                <constraint firstItem="cQq-fg-QSH" firstAttribute="top" secondItem="u9I-3C-b6M" secondAttribute="bottom" constant="9.7300000000000004" id="Ayq-LW-gls"/>
+                <constraint firstItem="cQq-fg-QSH" firstAttribute="top" secondItem="rLr-yq-PbN" secondAttribute="bottom" constant="5" id="Ayq-LW-gls"/>
                 <constraint firstItem="ni3-bd-MgY" firstAttribute="leading" secondItem="rLr-yq-PbN" secondAttribute="trailing" constant="4" id="Gjz-Zt-A4L"/>
                 <constraint firstItem="rLr-yq-PbN" firstAttribute="centerY" secondItem="u9I-3C-b6M" secondAttribute="centerY" id="LDA-io-8ZB"/>
                 <constraint firstItem="u9I-3C-b6M" firstAttribute="leading" secondItem="QZD-Yx-JZ2" secondAttribute="leading" id="LEx-Td-mrU"/>
@@ -90,6 +90,7 @@
                 <outlet property="appealsView" destination="cQq-fg-QSH" id="Wmv-6c-sgC"/>
                 <outlet property="companyNameLabel" destination="ni3-bd-MgY" id="BSS-7U-XRP"/>
                 <outlet property="imageView" destination="Rwv-uQ-Ep0" id="XgL-Ea-h0F"/>
+                <outlet property="ratingsRabel" destination="rLr-yq-PbN" id="dRG-6m-sNz"/>
                 <outlet property="rewardLabel" destination="CYd-RS-gC0" id="0Ey-aw-l0x"/>
                 <outlet property="titleLabel" destination="QZD-Yx-JZ2" id="r0o-Ss-gee"/>
             </connections>

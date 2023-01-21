@@ -37,6 +37,10 @@
 		761614E8297AD6C4008CAE86 /* RecruitCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761614E6297AD6C4008CAE86 /* RecruitCollectionViewCell.xib */; };
 		761F59B3297AE3B3005BE36B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F59B2297AE3B3005BE36B /* UIView+Extensions.swift */; };
 		761F59B5297AE40D005BE36B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F59B4297AE40D005BE36B /* UIViewController+Extensions.swift */; };
+		761F59B8297AE84E005BE36B /* AppealsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761F59B7297AE84E005BE36B /* AppealsView.xib */; };
+		761F59BA297AE866005BE36B /* AppealsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F59B9297AE866005BE36B /* AppealsView.swift */; };
+		761F59BE297BBDC7005BE36B /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F59BD297BBDC7005BE36B /* UIColor+Extensions.swift */; };
+		761F59C0297BC1C0005BE36B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F59BF297BC1C0005BE36B /* Utils.swift */; };
 		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
 		B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +101,10 @@
 		761614E6297AD6C4008CAE86 /* RecruitCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitCollectionViewCell.xib; sourceTree = "<group>"; };
 		761F59B2297AE3B3005BE36B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		761F59B4297AE40D005BE36B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		761F59B7297AE84E005BE36B /* AppealsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppealsView.xib; sourceTree = "<group>"; };
+		761F59B9297AE866005BE36B /* AppealsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppealsView.swift; sourceTree = "<group>"; };
+		761F59BD297BBDC7005BE36B /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		761F59BF297BC1C0005BE36B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet_JobplanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +180,8 @@
 				761614D1297A75A7008CAE86 /* Model */,
 				761614B9297A5CCA008CAE86 /* Network */,
 				761614E4297AD689008CAE86 /* UICollectionViewCell */,
+				761F59B6297AE840005BE36B /* UIView */,
+				761F59BF297BC1C0005BE36B /* Utils.swift */,
 				76161489297A4E72008CAE86 /* AppDelegate.swift */,
 				7616148B297A4E72008CAE86 /* SceneDelegate.swift */,
 				7616148D297A4E72008CAE86 /* ViewController.swift */,
@@ -264,10 +274,20 @@
 		761F59B1297AE38E005BE36B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				761F59BD297BBDC7005BE36B /* UIColor+Extensions.swift */,
 				761F59B2297AE3B3005BE36B /* UIView+Extensions.swift */,
 				761F59B4297AE40D005BE36B /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		761F59B6297AE840005BE36B /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				761F59B9297AE866005BE36B /* AppealsView.swift */,
+				761F59B7297AE84E005BE36B /* AppealsView.xib */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		BEEE9C05DC3FB0FDB237B2C0 /* Pods */ = {
@@ -393,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76161496297A4E73008CAE86 /* LaunchScreen.storyboard in Resources */,
+				761F59B8297AE84E005BE36B /* AppealsView.xib in Resources */,
 				76161493297A4E73008CAE86 /* Assets.xcassets in Resources */,
 				76161491297A4E72008CAE86 /* Main.storyboard in Resources */,
 				761614E8297AD6C4008CAE86 /* RecruitCollectionViewCell.xib in Resources */,
@@ -535,11 +556,14 @@
 				761F59B3297AE3B3005BE36B /* UIView+Extensions.swift in Sources */,
 				761614E1297AB63A008CAE86 /* RecommendRecruit.swift in Sources */,
 				7616148A297A4E72008CAE86 /* AppDelegate.swift in Sources */,
+				761F59BA297AE866005BE36B /* AppealsView.swift in Sources */,
+				761F59BE297BBDC7005BE36B /* UIColor+Extensions.swift in Sources */,
 				761614C1297A5DDC008CAE86 /* URLSessionDataTaskProtocol.swift in Sources */,
 				761614BB297A5CE3008CAE86 /* NetworkService.swift in Sources */,
 				761614DB297A8988008CAE86 /* Company.swift in Sources */,
 				761614DD297A89B0008CAE86 /* Rating.swift in Sources */,
 				7616148C297A4E72008CAE86 /* SceneDelegate.swift in Sources */,
+				761F59C0297BC1C0005BE36B /* Utils.swift in Sources */,
 				761614D3297A7D24008CAE86 /* RecruitItem.swift in Sources */,
 				761614DF297AB524008CAE86 /* HorizontalTheme.swift in Sources */,
 				761614E7297AD6C4008CAE86 /* RecruitCollectionViewCell.swift in Sources */,
