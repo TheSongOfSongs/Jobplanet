@@ -49,6 +49,7 @@
 		76382873297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76382871297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift */; };
 		76382874297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76382872297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib */; };
 		76E2D893297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D892297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift */; };
+		76E2D8D2297C2E200033F5D1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */; };
 		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
 		B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */; };
 /* End PBXBuildFile section */
@@ -121,6 +122,7 @@
 		76382871297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalThemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		76382872297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalThemeCollectionViewCell.xib; sourceTree = "<group>"; };
 		76E2D892297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalThemeCollectionView+Extension.swift"; sourceTree = "<group>"; };
+		76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet_JobplanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				76821D7D297BEBF4006DA512 /* UICollectionReusableView */,
 				761614E4297AD689008CAE86 /* UICollectionViewCell */,
 				761F59B6297AE840005BE36B /* UIView */,
+				76E2D8D0297C2E060033F5D1 /* ViewModel */,
 				761F59BF297BC1C0005BE36B /* PaddingLabel.swift */,
 				76161489297A4E72008CAE86 /* AppDelegate.swift */,
 				7616148B297A4E72008CAE86 /* SceneDelegate.swift */,
@@ -320,6 +323,14 @@
 				7638286E297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib */,
 			);
 			path = UICollectionReusableView;
+			sourceTree = "<group>";
+		};
+		76E2D8D0297C2E060033F5D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BEEE9C05DC3FB0FDB237B2C0 /* Pods */ = {
@@ -591,6 +602,7 @@
 				761F59B5297AE40D005BE36B /* UIViewController+Extensions.swift in Sources */,
 				761614BD297A5DAF008CAE86 /* URLSessionStub.swift in Sources */,
 				761614C6297A6314008CAE86 /* APIServiceError.swift in Sources */,
+				76E2D8D2297C2E200033F5D1 /* HomeViewModel.swift in Sources */,
 				76E2D893297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift in Sources */,
 				761F59B3297AE3B3005BE36B /* UIView+Extensions.swift in Sources */,
 				761614E1297AB63A008CAE86 /* RecommendRecruit.swift in Sources */,
