@@ -14,7 +14,7 @@ class RecruitCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var appealsView: AppealsView!
     @IBOutlet weak var rewardLabel: UILabel!
-    @IBOutlet weak var ratingsRabel: UILabel!
+    @IBOutlet weak var ratingsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
