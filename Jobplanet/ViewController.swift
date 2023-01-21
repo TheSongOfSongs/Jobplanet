@@ -44,6 +44,9 @@ class ViewController: UIViewController {
         let companyCollectionViewCell = UINib(nibName: CompanyCollectionViewCell.identifier, bundle: nil)
         collectionView.register(companyCollectionViewCell, forCellWithReuseIdentifier: CompanyCollectionViewCell.identifier)
         
+        let horizontalThemeCollectionViewCell = UINib(nibName: HorizontalThemeCollectionViewCell.identifier, bundle: nil)
+        collectionView.register(horizontalThemeCollectionViewCell, forCellWithReuseIdentifier: HorizontalThemeCollectionViewCell.identifier)
+        
         let reusableView = UINib(nibName: RecruitCompanyButtonsCollectionReusableView.identifier, bundle: nil)
         collectionView.register(reusableView,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -52,14 +55,14 @@ class ViewController: UIViewController {
     
     func setCollectionViewSize() {
         // TODO: 채용/기업 버튼 선택되었을 때 처리
-        sectionInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        minSpacing = 15
-        itemsPerRow = 2
-        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+//        sectionInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+//        minSpacing = 15
+//        itemsPerRow = 2
+//        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
-//        sectionInsets = UIEdgeInsets.zero
-//        minSpacing = 0
-//        itemsPerRow = 1
+        sectionInsets = UIEdgeInsets.zero
+        minSpacing = 0
+        itemsPerRow = 1
 //        let companyFlowLayout = UICollectionViewFlowLayout()
 //        companyFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 //        collectionView.collectionViewLayout = companyFlowLayout
@@ -80,13 +83,19 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // TODO: 채용/기업 버튼 선택되었을 때 처리
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecruitCollectionViewCell.identifier, for: indexPath) as? RecruitCollectionViewCell else {
-            return UICollectionViewCell()
-        }
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecruitCollectionViewCell.identifier, for: indexPath) as? RecruitCollectionViewCell else {
+//            return UICollectionViewCell()
+//        }
         
 //        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyCollectionViewCell.identifier, for: indexPath) as? CompanyCollectionViewCell else {
 //            return UICollectionViewCell()
 //        }
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalThemeCollectionViewCell.identifier, for: indexPath) as? HorizontalThemeCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+
+        cell.sectionTitleLabel.text = "인기 급상승 채용 공고"
         
         return cell
     }
@@ -110,7 +119,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         // 채용 버튼 탭 되었을 경우
         let paddingSpace = sectionInsets.left * 2 + minSpacing * (itemsPerRow - 1)
         let width = (view.frame.width - paddingSpace) / itemsPerRow
-        return CGSize(width: width, height: width * 226 / 160)
+//        return CGSize(width: width, height: width * 226 / 160)
+        
+        return CGSize(width: width , height: 315)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
