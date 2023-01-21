@@ -43,6 +43,11 @@ class ViewController: UIViewController {
         
         let companyCollectionViewCell = UINib(nibName: CompanyCollectionViewCell.identifier, bundle: nil)
         collectionView.register(companyCollectionViewCell, forCellWithReuseIdentifier: CompanyCollectionViewCell.identifier)
+        
+        let reusableView = UINib(nibName: RecruitCompanyButtonsCollectionReusableView.identifier, bundle: nil)
+        collectionView.register(reusableView,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: RecruitCompanyButtonsCollectionReusableView.identifier)
     }
     
     func setCollectionViewSize() {
@@ -85,6 +90,15 @@ extension ViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                               withReuseIdentifier: RecruitCompanyButtonsCollectionReusableView.identifier,
+                                                                               for: indexPath) as? RecruitCompanyButtonsCollectionReusableView else {
+            return UICollectionReusableView()
+        }
+        return headerView
+    }
 }
 
 extension ViewController: UICollectionViewDelegate {
@@ -101,5 +115,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 70)
     }
 }
