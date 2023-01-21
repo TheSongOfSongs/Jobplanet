@@ -41,7 +41,7 @@ class AppealsView: UIView {
         for text in texts {
             let label: PaddingLabel = {
                 let label = PaddingLabel()
-                label.font = UIFont.systemFont(ofSize: 11)
+                label.font = UIFont.systemFont(ofSize: fontSize)
                 label.textColor = .jpGray2
                 label.addBorder(color: UIColor.jpGray3, width: 1)
                 label.makeCornerRounded(radius: 4)
