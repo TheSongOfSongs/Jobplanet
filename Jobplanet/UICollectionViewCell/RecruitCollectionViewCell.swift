@@ -20,5 +20,6 @@ class RecruitCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         imageView.makeCornerRounded(radius: 8)
+        titleLabel.setLineHeight(lineHeight: 24)
     }
 }
