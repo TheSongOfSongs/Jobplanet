@@ -10,7 +10,7 @@ import Foundation
 struct Company: Codable {
     let name: String
     let logoPath: String
-    let ratings: [Rating]?
+    let ratings: [Rating]
     
     enum CodingKeys: String, CodingKey {
         case name = "name"
