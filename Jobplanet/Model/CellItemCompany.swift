@@ -15,8 +15,8 @@ struct CellItemCompany: CellItem {
     let rateTotalAvg: Double
     let reviewSummary: String
     let interviewQuestion: String
-    let salaryAvg: Double
-    let updateDate: String
+    let salaryAvg: Int
+    private let updateDateFullVersion: String
     
     enum CodingKeys: String, CodingKey {
         case logoPath = "logo_path"
@@ -26,6 +26,15 @@ struct CellItemCompany: CellItem {
         case reviewSummary = "review_summary"
         case interviewQuestion = "interview_question"
         case salaryAvg = "salary_avg"
-        case updateDate = "update_date"
+        case updateDateFullVersion = "update_date"
+    }
+    
+    var updateDate: String {
+        if updateDateFullVersion.count < 10 {
+            return updateDateFullVersion
+        } else {
+            let index = updateDateFullVersion.index(updateDateFullVersion.startIndex, offsetBy: 10)
+            return String(updateDateFullVersion[..<index])
+        }
     }
 }

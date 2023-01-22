@@ -166,22 +166,34 @@ extension ViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecruitCollectionViewCell.identifier, for: indexPath) as? RecruitCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            
+            cell.setupCell(with: recruitItems[indexPath.row])
             return cell
         case .cell:
             let cellItem = cellItems[indexPath.row]
             
-            if cellItem is CellItemCompany || cellItem is CellItemReview {
+            if cellItem is CellItemCompany {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyCollectionViewCell.identifier, for: indexPath) as? CompanyCollectionViewCell,
+                      let cellItem = cellItem as? CellItemCompany else {
+                    return UICollectionViewCell()
+                }
+                
+                cell.setupCell(with: cellItem)
+                return cell
+            } else if cellItem is CellItemReview {
+                // TODO: 추후 CompanyReview에 관한 기획 후, 개발 예정
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyCollectionViewCell.identifier, for: indexPath) as? CompanyCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                
                 return cell
             } else if cellItem is CellItemHorizontalTheme {
                 
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalThemeCollectionViewCell.identifier, for: indexPath) as? HorizontalThemeCollectionViewCell else {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalThemeCollectionViewCell.identifier, for: indexPath) as? HorizontalThemeCollectionViewCell,
+                      let cellItem = cellItem as? CellItemHorizontalTheme else {
                     return UICollectionViewCell()
                 }
                 
+                cell.setupCell(with: cellItem)
                 return cell
             }
             

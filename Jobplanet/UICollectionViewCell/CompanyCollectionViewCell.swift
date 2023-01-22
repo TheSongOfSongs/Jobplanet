@@ -35,4 +35,15 @@ class CompanyCollectionViewCell: UICollectionViewCell {
                                                                           verticalFittingPriority: .fittingSizeLevel)
         return layoutAttributes
     }
+    
+    func setupCell(with item: CellItemCompany) {
+        logoImageView.setImage(with: item.logoPath)
+        nameLabel.text = item.name
+        rateTotalAvgLabel.text = "\(item.rateTotalAvg)"
+        industryLabel.text = item.industryName
+        reviewSummaryLabel.text = item.reviewSummary
+        updateDateLabel.text = item.updateDate
+        interviewQuestionLabel.text = item.interviewQuestion
+        salaryAvgLabel.text = "\(item.salaryAvg.withComma)"
+    }
 }
