@@ -67,6 +67,11 @@ extension HomeViewController: UICollectionViewDataSource {
                                                                                for: indexPath) as? RecruitCompanyButtonsCollectionReusableView else {
             return UICollectionReusableView()
         }
+        
+        headerView.listButtonTapped
+            .bind(to: listButtonSelected)
+            .disposed(by: disposeBag)
+        
         return headerView
     }
 }

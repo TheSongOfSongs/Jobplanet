@@ -59,9 +59,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setCollectionViewSize(with: .recruit)
         setupBinding()
         setupSearchBar()
+        setCollectionViewSize(with: listButtonSelectedValue)
         setupCollectionView()
     }
     
@@ -75,9 +75,9 @@ class HomeViewController: UIViewController {
         output.recruitItems
             .drive(with: self,
                    onNext: { _, recruitItems in
-                // TODO: collection view layout 정리
                 self.recruitItems = recruitItems
                 self.collectionView.reloadData()
+                self.setCollectionViewSize(with: .recruit)
             })
             .disposed(by: disposeBag)
         
@@ -85,6 +85,7 @@ class HomeViewController: UIViewController {
             .drive(with: self, onNext: { _, cellItems in
                 self.cellItems = cellItems
                 self.collectionView.reloadData()
+                self.setCollectionViewSize(with: .cell)
             })
             .disposed(by: disposeBag)
         
@@ -92,9 +93,6 @@ class HomeViewController: UIViewController {
             .asDriver()
             .drive(with: self,
                    onNext: { _, list in
-                
-                self.setCollectionViewSize(with: list)
-                
                 switch list {
                 case .recruit:
                     self.requestRecruitItems.accept(())
