@@ -12,7 +12,7 @@ struct CellItemHorizontalTheme: CellItem {
     var cellType: CellType = .horizontalTheme
     let count: Int?
     let sectionTitle: String?
-    let recommendRecruit: [RecommendRecruit]?
+    let recommendRecruit: [RecruitItem]?
     
     enum CodingKeys: String, CodingKey {
         case count = "count"
