@@ -15,6 +15,12 @@ struct RecruitItem: Codable {
     let imageURLString: String
     let company: Company
     
+    var appeals: [String] {
+        return appeal
+            .components(separatedBy: ", ")
+            .map({ String($0) })
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case title = "title"

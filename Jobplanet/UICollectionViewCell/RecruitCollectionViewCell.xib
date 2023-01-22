@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="455" height="441"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rwv-uQ-Ep0">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rwv-uQ-Ep0">
                         <rect key="frame" x="0.0" y="47" width="455" height="278.66666666666669"/>
                         <color key="backgroundColor" name="jpGray3"/>
                         <constraints>
@@ -95,9 +95,11 @@
             <size key="customSize" width="455" height="441"/>
             <connections>
                 <outlet property="appealsView" destination="cQq-fg-QSH" id="Wmv-6c-sgC"/>
+                <outlet property="appealsViewFrameHeightConstraint" destination="AOX-ML-Cdy" id="QFT-LX-cN5"/>
+                <outlet property="appealsViewTopConstraint" destination="Ayq-LW-gls" id="eFf-HI-zRv"/>
                 <outlet property="companyNameLabel" destination="ni3-bd-MgY" id="BSS-7U-XRP"/>
                 <outlet property="imageView" destination="Rwv-uQ-Ep0" id="XgL-Ea-h0F"/>
-                <outlet property="ratingsRabel" destination="rLr-yq-PbN" id="dRG-6m-sNz"/>
+                <outlet property="ratingsLabel" destination="rLr-yq-PbN" id="riL-Le-VQh"/>
                 <outlet property="rewardLabel" destination="CYd-RS-gC0" id="0Ey-aw-l0x"/>
                 <outlet property="titleLabel" destination="QZD-Yx-JZ2" id="r0o-Ss-gee"/>
             </connections>

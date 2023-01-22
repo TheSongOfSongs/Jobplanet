@@ -17,4 +17,8 @@ struct Company: Codable {
         case logoPath = "logo_path"
         case ratings = "ratings"
     }
+    
+    var maxRatings: Double? {
+        return ratings.map { $0.rating }.max()
+    }
 }
