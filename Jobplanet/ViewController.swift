@@ -14,10 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var sectionInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-    var minSpacing: CGFloat = 15
-    var itemsPerRow: CGFloat = 2
-    
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
     let listButtonSelected = BehaviorRelay(value: List.recruit)
@@ -26,18 +22,42 @@ class ViewController: UIViewController {
     ///  '채용' 버튼 눌렸을 때 collection view 데이터소스
     var recruitItems: [RecruitItem] = []
     
+    /// '기업' 버튼 눌렸을 때 collection view 데이터소스
+    var cellItems: [CellItem] = []
+    
     var listButtonSelectedValue: List {
         return listButtonSelected.value
     }
     
+    lazy var recruitCollectionViewFlowLayout: UICollectionViewFlowLayout = {
+        let sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        let minSpacing: CGFloat = 15
+        let itemsPerRow: CGFloat = 2
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = sectionInset
+        layout.minimumInteritemSpacing = minSpacing
+        
+        let paddingSpace = sectionInset.left * 2.0 + minSpacing * (itemsPerRow - 1.0)
+        let width = (view.frame.width - paddingSpace) / itemsPerRow
+        layout.itemSize = CGSize(width: width, height: width * 226 / 160)
+        return layout
+    }()
+    
+    lazy var companyCollectionViewFlowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: view.frame.width, height: .zero)
+        layout.sectionInset = .zero
+        return layout
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setCollectionViewSize(with: .recruit)
         setupBinding()
         setupSearchBar()
         setupCollectionView()
-        setCollectionViewSize()
-        
         requestRecruitItems.accept(())
     }
     
@@ -60,6 +80,8 @@ class ViewController: UIViewController {
             .asDriver()
             .drive(with: self,
                    onNext: { _, list in
+                
+                self.setCollectionViewSize(with: list)
                 
                 switch list {
                 case .recruit:
@@ -100,20 +122,15 @@ class ViewController: UIViewController {
                                 withReuseIdentifier: RecruitCompanyButtonsCollectionReusableView.identifier)
     }
     
-    func setCollectionViewSize() {
-        // TODO: 채용/기업 버튼 선택되었을 때 처리
-        sectionInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        minSpacing = 15
-        itemsPerRow = 2
-//        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
-//        sectionInsets = UIEdgeInsets.zero
-//        minSpacing = 0
-//        itemsPerRow = 1
-//        let companyFlowLayout = UICollectionViewFlowLayout()
-//        companyFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        collectionView.collectionViewLayout = companyFlowLayout
-//        collectionView.contentInsetAdjustmentBehavior = .always
+    func setCollectionViewSize(with list: List) {
+        collectionView.collectionViewLayout = {
+            switch list {
+            case .recruit:
+                return recruitCollectionViewFlowLayout
+            case .cell:
+                return companyCollectionViewFlowLayout
+            }
+        }()
     }
 }
 
@@ -129,31 +146,37 @@ extension ViewController: UICollectionViewDataSource {
         case .recruit:
             return recruitItems.count
         case .cell:
-            return 0 // TODO: 변경
+            return cellItems.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         switch listButtonSelectedValue {
         case .recruit:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecruitCollectionViewCell.identifier, for: indexPath) as? RecruitCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            
-            cell.setupCell(with: recruitItems[indexPath.row])
             return cell
         case .cell:
-            // TODO: 데이터 종류에 맞는 cell 반환
+            let cellItem = cellItems[indexPath.row]
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyCollectionViewCell.identifier, for: indexPath) as? CompanyCollectionViewCell else {
-                return UICollectionViewCell()
+            if cellItem is CellItemCompany || cellItem is CellItemReview {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyCollectionViewCell.identifier, for: indexPath) as? CompanyCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                
+                return cell
+            } else if cellItem is CellItemHorizontalTheme {
+                
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalThemeCollectionViewCell.identifier, for: indexPath) as? HorizontalThemeCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                
+                return cell
             }
             
-//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalThemeCollectionViewCell.identifier, for: indexPath) as? HorizontalThemeCollectionViewCell else {
-//                return UICollectionViewCell()
-//            }
-            
-            return cell
+            return UICollectionViewCell()
         }
     }
     
@@ -172,21 +195,6 @@ extension ViewController: UICollectionViewDelegate {
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch listButtonSelectedValue {
-        case .recruit:
-            let paddingSpace = sectionInsets.left * 2 + minSpacing * (itemsPerRow - 1)
-            let width = (view.frame.width - paddingSpace) / itemsPerRow
-            return CGSize(width: width, height: width * 226 / 160)
-        case .cell:
-            return CGSize.zero
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 70)
     }
