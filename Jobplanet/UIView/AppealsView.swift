@@ -55,7 +55,7 @@ class AppealsView: UIView {
             }()
             
             label.text = text
-            width += label.intrinsicContentSize.width
+            width += label.intrinsicContentSize.width + 4
             
             if width > frame.width {
                 break
