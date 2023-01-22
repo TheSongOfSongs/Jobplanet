@@ -39,7 +39,6 @@
 		761614D5297A7D9E008CAE86 /* RecruitItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614D4297A7D9E008CAE86 /* RecruitItems.swift */; };
 		761614DB297A8988008CAE86 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614DA297A8988008CAE86 /* Company.swift */; };
 		761614DD297A89B0008CAE86 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614DC297A89B0008CAE86 /* Rating.swift */; };
-		761614DF297AB524008CAE86 /* HorizontalTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614DE297AB524008CAE86 /* HorizontalTheme.swift */; };
 		761614E1297AB63A008CAE86 /* RecommendRecruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614E0297AB63A008CAE86 /* RecommendRecruit.swift */; };
 		761614E7297AD6C4008CAE86 /* RecruitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761614E5297AD6C4008CAE86 /* RecruitCollectionViewCell.swift */; };
 		761614E8297AD6C4008CAE86 /* RecruitCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761614E6297AD6C4008CAE86 /* RecruitCollectionViewCell.xib */; };
@@ -318,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				761614DA297A8988008CAE86 /* Company.swift */,
-				761614DE297AB524008CAE86 /* HorizontalTheme.swift */,
 				761614DC297A89B0008CAE86 /* Rating.swift */,
 				761614E0297AB63A008CAE86 /* RecommendRecruit.swift */,
 				761614D2297A7D24008CAE86 /* RecruitItem.swift */,
@@ -673,7 +671,6 @@
 				760AFE5E297D17BF00C757BD /* CellTypeItem.swift in Sources */,
 				761F59C0297BC1C0005BE36B /* PaddingLabel.swift in Sources */,
 				761614D3297A7D24008CAE86 /* RecruitItem.swift in Sources */,
-				761614DF297AB524008CAE86 /* HorizontalTheme.swift in Sources */,
 				760AFE62297D19BB00C757BD /* CellItemCompany.swift in Sources */,
 				76465BB8297D504000415BAF /* Decodable+Extensions.swift in Sources */,
 				760AFE64297D26F800C757BD /* CellItemHorizontalTheme.swift in Sources */,
