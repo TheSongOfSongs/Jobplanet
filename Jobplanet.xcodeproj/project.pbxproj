@@ -10,6 +10,12 @@
 		0F9A8DA2389D0356E042CCA3 /* Pods_Jobplanet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E17E6D85AFC9D1D9E07FD4 /* Pods_Jobplanet.framework */; };
 		760AFE59297D0F1600C757BD /* CellItemsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE58297D0F1600C757BD /* CellItemsTransformer.swift */; };
 		760AFE5B297D142900C757BD /* JobplanetCellItemsTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE5A297D142900C757BD /* JobplanetCellItemsTransformerTests.swift */; };
+		760AFE5E297D17BF00C757BD /* CellTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE5D297D17BF00C757BD /* CellTypeItem.swift */; };
+		760AFE60297D17DD00C757BD /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE5F297D17DD00C757BD /* CellType.swift */; };
+		760AFE62297D19BB00C757BD /* CellItemCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE61297D19BB00C757BD /* CellItemCompany.swift */; };
+		760AFE64297D26F800C757BD /* CellItemHorizontalTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE63297D26F800C757BD /* CellItemHorizontalTheme.swift */; };
+		760AFE66297D27B800C757BD /* CellItemReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE65297D27B800C757BD /* CellItemReview.swift */; };
+		760AFE68297D2C5900C757BD /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE67297D2C5900C757BD /* TypeAlias.swift */; };
 		7616148A297A4E72008CAE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76161489297A4E72008CAE86 /* AppDelegate.swift */; };
 		7616148C297A4E72008CAE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616148B297A4E72008CAE86 /* SceneDelegate.swift */; };
 		7616148E297A4E72008CAE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7616148D297A4E72008CAE86 /* ViewController.swift */; };
@@ -50,6 +56,8 @@
 		76382870297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7638286E297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib */; };
 		76382873297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76382871297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift */; };
 		76382874297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76382872297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib */; };
+		76465BB8297D504000415BAF /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76465BB7297D504000415BAF /* Decodable+Extensions.swift */; };
+		76465BBA297D510C00415BAF /* MockData1_cell_JSONObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */; };
 		76E2D893297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D892297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift */; };
 		76E2D8D2297C2E200033F5D1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */; };
 		76E2D8D4297C3B440033F5D1 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */; };
@@ -83,6 +91,12 @@
 		7133DD6E064764BBD34D7366 /* Pods-JobplanetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobplanetTests.release.xcconfig"; path = "Target Support Files/Pods-JobplanetTests/Pods-JobplanetTests.release.xcconfig"; sourceTree = "<group>"; };
 		760AFE58297D0F1600C757BD /* CellItemsTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemsTransformer.swift; sourceTree = "<group>"; };
 		760AFE5A297D142900C757BD /* JobplanetCellItemsTransformerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobplanetCellItemsTransformerTests.swift; sourceTree = "<group>"; };
+		760AFE5D297D17BF00C757BD /* CellTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeItem.swift; sourceTree = "<group>"; };
+		760AFE5F297D17DD00C757BD /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		760AFE61297D19BB00C757BD /* CellItemCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemCompany.swift; sourceTree = "<group>"; };
+		760AFE63297D26F800C757BD /* CellItemHorizontalTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemHorizontalTheme.swift; sourceTree = "<group>"; };
+		760AFE65297D27B800C757BD /* CellItemReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemReview.swift; sourceTree = "<group>"; };
+		760AFE67297D2C5900C757BD /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		76161486297A4E72008CAE86 /* Jobplanet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobplanet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76161489297A4E72008CAE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7616148B297A4E72008CAE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +124,6 @@
 		761614D4297A7D9E008CAE86 /* RecruitItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitItems.swift; sourceTree = "<group>"; };
 		761614DA297A8988008CAE86 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		761614DC297A89B0008CAE86 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
-		761614DE297AB524008CAE86 /* HorizontalTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTheme.swift; sourceTree = "<group>"; };
 		761614E0297AB63A008CAE86 /* RecommendRecruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendRecruit.swift; sourceTree = "<group>"; };
 		761614E5297AD6C4008CAE86 /* RecruitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitCollectionViewCell.swift; sourceTree = "<group>"; };
 		761614E6297AD6C4008CAE86 /* RecruitCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -127,6 +140,8 @@
 		7638286E297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitCompanyButtonsCollectionReusableView.xib; sourceTree = "<group>"; };
 		76382871297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalThemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		76382872297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalThemeCollectionViewCell.xib; sourceTree = "<group>"; };
+		76465BB7297D504000415BAF /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
+		76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData1_cell_JSONObjects.swift; sourceTree = "<group>"; };
 		76E2D892297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalThemeCollectionView+Extension.swift"; sourceTree = "<group>"; };
 		76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
@@ -179,8 +194,17 @@
 			isa = PBXGroup;
 			children = (
 				760AFE58297D0F1600C757BD /* CellItemsTransformer.swift */,
+				760AFE67297D2C5900C757BD /* TypeAlias.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		760AFE5C297D17A300C757BD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				760AFE5D297D17BF00C757BD /* CellTypeItem.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		7616147D297A4E72008CAE86 = {
@@ -214,6 +238,7 @@
 				760AFE57297D0EF100C757BD /* Helper */,
 				761614D1297A75A7008CAE86 /* Model */,
 				761614B9297A5CCA008CAE86 /* Network */,
+				760AFE5C297D17A300C757BD /* Protocol */,
 				76821D7D297BEBF4006DA512 /* UICollectionReusableView */,
 				761614E4297AD689008CAE86 /* UICollectionViewCell */,
 				761F59B6297AE840005BE36B /* UIView */,
@@ -265,6 +290,7 @@
 		761614C2297A610B008CAE86 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				760AFE5F297D17DD00C757BD /* CellType.swift */,
 				761614C3297A6119008CAE86 /* List.swift */,
 			);
 			path = Enums;
@@ -283,6 +309,7 @@
 			children = (
 				761614CB297A73AA008CAE86 /* MockData1_recruit.json */,
 				761614CD297A73E0008CAE86 /* MockData1_cell.json */,
+				76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -296,6 +323,9 @@
 				761614E0297AB63A008CAE86 /* RecommendRecruit.swift */,
 				761614D2297A7D24008CAE86 /* RecruitItem.swift */,
 				761614D4297A7D9E008CAE86 /* RecruitItems.swift */,
+				760AFE61297D19BB00C757BD /* CellItemCompany.swift */,
+				760AFE63297D26F800C757BD /* CellItemHorizontalTheme.swift */,
+				760AFE65297D27B800C757BD /* CellItemReview.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +347,7 @@
 		761F59B1297AE38E005BE36B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				76465BB7297D504000415BAF /* Decodable+Extensions.swift */,
 				76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */,
 				761F59BD297BBDC7005BE36B /* UIColor+Extensions.swift */,
 				761F59C1297BC93F005BE36B /* UILabel+Extensions.swift */,
@@ -617,6 +648,7 @@
 				761614BF297A5DC3008CAE86 /* URLSessionProtocol.swift in Sources */,
 				761614D5297A7D9E008CAE86 /* RecruitItems.swift in Sources */,
 				7638286F297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.swift in Sources */,
+				760AFE60297D17DD00C757BD /* CellType.swift in Sources */,
 				761F59C2297BC93F005BE36B /* UILabel+Extensions.swift in Sources */,
 				761614C4297A6119008CAE86 /* List.swift in Sources */,
 				7616148E297A4E72008CAE86 /* ViewController.swift in Sources */,
@@ -627,18 +659,24 @@
 				76E2D893297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift in Sources */,
 				761F59B3297AE3B3005BE36B /* UIView+Extensions.swift in Sources */,
 				761614E1297AB63A008CAE86 /* RecommendRecruit.swift in Sources */,
+				760AFE68297D2C5900C757BD /* TypeAlias.swift in Sources */,
 				7616148A297A4E72008CAE86 /* AppDelegate.swift in Sources */,
 				761F59BA297AE866005BE36B /* AppealsView.swift in Sources */,
 				761F59BE297BBDC7005BE36B /* UIColor+Extensions.swift in Sources */,
 				761614C1297A5DDC008CAE86 /* URLSessionDataTaskProtocol.swift in Sources */,
 				761614BB297A5CE3008CAE86 /* NetworkService.swift in Sources */,
+				760AFE66297D27B800C757BD /* CellItemReview.swift in Sources */,
 				760AFE59297D0F1600C757BD /* CellItemsTransformer.swift in Sources */,
 				761614DB297A8988008CAE86 /* Company.swift in Sources */,
 				761614DD297A89B0008CAE86 /* Rating.swift in Sources */,
 				7616148C297A4E72008CAE86 /* SceneDelegate.swift in Sources */,
+				760AFE5E297D17BF00C757BD /* CellTypeItem.swift in Sources */,
 				761F59C0297BC1C0005BE36B /* PaddingLabel.swift in Sources */,
 				761614D3297A7D24008CAE86 /* RecruitItem.swift in Sources */,
 				761614DF297AB524008CAE86 /* HorizontalTheme.swift in Sources */,
+				760AFE62297D19BB00C757BD /* CellItemCompany.swift in Sources */,
+				76465BB8297D504000415BAF /* Decodable+Extensions.swift in Sources */,
+				760AFE64297D26F800C757BD /* CellItemHorizontalTheme.swift in Sources */,
 				76E2D8D4297C3B440033F5D1 /* Int+Extensions.swift in Sources */,
 				761614E7297AD6C4008CAE86 /* RecruitCollectionViewCell.swift in Sources */,
 				761F59C5297BCC03005BE36B /* CompanyCollectionViewCell.swift in Sources */,
@@ -652,6 +690,7 @@
 				761614D0297A750C008CAE86 /* JobplanetFakeTests.swift in Sources */,
 				761614C9297A6898008CAE86 /* JobplanetSlowTests.swift in Sources */,
 				760AFE5B297D142900C757BD /* JobplanetCellItemsTransformerTests.swift in Sources */,
+				76465BBA297D510C00415BAF /* MockData1_cell_JSONObjects.swift in Sources */,
 				761614A1297A4E73008CAE86 /* JobplanetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

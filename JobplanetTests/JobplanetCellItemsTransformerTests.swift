@@ -49,4 +49,22 @@ final class JobplanetCellItemsTransformerTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
+    
+    
+    func testTransformArrayOfJSONObjectOfCellTypeItem() throws {
+        // given
+        let jsonObjects: [JSONObject] = mockData1_cell_JSONObjects
+        
+        // when
+        let result = try transformer.transformArrayOfJSONObjectToArrayOfCellTypeItem(jsonObjects)
+        
+        // then
+        let cellItemReview = result.filter({ $0 is CellItemReview })
+        let cellItemHorizontalThemes = result.filter({ $0 is CellItemHorizontalTheme })
+        
+        XCTAssertEqual(result.count, 14)
+        XCTAssertEqual(cellItemHorizontalThemes.count, 2)
+        XCTAssertEqual(cellItemReview.count, 3)
+        XCTAssertEqual((result.first as! CellItemCompany).salaryAvg, 3483)
+    }
 }
