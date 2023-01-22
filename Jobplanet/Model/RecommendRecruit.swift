@@ -21,6 +21,6 @@ struct RecommendRecruit: Codable {
         case reward = "reward"
         case appeal = "appeal"
         case imageURLString = "image_url"
-        case companies = "company"
+        case company = "company"
     }
 }
