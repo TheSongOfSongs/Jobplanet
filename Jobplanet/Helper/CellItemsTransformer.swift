@@ -23,8 +23,8 @@ struct CellItemsTransformer {
     }
     
     /// [JSONObject] > [CellTypeItem]
-    func transformArrayOfJSONObjectToArrayOfCellTypeItem(_ jsonObjects: [JSONObject]) throws -> [CellTypeItem] {
-        var result: [CellTypeItem] = []
+    func transformArrayOfJSONObjectToArrayOfCellTypeItem(_ jsonObjects: [JSONObject]) throws -> [CellItem] {
+        var result: [CellItem] = []
         
         for jsonObject in jsonObjects {
             guard let cellType = jsonObject["cell_type"] as? String else {

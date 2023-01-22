@@ -10,7 +10,7 @@
 		0F9A8DA2389D0356E042CCA3 /* Pods_Jobplanet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E17E6D85AFC9D1D9E07FD4 /* Pods_Jobplanet.framework */; };
 		760AFE59297D0F1600C757BD /* CellItemsTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE58297D0F1600C757BD /* CellItemsTransformer.swift */; };
 		760AFE5B297D142900C757BD /* JobplanetCellItemsTransformerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE5A297D142900C757BD /* JobplanetCellItemsTransformerTests.swift */; };
-		760AFE5E297D17BF00C757BD /* CellTypeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE5D297D17BF00C757BD /* CellTypeItem.swift */; };
+		760AFE5E297D17BF00C757BD /* CellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE5D297D17BF00C757BD /* CellItem.swift */; };
 		760AFE60297D17DD00C757BD /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE5F297D17DD00C757BD /* CellType.swift */; };
 		760AFE62297D19BB00C757BD /* CellItemCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE61297D19BB00C757BD /* CellItemCompany.swift */; };
 		760AFE64297D26F800C757BD /* CellItemHorizontalTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AFE63297D26F800C757BD /* CellItemHorizontalTheme.swift */; };
@@ -90,7 +90,7 @@
 		7133DD6E064764BBD34D7366 /* Pods-JobplanetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobplanetTests.release.xcconfig"; path = "Target Support Files/Pods-JobplanetTests/Pods-JobplanetTests.release.xcconfig"; sourceTree = "<group>"; };
 		760AFE58297D0F1600C757BD /* CellItemsTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemsTransformer.swift; sourceTree = "<group>"; };
 		760AFE5A297D142900C757BD /* JobplanetCellItemsTransformerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobplanetCellItemsTransformerTests.swift; sourceTree = "<group>"; };
-		760AFE5D297D17BF00C757BD /* CellTypeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeItem.swift; sourceTree = "<group>"; };
+		760AFE5D297D17BF00C757BD /* CellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItem.swift; sourceTree = "<group>"; };
 		760AFE5F297D17DD00C757BD /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		760AFE61297D19BB00C757BD /* CellItemCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemCompany.swift; sourceTree = "<group>"; };
 		760AFE63297D26F800C757BD /* CellItemHorizontalTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemHorizontalTheme.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		760AFE5C297D17A300C757BD /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				760AFE5D297D17BF00C757BD /* CellTypeItem.swift */,
+				760AFE5D297D17BF00C757BD /* CellItem.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -668,7 +668,7 @@
 				761614DB297A8988008CAE86 /* Company.swift in Sources */,
 				761614DD297A89B0008CAE86 /* Rating.swift in Sources */,
 				7616148C297A4E72008CAE86 /* SceneDelegate.swift in Sources */,
-				760AFE5E297D17BF00C757BD /* CellTypeItem.swift in Sources */,
+				760AFE5E297D17BF00C757BD /* CellItem.swift in Sources */,
 				761F59C0297BC1C0005BE36B /* PaddingLabel.swift in Sources */,
 				761614D3297A7D24008CAE86 /* RecruitItem.swift in Sources */,
 				760AFE62297D19BB00C757BD /* CellItemCompany.swift in Sources */,

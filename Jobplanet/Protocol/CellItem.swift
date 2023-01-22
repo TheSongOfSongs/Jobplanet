@@ -1,5 +1,5 @@
 //
-//  CellTypeItem.swift
+//  CellItem.swift
 //  Jobplanet
 //
 //  Created by Jinhyang Kim on 2023/01/22.
@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CellTypeItem: Codable {
+protocol CellItem: Codable {
     var cellType: CellType { get }
 }

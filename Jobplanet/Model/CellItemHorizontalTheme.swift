@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CellItemHorizontalTheme: CellTypeItem {
+struct CellItemHorizontalTheme: CellItem {
     
     var cellType: CellType = .horizontalTheme
     let count: Int?

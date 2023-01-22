@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CellItemReview: CellTypeItem {
+struct CellItemReview: CellItem {
     let cellType: CellType = .review
     let logoPath: String
     let name: String
