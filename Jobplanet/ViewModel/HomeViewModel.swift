@@ -15,15 +15,18 @@ class HomeViewModel {
     
     struct Input {
         let requestRecruitItems: Observable<Void>
+        let requestCellItems: Observable<Void>
     }
     
     struct Output {
         let recruitItems: Driver<[RecruitItem]>
+        let cellItems: Driver<[CellItem]>
         let error: Driver<APIServiceError>
     }
     
     private let fetchRecruitItems = PublishRelay<Void>()
     private let recruitItemsRelay = PublishRelay<[RecruitItem]>()
+    private let cellItemsRelay = PublishRelay<[CellItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
     
     let disposeBag = DisposeBag()
@@ -43,9 +46,20 @@ class HomeViewModel {
             })
             .disposed(by: disposeBag)
         
+        input.requestCellItems
+            .withUnretained(self)
+            .subscribe(onNext: { _ in
+                Task {
+                    await self.cellItems()
+                }
+            })
+            .disposed(by: disposeBag)
+        
         let recruitItems = recruitItemsRelay.asDriver(onErrorJustReturn: [])
+        let cellItems = cellItemsRelay.asDriver(onErrorJustReturn: [])
         let error = errorRelay.asDriver(onErrorJustReturn: APIServiceError.unknown)
         return Output(recruitItems: recruitItems,
+                      cellItems: cellItems,
                       error: error)
     }
     
@@ -62,6 +76,34 @@ class HomeViewModel {
         } catch let error {
             NSLog("❗️ 에러 - ", error.localizedDescription)
             errorRelay.accept(.unknown)
+        }
+    }
+    
+    func cellItems() async {
+        guard let results = try? await networkService.cellItems() else {
+            errorRelay.accept(.unknown)
+            return
+        }
+        
+        switch results {
+        case .success(let data):
+            let transformer = CellItemsTransformer()
+            
+            guard let jsonObjects = try? transformer.transformDataToArrayOfJSONObject(data).get() else {
+                errorRelay.accept(.failedDecoding)
+                return
+            }
+            
+            guard let cellItems = try? transformer.transformArrayOfJSONObjectToArrayOfCellItem(jsonObjects) else {
+                errorRelay.accept(.failedDecoding)
+                return
+            }
+            
+            cellItemsRelay.accept(cellItems)
+            
+        case .failure(let error):
+            NSLog("❗️ 에러 - ", error.localizedDescription)
+            errorRelay.accept(error)
         }
     }
 }

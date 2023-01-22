@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
+    let requestCellItems = PublishRelay<Void>()
     let listButtonSelected = BehaviorRelay(value: List.recruit)
     let disposeBag = DisposeBag()
     
@@ -51,6 +52,8 @@ class ViewController: UIViewController {
         return layout
     }()
     
+    
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,12 +61,13 @@ class ViewController: UIViewController {
         setupBinding()
         setupSearchBar()
         setupCollectionView()
-        requestRecruitItems.accept(())
     }
     
     // MARK: setup
     func setupBinding() {
-        let input = HomeViewModel.Input(requestRecruitItems: requestRecruitItems.asObservable())
+        let input = HomeViewModel
+            .Input(requestRecruitItems: requestRecruitItems.asObservable(),
+                   requestCellItems: requestCellItems.asObservable())
         let output = viewModel.transform(input: input)
         
         output.recruitItems
@@ -75,6 +79,12 @@ class ViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        output.cellItems
+            .drive(with: self, onNext: { _, cellItems in
+                self.cellItems = cellItems
+                self.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
         
         listButtonSelected
             .asDriver()
@@ -87,8 +97,7 @@ class ViewController: UIViewController {
                 case .recruit:
                     self.requestRecruitItems.accept(())
                 case .cell:
-                    // TODO: 기업 아이템 요청
-                    break
+                    self.requestCellItems.accept(())
                 }
             })
             .disposed(by: disposeBag)
