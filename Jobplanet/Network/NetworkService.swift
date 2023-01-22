@@ -9,8 +9,6 @@ import Foundation
 
 final class NetworkService {
     
-    typealias JSONObject = [String: Any]
-    
     var session: URLSessionProtocol
     
     private let decoder = JSONDecoder()
@@ -35,17 +33,12 @@ final class NetworkService {
         }
     }
     
-    func cellItems() async throws -> Result<[JSONObject], APIServiceError> {
+    func cellItems() async throws -> Result<Data, APIServiceError> {
         let result = try await data(of: .cell)
         
         switch result {
         case .success(let data):
-            guard let dict = try JSONSerialization.jsonObject(with: data) as? JSONObject,
-                  let cellItems = dict["cell_items"] as? [JSONObject] else {
-                return .failure(.failedDecoding)
-            }
-            
-            return .success(cellItems)
+            return .success(data)
         case .failure(let error):
             return .failure(error)
         }
