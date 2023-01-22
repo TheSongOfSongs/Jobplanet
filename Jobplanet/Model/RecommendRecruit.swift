@@ -13,7 +13,7 @@ struct RecommendRecruit: Codable {
     let reward: Int
     let appeal: String
     let imageURLString: String
-    let companies: [Company]
+    let company: Company
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
