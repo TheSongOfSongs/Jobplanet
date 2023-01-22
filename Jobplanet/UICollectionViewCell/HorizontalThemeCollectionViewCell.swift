@@ -23,7 +23,7 @@ class HorizontalThemeCollectionViewCell: UICollectionViewCell {
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInset.left = 20
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
 
         let cell = UINib(nibName: RecruitCollectionViewCell.identifier, bundle: nil)
         collectionView.register(cell, forCellWithReuseIdentifier: RecruitCollectionViewCell.identifier)

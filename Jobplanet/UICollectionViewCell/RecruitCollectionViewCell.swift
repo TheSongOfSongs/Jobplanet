@@ -27,6 +27,14 @@ class RecruitCollectionViewCell: UICollectionViewCell {
         titleLabel.setLineHeight(lineHeight: 24)
     }
     
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
+        layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize,
+                                                                          withHorizontalFittingPriority: .required,
+                                                                          verticalFittingPriority: .fittingSizeLevel)
+        return layoutAttributes
+    }
+    
     func setupCell(with item: RecruitItem) {
         titleLabel.text = item.title
         companyNameLabel.text = item.company.name

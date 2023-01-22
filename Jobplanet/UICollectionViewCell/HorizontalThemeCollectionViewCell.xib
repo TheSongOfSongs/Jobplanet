@@ -28,7 +28,7 @@
                         <color key="textColor" name="jpGray1"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xcj-bM-tvV">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xcj-bM-tvV">
                         <rect key="frame" x="0.0" y="112" width="400" height="228"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>

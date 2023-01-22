@@ -31,7 +31,7 @@ class CompanyCollectionViewCell: UICollectionViewCell {
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
         layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize,
-                                                                          withHorizontalFittingPriority: .required,
+                                                                          withHorizontalFittingPriority: .defaultHigh,
                                                                           verticalFittingPriority: .fittingSizeLevel)
         return layoutAttributes
     }
