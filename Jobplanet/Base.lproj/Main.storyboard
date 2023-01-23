@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Jobplanet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="기업, 채용공고 검색" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s8-Gm-4Ax">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="52"/>
+                                <rect key="frame" x="0.0" y="47" width="390" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="79q-DR-LXs"/>
                                 </constraints>
@@ -27,14 +29,14 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGo-5W-QQW">
-                                <rect key="frame" x="0.0" y="52" width="600" height="1"/>
+                                <rect key="frame" x="0.0" y="99" width="390" height="1"/>
                                 <color key="backgroundColor" name="jpGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ruN-b3-IKZ"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SPU-AK-Pgc">
-                                <rect key="frame" x="0.0" y="53" width="600" height="547"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="mOW-Tj-Uvc">
                                     <size key="itemSize" width="128" height="128"/>
@@ -44,6 +46,9 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="J1k-nx-Jo7">
+                                <rect key="frame" x="176.66666666666666" y="410" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -54,13 +59,16 @@
                             <constraint firstItem="5s8-Gm-4Ax" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="avc-dh-ZZk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZGo-5W-QQW" secondAttribute="trailing" id="cNf-TQ-GDQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SPU-AK-Pgc" secondAttribute="bottom" id="cqW-W0-VTg"/>
+                            <constraint firstItem="J1k-nx-Jo7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dOK-sU-dXH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SPU-AK-Pgc" secondAttribute="trailing" id="isq-3X-8P3"/>
                             <constraint firstItem="SPU-AK-Pgc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lae-HL-nYf"/>
+                            <constraint firstItem="J1k-nx-Jo7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qzl-kq-yvj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5s8-Gm-4Ax" secondAttribute="trailing" id="uap-vr-kTh"/>
                             <constraint firstItem="ZGo-5W-QQW" firstAttribute="top" secondItem="5s8-Gm-4Ax" secondAttribute="bottom" id="w2U-hz-TPZ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="J1k-nx-Jo7" id="jcQ-TQ-jzN"/>
                         <outlet property="collectionView" destination="SPU-AK-Pgc" id="37g-p9-Wwy"/>
                         <outlet property="searchBar" destination="5s8-Gm-4Ax" id="0Or-18-HKe"/>
                     </connections>

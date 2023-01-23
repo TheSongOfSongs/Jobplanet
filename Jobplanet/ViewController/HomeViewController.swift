@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
@@ -25,6 +26,8 @@ class HomeViewController: UIViewController {
     
     /// '기업' 버튼 눌렸을 때 collection view 데이터소스
     var cellItems: [CellItem] = []
+    
+    var refreshControl = UIRefreshControl()
     
     var listButtonSelectedValue: List {
         return listButtonSelected.value
@@ -63,6 +66,7 @@ class HomeViewController: UIViewController {
         setupSearchBar()
         setCollectionViewSize(with: listButtonSelectedValue)
         setupCollectionView()
+        setupRefreshControll()
     }
     
     // MARK: setup
@@ -78,14 +82,16 @@ class HomeViewController: UIViewController {
                 self.recruitItems = recruitItems
                 self.collectionView.reloadData()
                 self.setCollectionViewSize(with: .recruit)
+                self.endRefreshing()
             })
             .disposed(by: disposeBag)
         
         output.cellItems
             .drive(with: self, onNext: { _, cellItems in
                 self.cellItems = cellItems
-                self.collectionView.reloadData()
                 self.setCollectionViewSize(with: .cell)
+                self.collectionView.reloadData()
+                self.endRefreshing()
             })
             .disposed(by: disposeBag)
         
@@ -93,6 +99,8 @@ class HomeViewController: UIViewController {
             .asDriver()
             .drive(with: self,
                    onNext: { _, list in
+                self.activityIndicatorView.startAnimating()
+                
                 switch list {
                 case .recruit:
                     self.requestRecruitItems.accept(())
@@ -141,9 +149,25 @@ class HomeViewController: UIViewController {
             }
         }()
     }
+    
+    func setupRefreshControll() {
+        refreshControl.addTarget(self, action: #selector(reloadCollectionView), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    @objc func reloadCollectionView() {
+        activityIndicatorView.startAnimating()
+        listButtonSelected.accept(listButtonSelectedValue)
+    }
+    
+    func endRefreshing() {
+        activityIndicatorView.stopAnimating()
+        refreshControl.endRefreshing()
+    }
 }
 
 // TODO: UISearchBarDelegate
 extension HomeViewController: UISearchBarDelegate {
     
 }
+
