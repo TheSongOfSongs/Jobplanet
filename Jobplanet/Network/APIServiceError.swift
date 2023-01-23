@@ -13,6 +13,7 @@ enum APIServiceError: Error {
     case failedRequest
     case failedDecoding
     case invalidURL
+    case cancelled
     case unknown
     
     var description: String {
@@ -25,6 +26,8 @@ enum APIServiceError: Error {
             return "데이터가 유효하지 않습니다"
         case .invalidResponse, .invalidURL, .unknown:
             return "관리자에게 문의해주세요"
+        case .cancelled:
+            return ""
         }
     }
 }
