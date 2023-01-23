@@ -119,6 +119,8 @@ class HomeViewController: UIViewController {
         searchBar.setImage(image, for: .search, state: .normal)
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         searchBar.searchTextField.backgroundColor = .clear
+        searchBar.setValue("취소", forKey: "cancelButtonText")
+        searchBar.tintColor = .jpGray2
     }
     
     func setupCollectionView() {
