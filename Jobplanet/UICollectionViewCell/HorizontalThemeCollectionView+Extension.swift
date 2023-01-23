@@ -9,7 +9,7 @@ import UIKit
 
 extension HorizontalThemeCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recruitItems.count
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -17,16 +17,7 @@ extension HorizontalThemeCollectionViewCell: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.setupCell(with: recruitItems[indexPath.row])
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecruitCollectionViewCell.identifier, for: indexPath) as? RecruitCollectionViewCell else {
-            return
-        }
-        
-        cell.cancelDownloadImage()
     }
 }
 

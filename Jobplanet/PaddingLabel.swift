@@ -7,23 +7,21 @@
 
 import UIKit
 
-class PaddingLabel: UILabel {
+@IBDesignable class PaddingLabel: UILabel {
     
     @IBInspectable var topInset: CGFloat = 4.0
     @IBInspectable var bottomInset: CGFloat = 4.0
     @IBInspectable var leftInset: CGFloat = 8.0
     @IBInspectable var rightInset: CGFloat = 8.0
     
-    var inset: UIEdgeInsets = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
-    
     override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: inset.top, left: inset.left, bottom: inset.bottom, right: inset.right)
+        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
         super.drawText(in: rect.inset(by: insets))
     }
     
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
-        return CGSize(width: size.width + inset.left + inset.right, height: size.height + inset.top + inset.bottom)
+        return CGSize(width: size.width + leftInset + rightInset, height: size.height + topInset + bottomInset)
     }
     
     override var bounds: CGRect {

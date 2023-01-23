@@ -11,8 +11,6 @@ class HorizontalThemeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var sectionTitleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var recruitItems: [RecruitItem] = []
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,15 +21,9 @@ class HorizontalThemeCollectionViewCell: UICollectionViewCell {
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        collectionView.contentInset.left = 20
 
         let cell = UINib(nibName: RecruitCollectionViewCell.identifier, bundle: nil)
         collectionView.register(cell, forCellWithReuseIdentifier: RecruitCollectionViewCell.identifier)
-    }
-    
-    func setupCell(with horizontalTheme: CellItemHorizontalTheme) {
-        sectionTitleLabel.text = horizontalTheme.sectionTitle
-        recruitItems = horizontalTheme.recommendRecruit ?? []
-        collectionView.reloadData()
     }
 }

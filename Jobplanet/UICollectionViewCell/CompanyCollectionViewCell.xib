@@ -12,13 +12,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CompanyCollectionViewCell" customModule="Jobplanet" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="444" height="380"/>
+            <rect key="frame" x="0.0" y="0.0" width="361" height="381"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="444" height="380"/>
+                <rect key="frame" x="0.0" y="0.0" width="361" height="381"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CcJ-O5-ZqJ" customClass="IdentifiableImageView" customModule="Jobplanet" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CcJ-O5-ZqJ">
                         <rect key="frame" x="20" y="67" width="58" height="58"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="CcJ-O5-ZqJ" secondAttribute="height" multiplier="1:1" id="UU0-ww-tSD"/>
@@ -26,7 +26,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Syy-0J-Rqd">
-                        <rect key="frame" x="90" y="74" width="334" height="21.666666666666671"/>
+                        <rect key="frame" x="90" y="74" width="251" height="21.666666666666671"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <color key="textColor" name="jpGray1"/>
                         <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiH-AT-Wbp">
-                        <rect key="frame" x="20" y="145" width="404" height="1"/>
+                        <rect key="frame" x="20" y="145" width="321" height="1"/>
                         <color key="backgroundColor" name="jpGray3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="qDx-Qi-jBH"/>
@@ -65,13 +65,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hB-D6-KSC">
-                        <rect key="frame" x="20" y="217" width="404" height="21.666666666666657"/>
+                        <rect key="frame" x="20" y="217" width="321" height="21.666666666666657"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                         <color key="textColor" name="jpGray1"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yk9-oP-xEV">
-                        <rect key="frame" x="391" y="118.33333333333333" width="33" height="15.666666666666671"/>
+                        <rect key="frame" x="308" y="118.33333333333333" width="33" height="15.666666666666671"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" name="jpGray3"/>
                         <nil key="highlightedColor"/>
@@ -107,25 +107,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-Vq-Rwd">
-                        <rect key="frame" x="20" y="327" width="404" height="20.333333333333314"/>
+                        <rect key="frame" x="20" y="327" width="321" height="20.333333333333314"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" name="jpGray1"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWJ-61-f9B">
-                        <rect key="frame" x="0.0" y="47" width="444" height="1"/>
-                        <color key="backgroundColor" name="jpGray3"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="vQk-yf-8Jx"/>
-                        </constraints>
-                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="WTu-gs-KGu" firstAttribute="centerY" secondItem="Voo-Uh-h4f" secondAttribute="centerY" id="2AK-bH-Cf2"/>
                 <constraint firstItem="Syy-0J-Rqd" firstAttribute="top" secondItem="CcJ-O5-ZqJ" secondAttribute="top" constant="7" id="2Jh-3U-MfL"/>
-                <constraint firstItem="PWJ-61-f9B" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="2fA-lk-Fqu"/>
                 <constraint firstItem="WTu-gs-KGu" firstAttribute="leading" secondItem="Voo-Uh-h4f" secondAttribute="trailing" constant="4.5" id="2jj-e9-ue3"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="Syy-0J-Rqd" secondAttribute="trailing" constant="20" id="4Sz-k7-kLm"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="6hB-D6-KSC" secondAttribute="trailing" constant="20" id="7oO-4m-C3y"/>
@@ -149,18 +141,16 @@
                 <constraint firstItem="6hB-D6-KSC" firstAttribute="top" secondItem="rIY-in-Tpm" secondAttribute="bottom" constant="8" id="h5Y-Mo-zOF"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="AfG-Vq-Rwd" secondAttribute="bottom" priority="250" constant="20" id="hht-sV-wo9"/>
                 <constraint firstItem="CcJ-O5-ZqJ" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="htO-5O-oOZ"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="PWJ-61-f9B" secondAttribute="top" id="jSt-qZ-x9r"/>
                 <constraint firstItem="Mpe-Qd-Yy9" firstAttribute="centerY" secondItem="WTu-gs-KGu" secondAttribute="centerY" id="jXM-vj-0FZ"/>
                 <constraint firstItem="Uwm-ST-rtr" firstAttribute="centerY" secondItem="0nR-Hd-Ry8" secondAttribute="centerY" id="l8u-LK-oUB"/>
                 <constraint firstItem="RiH-AT-Wbp" firstAttribute="top" secondItem="yk9-oP-xEV" secondAttribute="bottom" constant="11" id="ljr-2P-mDv"/>
                 <constraint firstItem="rIY-in-Tpm" firstAttribute="top" secondItem="RiH-AT-Wbp" secondAttribute="bottom" constant="25" id="lnk-A4-ukr"/>
                 <constraint firstItem="Uwm-ST-rtr" firstAttribute="leading" secondItem="0nR-Hd-Ry8" secondAttribute="trailing" constant="8" id="pqc-Lb-uBC"/>
                 <constraint firstItem="cy4-8r-wUl" firstAttribute="top" secondItem="0nR-Hd-Ry8" secondAttribute="bottom" constant="20" id="qN4-rX-dSO"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="PWJ-61-f9B" secondAttribute="trailing" id="wSR-SR-hCo"/>
                 <constraint firstItem="Mpe-Qd-Yy9" firstAttribute="leading" secondItem="WTu-gs-KGu" secondAttribute="trailing" constant="9" id="yGp-4p-ksd"/>
                 <constraint firstItem="Syy-0J-Rqd" firstAttribute="leading" secondItem="CcJ-O5-ZqJ" secondAttribute="trailing" constant="12" id="yxk-FQ-gcT"/>
             </constraints>
-            <size key="customSize" width="444" height="380"/>
+            <size key="customSize" width="361" height="381"/>
             <connections>
                 <outlet property="industryLabel" destination="Mpe-Qd-Yy9" id="JpG-js-rz1"/>
                 <outlet property="interviewQuestionLabel" destination="AfG-Vq-Rwd" id="qsM-TZ-VkY"/>
@@ -171,7 +161,7 @@
                 <outlet property="salaryAvgLabel" destination="Uwm-ST-rtr" id="ffw-Fq-x5o"/>
                 <outlet property="updateDateLabel" destination="yk9-oP-xEV" id="aVA-Ft-lIt"/>
             </connections>
-            <point key="canvasLocation" x="256.92307692307691" y="136.49289099526067"/>
+            <point key="canvasLocation" x="193.07692307692307" y="137.55924170616112"/>
         </collectionViewCell>
     </objects>
     <resources>

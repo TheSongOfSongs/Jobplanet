@@ -9,7 +9,7 @@ import UIKit
 
 class CompanyCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var logoImageView: IdentifiableImageView!
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rateTotalAvgLabel: UILabel!
     @IBOutlet weak var industryLabel: UILabel!
@@ -28,35 +28,11 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         interviewQuestionLabel.setLineHeight(lineHeight: 25)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        cancelDownloadImage()
-        logoImageView.image = nil
-    }
-    
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
         layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize,
-                                                                          withHorizontalFittingPriority: .defaultHigh,
+                                                                          withHorizontalFittingPriority: .required,
                                                                           verticalFittingPriority: .fittingSizeLevel)
         return layoutAttributes
-    }
-    
-    func setupCell(with item: CellItemCompany) {
-        logoImageView.setImage(with: item.logoPath)
-        nameLabel.text = item.name
-        rateTotalAvgLabel.text = "\(item.rateTotalAvg)"
-        industryLabel.text = item.industryName
-        reviewSummaryLabel.text = item.reviewSummary
-        updateDateLabel.text = item.updateDate
-        interviewQuestionLabel.text = item.interviewQuestion
-        salaryAvgLabel.text = "\(item.salaryAvg.withComma)"
-    }
-}
-
-
-extension CompanyCollectionViewCell: CellImageDownloadCancelling {
-    func cancelDownloadImage() {
-        logoImageView.kf.cancelDownloadTask()
     }
 }

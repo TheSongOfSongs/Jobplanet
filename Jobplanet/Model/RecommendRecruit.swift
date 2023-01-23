@@ -1,5 +1,5 @@
 //
-//  RecruitItem.swift
+//  RecommendRecruit.swift
 //  Jobplanet
 //
 //  Created by Jinhyang Kim on 2023/01/20.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct RecruitItem: Codable {
+struct RecommendRecruit: Codable {
     let id: Int
     let title: String
     let reward: Int
     let appeal: String
     let imageURLString: String
-    let company: Company
+    let companies: [Company]
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -21,6 +21,6 @@ struct RecruitItem: Codable {
         case reward = "reward"
         case appeal = "appeal"
         case imageURLString = "image_url"
-        case company = "company"
+        case companies = "company"
     }
 }
