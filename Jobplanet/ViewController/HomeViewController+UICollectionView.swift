@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 
 // MARK: - UICollectionViewDataSource
@@ -68,9 +69,9 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
         
-        headerView.listButtonTapped
-            .bind(to: listButtonSelected)
-            .disposed(by: disposeBag)
+        headerView.delegate = { [weak self] list in
+            self?.listButtonSelected.accept(list)
+        }
         
         return headerView
     }

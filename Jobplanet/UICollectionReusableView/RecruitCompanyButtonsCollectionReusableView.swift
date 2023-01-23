@@ -14,6 +14,8 @@ class RecruitCompanyButtonsCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var recruitButton: UIButton!
     @IBOutlet weak var companyButton: UIButton!
     
+    var delegate: ((List) -> Void)?
+    
     struct ButtonUIInformation {
         let titleColor: UIColor
         let backgroundColor: UIColor
@@ -31,8 +33,8 @@ class RecruitCompanyButtonsCollectionReusableView: UICollectionReusableView {
                                                          borderColor: .jpGray3,
                                                          font: .systemFont(ofSize: 15, weight: .regular))
     
-    private let disposeBag = DisposeBag()
-    let listButtonTapped = PublishRelay<List>()
+    var disposeBag = DisposeBag()
+    let listButtonTapped = PublishSubject<List>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,16 +52,18 @@ class RecruitCompanyButtonsCollectionReusableView: UICollectionReusableView {
     
     func bind() {
         recruitButton.rx.tap
-            .bind(onNext: {
-                self.listButtonTapped.accept(.recruit)
+            .withUnretained(self)
+            .bind(with: self, onNext: { _, _ in
+                self.delegate?(.recruit)
                 self.setButtonUI(self.recruitButton, buttonUI: self.selectedButtonUI)
                 self.setButtonUI(self.companyButton, buttonUI: self.deselectedButtonUI)
             })
             .disposed(by: disposeBag)
         
         companyButton.rx.tap
-            .bind(onNext: {
-                self.listButtonTapped.accept(.cell)
+            .withUnretained(self)
+            .bind(with: self, onNext: { _, _ in
+                self.delegate?(.cell)
                 self.setButtonUI(self.companyButton, buttonUI: self.selectedButtonUI)
                 self.setButtonUI(self.recruitButton, buttonUI: self.self.deselectedButtonUI)
             })
