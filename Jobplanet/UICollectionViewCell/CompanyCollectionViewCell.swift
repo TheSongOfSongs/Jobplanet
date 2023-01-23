@@ -28,11 +28,6 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         interviewQuestionLabel.setLineHeight(lineHeight: 25)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        logoImageView.image = nil
-    }
-    
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
         layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize,
@@ -50,12 +45,5 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         updateDateLabel.text = item.updateDate
         interviewQuestionLabel.text = item.interviewQuestion
         salaryAvgLabel.text = "\(item.salaryAvg.withComma)"
-    }
-}
-
-
-extension CompanyCollectionViewCell: CellImageDownloadCancelling {
-    func cancelDownloadImage() {
-        logoImageView.kf.cancelDownloadTask()
     }
 }
