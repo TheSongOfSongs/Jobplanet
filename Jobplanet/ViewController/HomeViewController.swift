@@ -107,6 +107,8 @@ class HomeViewController: UIViewController {
                 case .cell:
                     self.requestCellItems.accept(())
                 }
+                
+                self.cancelImageDownloadingOfCells()
             })
             .disposed(by: disposeBag)
     }
@@ -163,6 +165,13 @@ class HomeViewController: UIViewController {
     func endRefreshing() {
         activityIndicatorView.stopAnimating()
         refreshControl.endRefreshing()
+    }
+    
+    func cancelImageDownloadingOfCells() {
+        let cells = collectionView.visibleCells.compactMap({ $0 as? CellImageDownloadCancelling })
+        cells.forEach { cell in
+            cell.cancelDownloadImage()
+        }
     }
 }
 
