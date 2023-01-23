@@ -9,11 +9,11 @@ import Foundation
 
 final class NetworkService {
     
-    typealias JSONObject = [String: Any]
-    
     var session: URLSessionProtocol
     
     private let decoder = JSONDecoder()
+    
+    var currentTask: Task<(Data, URLResponse), Error>?
     
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
@@ -35,17 +35,12 @@ final class NetworkService {
         }
     }
     
-    func cellItems() async throws -> Result<[JSONObject], APIServiceError> {
+    func cellItems() async throws -> Result<Data, APIServiceError> {
         let result = try await data(of: .cell)
         
         switch result {
         case .success(let data):
-            guard let dict = try JSONSerialization.jsonObject(with: data) as? JSONObject,
-                  let cellItems = dict["cell_items"] as? [JSONObject] else {
-                return .failure(.failedDecoding)
-            }
-            
-            return .success(cellItems)
+            return .success(data)
         case .failure(let error):
             return .failure(error)
         }
@@ -77,22 +72,41 @@ final class NetworkService {
 
 extension NetworkService {
     private func data(of list: List) async throws -> Result<Data, APIServiceError> {
+        currentTask?.cancel()
+        
         let urlComponents = NetworkService.urlBuilder(of: list)
         
         guard let url = urlComponents.url else {
             return .failure(.invalidURL)
         }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
-        
-        guard let response = response as? HTTPURLResponse else {
-            return .failure(.invalidResponse)
+        currentTask = Task { () -> (Data, URLResponse) in
+            currentTask = nil
+            return try await URLSession.shared.data(from: url)
         }
         
-        guard response.statusCode == 200 else {
-            return .failure(.failedRequest)
+        do {
+            guard let currentTask = currentTask else {
+                return .failure(.failedRequest)
+            }
+            
+            let (data, response) = try await currentTask.value
+            
+            guard let response = response as? HTTPURLResponse else {
+                return .failure(.invalidResponse)
+            }
+            
+            guard response.statusCode == 200 else {
+                return .failure(.failedRequest)
+            }
+            
+            return .success(data)
+        } catch let error {
+            if error.errorCode == NSURLErrorCancelled {
+                return .failure(.cancelled)
+            }
+            
+            return .failure(error as? APIServiceError ?? .unknown)
         }
-        
-        return .success(data)
     }
 }
