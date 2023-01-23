@@ -14,6 +14,8 @@ final class IdentifiableImageView: UIImageView {
     var urlString: String?
     
     func setImage(with urlString: String) {
+        self.urlString = urlString
+        
         ImageCache.default.retrieveImage(forKey: urlString, options: nil) { [weak self] result in
             guard let self = self else { return }
             
@@ -40,6 +42,5 @@ final class IdentifiableImageView: UIImageView {
                 print(error)
             }
         }
-        
     }
 }
