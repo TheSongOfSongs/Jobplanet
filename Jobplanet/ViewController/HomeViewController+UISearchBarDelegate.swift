@@ -10,11 +10,7 @@ import UIKit
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        
-        guard let text = searchBar.text else {
-            return
-        }
-        
-        requestItemsBySearching.accept((text, listButtonSelectedValue))
+        requestItems()
+    }
     }
 }
