@@ -174,9 +174,3 @@ class HomeViewController: UIViewController {
         }
     }
 }
-
-// TODO: UISearchBarDelegate
-extension HomeViewController: UISearchBarDelegate {
-    
-}
-
