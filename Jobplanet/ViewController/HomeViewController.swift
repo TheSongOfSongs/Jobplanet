@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
     let requestCellItems = PublishRelay<Void>()
+    let requestItemsBySearching = PublishRelay<(String, List)>()
     let listButtonSelected = BehaviorRelay(value: List.recruit)
     let disposeBag = DisposeBag()
     
@@ -73,7 +74,9 @@ class HomeViewController: UIViewController {
     func setupBinding() {
         let input = HomeViewModel
             .Input(requestRecruitItems: requestRecruitItems.asObservable(),
-                   requestCellItems: requestCellItems.asObservable())
+                   requestCellItems: requestCellItems.asObservable(),
+                   requestRecruitItemsBySearching: requestItemsBySearching.asObservable())
+        
         let output = viewModel.transform(input: input)
         
         output.recruitItems
@@ -100,14 +103,7 @@ class HomeViewController: UIViewController {
             .drive(with: self,
                    onNext: { _, list in
                 self.activityIndicatorView.startAnimating()
-                
-                switch list {
-                case .recruit:
-                    self.requestRecruitItems.accept(())
-                case .cell:
-                    self.requestCellItems.accept(())
-                }
-                
+                self.requestItems()
                 self.cancelImageDownloadingOfCells()
             })
             .disposed(by: disposeBag)
@@ -171,6 +167,25 @@ class HomeViewController: UIViewController {
         let cells = collectionView.visibleCells.compactMap({ $0 as? CellImageDownloadCancelling })
         cells.forEach { cell in
             cell.cancelDownloadImage()
+        }
+    }
+    
+    func requestItems() {
+        let selectedButton = listButtonSelectedValue
+        
+        // 검색어가 있을 때
+        if let searchTerm = searchBar.text,
+           !searchTerm.isEmpty {
+            requestItemsBySearching.accept((searchTerm, selectedButton))
+            return
+        }
+        
+        // 검색어가 없을 때
+        switch selectedButton {
+        case .recruit:
+            requestRecruitItems.accept(())
+        case .cell:
+            requestCellItems.accept(())
         }
     }
 }
