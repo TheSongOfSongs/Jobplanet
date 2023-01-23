@@ -10,7 +10,7 @@ import Kingfisher
 
 class RecruitCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: IdentifiableImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var appealsView: AppealsView!

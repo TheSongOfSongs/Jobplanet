@@ -9,7 +9,7 @@ import UIKit
 
 class CompanyCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var logoImageView: IdentifiableImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rateTotalAvgLabel: UILabel!
     @IBOutlet weak var industryLabel: UILabel!
