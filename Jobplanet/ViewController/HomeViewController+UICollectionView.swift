@@ -75,6 +75,30 @@ extension HomeViewController: UICollectionViewDataSource {
         
         return headerView
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let identifer: String = {
+            switch listButtonSelectedValue {
+            case .recruit:
+                return RecruitCollectionViewCell.identifier
+            case .cell:
+                let cellItem = cellItems[indexPath.row]
+                if cellItem is CellItemCompany {
+                    return CompanyCollectionViewCell.identifier
+                } else if cellItem is HorizontalThemeCollectionViewCell {
+                    return HorizontalThemeCollectionViewCell.identifier
+                } else {
+                    return ""
+                }
+            }
+        }()
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifer, for: indexPath) as? CellImageDownloadCancelling else {
+            return
+        }
+        
+        cell.cancelDownloadImage()
+    }
 }
 
 

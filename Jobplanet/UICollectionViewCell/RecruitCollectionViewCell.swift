@@ -27,6 +27,12 @@ class RecruitCollectionViewCell: UICollectionViewCell {
         titleLabel.setLineHeight(lineHeight: 24)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cancelDownloadImage()
+        imageView.image = nil
+    }
+    
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         let targetSize = CGSize(width: layoutAttributes.frame.width, height: 0)
         layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize,
@@ -59,5 +65,11 @@ class RecruitCollectionViewCell: UICollectionViewCell {
             appealsViewFrameHeightConstraint.constant = 0
             appealsViewTopConstraint.constant = 0
         }
+    }
+}
+
+extension RecruitCollectionViewCell: CellImageDownloadCancelling {
+    func cancelDownloadImage() {
+        imageView.kf.cancelDownloadTask()
     }
 }
