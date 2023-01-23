@@ -33,6 +33,7 @@ extension HomeViewController: UICollectionViewDataSource {
         case .cell:
             let cellItem = cellItems[indexPath.row]
             
+            // Company
             if cellItem is CellItemCompany {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyCollectionViewCell.identifier, for: indexPath) as? CompanyCollectionViewCell,
                       let cellItem = cellItem as? CellItemCompany else {
@@ -41,14 +42,9 @@ extension HomeViewController: UICollectionViewDataSource {
                 
                 cell.setupCell(with: cellItem)
                 return cell
-            } else if cellItem is CellItemReview {
-                // TODO: 추후 CompanyReview에 관한 기획 후, 개발 예정
-                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyCollectionViewCell.identifier, for: indexPath) as? CompanyCollectionViewCell else {
-                    return UICollectionViewCell()
-                }
-                return cell
+            
+            // Horizontal_Theme
             } else if cellItem is CellItemHorizontalTheme {
-                
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalThemeCollectionViewCell.identifier, for: indexPath) as? HorizontalThemeCollectionViewCell,
                       let cellItem = cellItem as? CellItemHorizontalTheme else {
                     return UICollectionViewCell()

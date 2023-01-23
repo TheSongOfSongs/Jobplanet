@@ -101,7 +101,7 @@ class HomeViewModel {
                     return
                 }
                 
-                cellItemsRelay.accept(cellItems)
+                cellItemsRelay.accept(cellItems.filter({ $0.cellType != .review }))
             case .failure(let error):
                 guard error != .cancelled else {
                     return
