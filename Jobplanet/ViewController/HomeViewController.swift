@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var emptyResultLabel: UILabel!
     
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
@@ -86,6 +87,7 @@ class HomeViewController: UIViewController {
                 self.collectionView.reloadData()
                 self.setCollectionViewSize(with: .recruit)
                 self.endRefreshing()
+                self.emptyResultLabel.isHidden = !recruitItems.isEmpty
             })
             .disposed(by: disposeBag)
         
@@ -95,6 +97,7 @@ class HomeViewController: UIViewController {
                 self.setCollectionViewSize(with: .cell)
                 self.collectionView.reloadData()
                 self.endRefreshing()
+                self.emptyResultLabel.isHidden = !cellItems.isEmpty
             })
             .disposed(by: disposeBag)
         

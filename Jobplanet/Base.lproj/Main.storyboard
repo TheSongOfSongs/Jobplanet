@@ -49,6 +49,12 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="J1k-nx-Jo7">
                                 <rect key="frame" x="176.66666666666666" y="410" width="37" height="37"/>
                             </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색 결과가 없습니다. 검색어를 다시 확인해주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-yr-HPR">
+                                <rect key="frame" x="100.00000000000001" y="408.33333333333331" width="190.33333333333337" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="jpGray1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,6 +68,8 @@
                             <constraint firstItem="J1k-nx-Jo7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dOK-sU-dXH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SPU-AK-Pgc" secondAttribute="trailing" id="isq-3X-8P3"/>
                             <constraint firstItem="SPU-AK-Pgc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lae-HL-nYf"/>
+                            <constraint firstItem="aoo-yr-HPR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ncz-c2-IiE"/>
+                            <constraint firstItem="aoo-yr-HPR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qba-uJ-RdS"/>
                             <constraint firstItem="J1k-nx-Jo7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qzl-kq-yvj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5s8-Gm-4Ax" secondAttribute="trailing" id="uap-vr-kTh"/>
                             <constraint firstItem="ZGo-5W-QQW" firstAttribute="top" secondItem="5s8-Gm-4Ax" secondAttribute="bottom" id="w2U-hz-TPZ"/>
@@ -70,6 +78,7 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="J1k-nx-Jo7" id="jcQ-TQ-jzN"/>
                         <outlet property="collectionView" destination="SPU-AK-Pgc" id="37g-p9-Wwy"/>
+                        <outlet property="emptyResultLabel" destination="aoo-yr-HPR" id="jUz-P0-UAn"/>
                         <outlet property="searchBar" destination="5s8-Gm-4Ax" id="0Or-18-HKe"/>
                     </connections>
                 </viewController>
@@ -79,6 +88,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="jpGray1">
+            <color red="0.19699999690055847" green="0.20499999821186066" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="jpGreen">
             <color red="0.23199999332427979" green="0.76499998569488525" blue="0.38100001215934753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
