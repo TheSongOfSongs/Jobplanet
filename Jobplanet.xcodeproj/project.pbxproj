@@ -58,6 +58,8 @@
 		76465BB8297D504000415BAF /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76465BB7297D504000415BAF /* Decodable+Extensions.swift */; };
 		76465BBA297D510C00415BAF /* MockData1_cell_JSONObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */; };
 		7652745A297FA20E00D3CEA8 /* RecruitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76527459297FA20E00D3CEA8 /* RecruitDetailViewController.swift */; };
+		7652745C297FAB3900D3CEA8 /* RatingStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */; };
+		7652745E297FAB4100D3CEA8 /* RatingStarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */; };
 		76B6168A297D86BA00925D73 /* HomeViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B61689297D86BA00925D73 /* HomeViewController+UICollectionView.swift */; };
 		76B6168C297E2E0A00925D73 /* IdentifiableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */; };
 		76B6168E297E397A00925D73 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168D297E397A00925D73 /* Error+Extensions.swift */; };
@@ -146,6 +148,8 @@
 		76465BB7297D504000415BAF /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
 		76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData1_cell_JSONObjects.swift; sourceTree = "<group>"; };
 		76527459297FA20E00D3CEA8 /* RecruitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitDetailViewController.swift; sourceTree = "<group>"; };
+		7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarsView.swift; sourceTree = "<group>"; };
+		7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingStarsView.xib; sourceTree = "<group>"; };
 		76B61689297D86BA00925D73 /* HomeViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableImageView.swift; sourceTree = "<group>"; };
 		76B6168D297E397A00925D73 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
@@ -370,6 +374,8 @@
 				761F59B9297AE866005BE36B /* AppealsView.swift */,
 				761F59B7297AE84E005BE36B /* AppealsView.xib */,
 				76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */,
+				7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */,
+				7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -531,6 +537,7 @@
 				76161493297A4E73008CAE86 /* Assets.xcassets in Resources */,
 				76161491297A4E72008CAE86 /* Main.storyboard in Resources */,
 				76382870297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib in Resources */,
+				7652745E297FAB4100D3CEA8 /* RatingStarsView.xib in Resources */,
 				761614E8297AD6C4008CAE86 /* RecruitCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,6 +706,7 @@
 				76465BB8297D504000415BAF /* Decodable+Extensions.swift in Sources */,
 				760AFE64297D26F800C757BD /* CellItemHorizontalTheme.swift in Sources */,
 				76E2D8D4297C3B440033F5D1 /* Int+Extensions.swift in Sources */,
+				7652745C297FAB3900D3CEA8 /* RatingStarsView.swift in Sources */,
 				761614E7297AD6C4008CAE86 /* RecruitCollectionViewCell.swift in Sources */,
 				761F59C5297BCC03005BE36B /* CompanyCollectionViewCell.swift in Sources */,
 			);

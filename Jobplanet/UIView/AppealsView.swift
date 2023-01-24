@@ -44,7 +44,7 @@ class AppealsView: UIView {
         
         var width: CGFloat = 0
         
-        for text in texts {
+        for text in texts where !text.isEmpty {
             let label: PaddingLabel = {
                 let label = PaddingLabel()
                 label.font = UIFont.systemFont(ofSize: fontSize)
