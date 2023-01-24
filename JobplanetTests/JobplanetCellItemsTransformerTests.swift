@@ -22,28 +22,21 @@ final class JobplanetCellItemsTransformerTests: XCTestCase {
         transformer = nil
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
     func test_Data를_JSONObject배열로_변환() throws {
         let testBundle = Bundle(for: type(of: self))
         let filePath = testBundle.path(forResource: "MockData1_cell", ofType: "json")!
         let fileURL = URL(fileURLWithPath: filePath)
         let data = try Data(contentsOf: fileURL)
-        let result = try transformer.transformDataToJSONObjects(data)
         
-        switch result {
-        case .success(let items):
-            XCTAssertEqual(items.count, 14)
-            XCTAssertEqual(items.first!["cell_type"] as! String, "CELL_TYPE_COMPANY")
-            XCTAssertEqual(items.first!["salary_avg"] as! Int, 3483)
-        case .failure(let error):
-            XCTFail(error.localizedDescription)
+        var items: [JSONObject]?
+        if case let .success(result) = try transformer.transformDataToJSONObjects(data) {
+            items = result
         }
+        
+        XCTAssertNotNil(items)
+        XCTAssertEqual(items!.count, 14)
+        XCTAssertEqual(items!.first!["cell_type"] as! String, "CELL_TYPE_COMPANY")
+        XCTAssertEqual(items!.first!["salary_avg"] as! Int, 3483)
     }
     
     func test_JSONObject배열을_CellTypeItem으로_변환() throws {
