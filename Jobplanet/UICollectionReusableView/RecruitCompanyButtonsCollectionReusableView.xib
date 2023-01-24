@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecruitCompanyButtonsCollectionReusableView" id="U6b-Vx-4bR" customClass="RecruitCompanyButtonsCollectionReusableView" customModule="Jobplanet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8P-Qu-VCC">
+                    <rect key="frame" x="20" y="69.666666666666671" width="50" height="30"/>
+                    <color key="backgroundColor" name="jpGreen"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Kag-MQ-QWq"/>
+                        <constraint firstAttribute="width" constant="50" id="jmI-g7-Rq8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="채용"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qig-bm-9rD">
+                    <rect key="frame" x="78" y="69.666666666666671" width="50" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="5LT-p6-2hd"/>
+                        <constraint firstAttribute="width" constant="50" id="JXx-8M-gV2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="tintColor" name="jpGray1"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="기업"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="Qig-bm-9rD" firstAttribute="leading" secondItem="h8P-Qu-VCC" secondAttribute="trailing" constant="8" id="Fjf-un-nQp"/>
+                <constraint firstItem="h8P-Qu-VCC" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="20" id="QIC-xb-mjk"/>
+                <constraint firstItem="Qig-bm-9rD" firstAttribute="centerY" secondItem="h8P-Qu-VCC" secondAttribute="centerY" id="YhQ-Xk-QCn"/>
+                <constraint firstItem="h8P-Qu-VCC" firstAttribute="centerY" secondItem="VXr-Tz-HHm" secondAttribute="centerY" id="YmT-m7-X8K"/>
+            </constraints>
+            <connections>
+                <outlet property="companyButton" destination="Qig-bm-9rD" id="6lN-tc-iF8"/>
+                <outlet property="recruitButton" destination="h8P-Qu-VCC" id="11s-Sc-6sV"/>
+            </connections>
+            <point key="canvasLocation" x="-46.153846153846153" y="45.497630331753555"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <namedColor name="jpGray1">
+            <color red="0.19699999690055847" green="0.20499999821186066" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="jpGreen">
+            <color red="0.23199999332427979" green="0.76499998569488525" blue="0.38100001215934753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
