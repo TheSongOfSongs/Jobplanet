@@ -53,14 +53,14 @@ final class JobplanetFakeTests: XCTestCase {
         }()
         
         let networkService = NetworkService(session: urlSessionStub)
-        let result = try await networkService.recruitItems()
         
-        switch result {
-        case .success(let result):
-            XCTAssertEqual(result.count, 9)
-            XCTAssertEqual(result.first!.title, "[잡플래닛] iOS 앱개발")
-        case .failure(let error):
-            XCTFail(error.localizedDescription)
+        var result: [RecruitItem]?
+        if case let .success(items) = try await networkService.recruitItems() {
+            result = items
         }
+        
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result!.count, 9)
+        XCTAssertEqual(result!.first!.title, "[잡플래닛] iOS 앱개발")
     }
 }
