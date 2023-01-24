@@ -193,7 +193,7 @@
         <!--Company Detail View Controller-->
         <scene sceneID="B5x-no-aTC">
             <objects>
-                <viewController id="2BX-Dy-u2h" customClass="CompanyDetailViewController" customModule="Jobplanet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompanyDetailViewController" id="2BX-Dy-u2h" customClass="CompanyDetailViewController" customModule="Jobplanet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nRA-Ss-QYE">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,7 +202,7 @@
                                 <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-Qu-xvA" customClass="CompanyReviewView" customModule="Jobplanet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="355.33333333333331" width="390" height="259.99999999999994"/>
+                                        <rect key="frame" x="30" y="355.33333333333331" width="330" height="259.99999999999994"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="260" id="1S2-Ih-uAw"/>
@@ -296,7 +296,7 @@
                                         <color key="textColor" name="jpGray1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nl-pD-Fuv" userLabel="면접_요약">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nl-pD-Fuv" userLabel="면접_질문">
                                         <rect key="frame" x="25" y="295" width="340" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="jpGray1"/>
@@ -335,8 +335,8 @@
                                 <constraints>
                                     <constraint firstItem="tP9-Eu-yAA" firstAttribute="top" secondItem="BVv-Wg-u2N" secondAttribute="bottom" constant="19" id="04r-LO-X1j"/>
                                     <constraint firstItem="B8U-lc-2ZH" firstAttribute="top" secondItem="zug-Vq-jD5" secondAttribute="bottom" constant="25" id="0VR-FH-mMl"/>
-                                    <constraint firstItem="NfP-Qu-xvA" firstAttribute="leading" secondItem="Qdd-EK-REN" secondAttribute="leading" id="1Sn-BN-JR7"/>
-                                    <constraint firstAttribute="trailing" secondItem="NfP-Qu-xvA" secondAttribute="trailing" id="5Cf-SX-fwa"/>
+                                    <constraint firstItem="NfP-Qu-xvA" firstAttribute="leading" secondItem="Qdd-EK-REN" secondAttribute="leading" constant="30" id="1Sn-BN-JR7"/>
+                                    <constraint firstAttribute="trailing" secondItem="NfP-Qu-xvA" secondAttribute="trailing" constant="30" id="5Cf-SX-fwa"/>
                                     <constraint firstItem="B8U-lc-2ZH" firstAttribute="leading" secondItem="Qdd-EK-REN" secondAttribute="leading" constant="25" id="5MH-qI-Ajk"/>
                                     <constraint firstItem="UgQ-Jn-5ce" firstAttribute="top" secondItem="PIh-ft-FH3" secondAttribute="bottom" constant="16" id="8KX-SI-rqi"/>
                                     <constraint firstItem="9la-bE-ZY8" firstAttribute="leading" secondItem="B8U-lc-2ZH" secondAttribute="leading" id="AAE-wG-UQw"/>
@@ -391,6 +391,17 @@
                             <constraint firstItem="Qdd-EK-REN" firstAttribute="top" secondItem="wV4-9w-imz" secondAttribute="top" id="vXM-TB-WB3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="industryNameLabel" destination="Tu9-t7-T3Z" id="ipW-rj-ee3"/>
+                        <outlet property="interviewQuestionLabel" destination="4nl-pD-Fuv" id="fkf-mB-z83"/>
+                        <outlet property="logoImageView" destination="zug-Vq-jD5" id="2st-gR-Tsi"/>
+                        <outlet property="nameLabel" destination="k8P-oF-HDc" id="XT5-bj-5so"/>
+                        <outlet property="ratingLabel" destination="GnB-wL-mv2" id="E5G-P4-rXF"/>
+                        <outlet property="reviewSummaryLabel" destination="BVv-Wg-u2N" id="cQg-re-DLz"/>
+                        <outlet property="reviewView" destination="NfP-Qu-xvA" id="rQH-uV-wSO"/>
+                        <outlet property="salaryAvgLabel" destination="vTR-IC-8Vd" id="Gw3-MU-5aa"/>
+                        <outlet property="updateDateLabel" destination="B1h-6H-hPX" id="OKv-5m-8xu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0z-tZ-0a8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

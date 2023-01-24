@@ -85,7 +85,11 @@ extension HomeViewController: UICollectionViewDelegate {
         case .recruit:
             pushRecruitDetailViewController(with: recruitItems[indexPath.row])
         case .cell:
-            break
+            guard let item = cellItems[indexPath.row] as? CellItemCompany else {
+                return
+            }
+            
+            pushCompanyDetailViewController(with: item)
         }
     }
 }
