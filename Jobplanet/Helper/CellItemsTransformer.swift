@@ -50,20 +50,22 @@ struct CellItemsTransformer {
     }
     
     /// [JSONObject] > [CellItemReview]
-    func transformArrayOfJSONObjectToArrayOfCellItemReview(_ jsonObjects: [JSONObject]) throws -> [CellItemReview] {
+    func transformArrayOfJSONObjectToArrayOfCellItemReview(_ jsonObjects: [JSONObject], with companyName: String) throws -> [CellItemReview] {
         var result: [CellItemReview] = []
         
         for jsonObject in jsonObjects {
-            guard let cellType = jsonObject["cell_type"] as? String else {
+            guard let cellType = jsonObject["cell_type"] as? String,
+                  cellType == CellType.review.dictionaryKey else {
                 continue
             }
             
-            if cellType == CellType.review.dictionaryKey {
-                let item: CellItemReview = try CellItemReview.decode(with: jsonObject)
+            let item: CellItemReview = try CellItemReview.decode(with: jsonObject)
+            
+            if item.name == companyName {
                 result.append(item)
             }
         }
-        
+    
         return result
     }
 }
