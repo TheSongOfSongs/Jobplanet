@@ -14,10 +14,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var emptyResultLabel: UILabel!
+    @IBOutlet weak var whiteOpaqueView: UIView!
     
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
     let requestCellItems = PublishRelay<Void>()
+    let requestItemsBySearching = PublishRelay<(HomeViewModel.SearchCondition)>()
     let listButtonSelected = BehaviorRelay(value: List.recruit)
     let disposeBag = DisposeBag()
     
@@ -73,7 +76,9 @@ class HomeViewController: UIViewController {
     func setupBinding() {
         let input = HomeViewModel
             .Input(requestRecruitItems: requestRecruitItems.asObservable(),
-                   requestCellItems: requestCellItems.asObservable())
+                   requestCellItems: requestCellItems.asObservable(),
+                   requestRecruitItemsBySearching: requestItemsBySearching.asObservable())
+        
         let output = viewModel.transform(input: input)
         
         output.recruitItems
@@ -83,6 +88,7 @@ class HomeViewController: UIViewController {
                 self.collectionView.reloadData()
                 self.setCollectionViewSize(with: .recruit)
                 self.endRefreshing()
+                self.emptyResultLabel.isHidden = !recruitItems.isEmpty
             })
             .disposed(by: disposeBag)
         
@@ -92,6 +98,7 @@ class HomeViewController: UIViewController {
                 self.setCollectionViewSize(with: .cell)
                 self.collectionView.reloadData()
                 self.endRefreshing()
+                self.emptyResultLabel.isHidden = !cellItems.isEmpty
             })
             .disposed(by: disposeBag)
         
@@ -100,14 +107,7 @@ class HomeViewController: UIViewController {
             .drive(with: self,
                    onNext: { _, list in
                 self.activityIndicatorView.startAnimating()
-                
-                switch list {
-                case .recruit:
-                    self.requestRecruitItems.accept(())
-                case .cell:
-                    self.requestCellItems.accept(())
-                }
-                
+                self.requestItems()
                 self.cancelImageDownloadingOfCells()
             })
             .disposed(by: disposeBag)
@@ -120,6 +120,8 @@ class HomeViewController: UIViewController {
         searchBar.setImage(image, for: .search, state: .normal)
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         searchBar.searchTextField.backgroundColor = .clear
+        searchBar.setValue("취소", forKey: "cancelButtonText")
+        searchBar.tintColor = .jpGray2
     }
     
     func setupCollectionView() {
@@ -173,10 +175,23 @@ class HomeViewController: UIViewController {
             cell.cancelDownloadImage()
         }
     }
-}
-
-// TODO: UISearchBarDelegate
-extension HomeViewController: UISearchBarDelegate {
     
+    func requestItems() {
+        let selectedButton = listButtonSelectedValue
+        
+        // 검색어가 있을 때
+        if let searchTerm = searchBar.text,
+           !searchTerm.isEmpty {
+            requestItemsBySearching.accept((searchTerm, selectedButton))
+            return
+        }
+        
+        // 검색어가 없을 때
+        switch selectedButton {
+        case .recruit:
+            requestRecruitItems.accept(())
+        case .cell:
+            requestCellItems.accept(())
+        }
+    }
 }
-

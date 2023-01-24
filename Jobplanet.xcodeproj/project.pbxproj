@@ -50,6 +50,7 @@
 		761F59C2297BC93F005BE36B /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F59C1297BC93F005BE36B /* UILabel+Extensions.swift */; };
 		761F59C5297BCC03005BE36B /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F59C3297BCC03005BE36B /* CompanyCollectionViewCell.swift */; };
 		761F59C6297BCC03005BE36B /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 761F59C4297BCC03005BE36B /* CompanyCollectionViewCell.xib */; };
+		7620CD6D297EBFC8000B1C69 /* HomeViewController+UISearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7620CD6C297EBFC8000B1C69 /* HomeViewController+UISearchBarDelegate.swift */; };
 		7638286F297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7638286D297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.swift */; };
 		76382870297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7638286E297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib */; };
 		76382873297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76382871297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift */; };
@@ -136,6 +137,7 @@
 		761F59C1297BC93F005BE36B /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		761F59C3297BCC03005BE36B /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		761F59C4297BCC03005BE36B /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
+		7620CD6C297EBFC8000B1C69 /* HomeViewController+UISearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UISearchBarDelegate.swift"; sourceTree = "<group>"; };
 		7638286D297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitCompanyButtonsCollectionReusableView.swift; sourceTree = "<group>"; };
 		7638286E297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitCompanyButtonsCollectionReusableView.xib; sourceTree = "<group>"; };
 		76382871297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalThemeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			children = (
 				7616148D297A4E72008CAE86 /* HomeViewController.swift */,
 				76B61689297D86BA00925D73 /* HomeViewController+UICollectionView.swift */,
+				7620CD6C297EBFC8000B1C69 /* HomeViewController+UISearchBarDelegate.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7620CD6D297EBFC8000B1C69 /* HomeViewController+UISearchBarDelegate.swift in Sources */,
 				76382873297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift in Sources */,
 				761614BF297A5DC3008CAE86 /* URLSessionProtocol.swift in Sources */,
 				761614D5297A7D9E008CAE86 /* RecruitItems.swift in Sources */,
