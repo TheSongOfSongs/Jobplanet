@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class RecruitDetailViewController: UIViewController {
     
@@ -18,6 +20,11 @@ class RecruitDetailViewController: UIViewController {
     @IBOutlet weak var appealsViewHeightConstraint: NSLayoutConstraint!
     
     var recruitItem: RecruitItem?
+    
+    let viewModel = RecruitDetailViewModel()
+    
+    let disposeBag = DisposeBag()
+    let recruitItemRelay = PublishRelay<RecruitItem>().share()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,5 +55,17 @@ class RecruitDetailViewController: UIViewController {
         let appeals = recruitItem.appeals.filter({ !$0.isEmpty })
         appealsView.texts = appeals
         appealsViewHeightConstraint.constant = appeals.isEmpty ? 0 : 20
+    }
+    
+    func bind() {
+        let companyName = recruitItemRelay.map({ $0.company.name })
+        let input = RecruitDetailViewModel.Input(requestReviewsByCompanyName: companyName)
+        viewModel.transform(input: input)
+            .reviews
+            .compactMap({ $0.first })
+            .drive(with: self, onNext: { _, result  in
+                
+            })
+            .disposed(by: disposeBag)
     }
 }
