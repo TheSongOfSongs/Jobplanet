@@ -60,6 +60,7 @@
 		7652745A297FA20E00D3CEA8 /* RecruitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76527459297FA20E00D3CEA8 /* RecruitDetailViewController.swift */; };
 		7652745C297FAB3900D3CEA8 /* RatingStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */; };
 		7652745E297FAB4100D3CEA8 /* RatingStarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */; };
+		76527460297FB48900D3CEA8 /* RecruitDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652745F297FB48900D3CEA8 /* RecruitDetailViewModel.swift */; };
 		76B6168A297D86BA00925D73 /* HomeViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B61689297D86BA00925D73 /* HomeViewController+UICollectionView.swift */; };
 		76B6168C297E2E0A00925D73 /* IdentifiableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */; };
 		76B6168E297E397A00925D73 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168D297E397A00925D73 /* Error+Extensions.swift */; };
@@ -150,6 +151,7 @@
 		76527459297FA20E00D3CEA8 /* RecruitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitDetailViewController.swift; sourceTree = "<group>"; };
 		7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarsView.swift; sourceTree = "<group>"; };
 		7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingStarsView.xib; sourceTree = "<group>"; };
+		7652745F297FB48900D3CEA8 /* RecruitDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitDetailViewModel.swift; sourceTree = "<group>"; };
 		76B61689297D86BA00925D73 /* HomeViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableImageView.swift; sourceTree = "<group>"; };
 		76B6168D297E397A00925D73 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */,
+				7652745F297FB48900D3CEA8 /* RecruitDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				761614C4297A6119008CAE86 /* List.swift in Sources */,
 				7616148E297A4E72008CAE86 /* HomeViewController.swift in Sources */,
 				761F59B5297AE40D005BE36B /* UIViewController+Extensions.swift in Sources */,
+				76527460297FB48900D3CEA8 /* RecruitDetailViewModel.swift in Sources */,
 				761614BD297A5DAF008CAE86 /* URLSessionStub.swift in Sources */,
 				761614C6297A6314008CAE86 /* APIServiceError.swift in Sources */,
 				7652745A297FA20E00D3CEA8 /* RecruitDetailViewController.swift in Sources */,
