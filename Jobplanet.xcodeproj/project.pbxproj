@@ -74,6 +74,7 @@
 		76B6168C297E2E0A00925D73 /* IdentifiableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */; };
 		76B6168E297E397A00925D73 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168D297E397A00925D73 /* Error+Extensions.swift */; };
 		76B61690297E400400925D73 /* CellImageDownloadCancelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168F297E400400925D73 /* CellImageDownloadCancelling.swift */; };
+		76BCB059298041BC004E87AD /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCB058298041BC004E87AD /* UIApplication+Extensions.swift */; };
 		76E2D893297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D892297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift */; };
 		76E2D8D2297C2E200033F5D1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */; };
 		76E2D8D4297C3B440033F5D1 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */; };
@@ -174,6 +175,7 @@
 		76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableImageView.swift; sourceTree = "<group>"; };
 		76B6168D297E397A00925D73 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		76B6168F297E400400925D73 /* CellImageDownloadCancelling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageDownloadCancelling.swift; sourceTree = "<group>"; };
+		76BCB058298041BC004E87AD /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		76E2D892297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalThemeCollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				761F59C1297BC93F005BE36B /* UILabel+Extensions.swift */,
 				761F59B2297AE3B3005BE36B /* UIView+Extensions.swift */,
 				761F59B4297AE40D005BE36B /* UIViewController+Extensions.swift */,
+				76BCB058298041BC004E87AD /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				761614C4297A6119008CAE86 /* List.swift in Sources */,
 				764AE6D229801A4F00665D5E /* Toast.swift in Sources */,
 				7616148E297A4E72008CAE86 /* HomeViewController.swift in Sources */,
+				76BCB059298041BC004E87AD /* UIApplication+Extensions.swift in Sources */,
 				7648E2AB2980271B00DC6FF3 /* NetworkConnectionManager.swift in Sources */,
 				764AE6CC297FEC4F00665D5E /* CompanyDetailViewModel.swift in Sources */,
 				761F59B5297AE40D005BE36B /* UIViewController+Extensions.swift in Sources */,

@@ -30,19 +30,10 @@ class ToastView: UIView {
     
     static let shared: ToastView = {
         let leftPadding: CGFloat = 20
-        let bottomPadding = UIApplication.shared
-            .connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .map({$0 as? UIWindowScene})
-            .compactMap({$0})
-            .first?.windows
-            .filter({$0.isKeyWindow})
-            .first?
-            .safeAreaInsets
-            .bottom
+        let bottomPadding = UIApplication.shared.safeAreaInsets?.bottom ?? 0
         let screenBounds = UIScreen.main.bounds
         let toastViewFrame = CGRect(x: leftPadding,
-                                    y: screenBounds.height - (bottomPadding ?? 0) - 100,
+                                    y: screenBounds.height - bottomPadding - 100,
                                     width: screenBounds.width - leftPadding*2,
                                     height: 50)
         let toastView = ToastView(frame: toastViewFrame)
