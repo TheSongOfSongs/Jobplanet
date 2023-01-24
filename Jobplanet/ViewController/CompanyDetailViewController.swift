@@ -25,7 +25,7 @@ class CompanyDetailViewController: UIViewController {
     @IBOutlet weak var recruitsCollectionViewHeightConstriant: NSLayoutConstraint!
     @IBOutlet weak var noRecruitsLabel: UILabel!
     
-    var company: CellItemCompany?
+    var company: CellCompanyItem?
     var recruitItems: [RecruitItem] = []
     var delegate: ((RecruitItem) -> Void)?
 
@@ -45,7 +45,6 @@ class CompanyDetailViewController: UIViewController {
         
         // navigation bar
         title = company.name
-        navigationController?.navigationBar.topItem?.title = ""
         
         // view
         logoImageView.setImage(with: company.logoPath)
@@ -77,30 +76,30 @@ class CompanyDetailViewController: UIViewController {
         }
         
         let companyNameEvent = Observable.of(companyName)
-        let input = CompanyDetailViewModel.Input(requestReviewsRecruitsByCompanyName: companyNameEvent)
+        let input = CompanyDetailViewModel.Input(requestReviewsAndRecruitsByCompanyName: companyNameEvent)
         let output = viewModel.transform(input: input)
         
         output.reviews
-            .drive(with: self, onNext: { _, reviews in
-                self.reviewView.setup(review: reviews.first,
+            .drive(with: self, onNext: { owner, reviews in
+                owner.reviewView.setup(review: reviews.first,
                                       totalCount: reviews.count)
                 
                 if reviews.isEmpty {
-                    self.reviewViewHeightConstraint.constant = 60
+                    owner.reviewViewHeightConstraint.constant = 60
                 }
             })
             .disposed(by: disposeBag)
         
         output.recruits
-            .drive(with: self, onNext: { _, recruitItems in
+            .drive(with: self, onNext: { owner, recruitItems in
                 guard !recruitItems.isEmpty else {
-                    self.noRecruitsLabel.isHidden = false
-                    self.recruitsCollectionViewHeightConstriant.constant = 20
+                    owner.noRecruitsLabel.isHidden = false
+                    owner.recruitsCollectionViewHeightConstriant.constant = 20
                     return
                 }
                 
-                self.recruitItems = recruitItems
-                self.recruitsCollectionView.reloadData()
+                owner.recruitItems = recruitItems
+                owner.recruitsCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
     }

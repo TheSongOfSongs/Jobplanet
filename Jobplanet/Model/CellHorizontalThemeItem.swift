@@ -1,5 +1,5 @@
 //
-//  CellItemHorizontalTheme.swift
+//  CellHorizontalThemeItem.swift
 //  Jobplanet
 //
 //  Created by Jinhyang Kim on 2023/01/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CellItemHorizontalTheme: CellItem {
+struct CellHorizontalThemeItem: CellItem {
     
     var cellType: CellType = .horizontalTheme
     let count: Int?

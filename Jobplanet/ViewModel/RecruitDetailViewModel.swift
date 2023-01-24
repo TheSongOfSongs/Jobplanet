@@ -9,8 +9,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-
-
 class RecruitDetailViewModel {
     
     private let networkService = NetworkService()
@@ -20,12 +18,12 @@ class RecruitDetailViewModel {
     }
     
     struct Output {
-        let reviews: Driver<[CellItemReview]>
+        let reviews: Driver<[CellReviewItem]>
         let error: Driver<APIServiceError>
     }
     
     private let requestReviewItemsByCompanyNameRelay = PublishRelay<String>()
-    private let reviewsRelay = PublishRelay<[CellItemReview]>()
+    private let reviewsRelay = PublishRelay<[CellReviewItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
     
     let disposeBag = DisposeBag()
@@ -37,9 +35,9 @@ class RecruitDetailViewModel {
     func transform(input: Input) -> Output {
         input.requestReviewsByCompanyName
             .withUnretained(self)
-            .subscribe(onNext: { (self, companyName) in
+            .subscribe(onNext: { (owner, companyName) in
                 Task {
-                    await self.reviews(with: companyName)
+                    await owner.reviews(with: companyName)
                 }
             })
             .disposed(by: disposeBag)
@@ -56,8 +54,8 @@ class RecruitDetailViewModel {
             case .success(let data):
                 let transformer = CellItemsTransformer()
                 
-                guard let jsonObjects = try? transformer.transformDataToArrayOfJSONObject(data).get(),
-                      let reviews = try? transformer.transformArrayOfJSONObjectToArrayOfCellItemReview(jsonObjects, with: companyName) else {
+                guard let jsonObjects = try? transformer.transformDataToJSONObjects(data).get(),
+                      let reviews = try? transformer.transformJSONObjectsToCellItemReviews(jsonObjects, with: companyName) else {
                     errorRelay.accept(.failedDecoding)
                     return
                 }

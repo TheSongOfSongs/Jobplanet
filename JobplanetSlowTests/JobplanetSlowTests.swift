@@ -23,17 +23,15 @@ final class JobplanetSlowTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    ///  채용 정보 가져오는 API가 제대로 작동하는지  확인하는 테스트
-    func testRecruitAPI() throws {
-        try testAPI(typeOf: .recruit)
+    func test_채용API가_제대로_동작하는지() throws {
+        try test_List타입에_따라_API가_제대로_동작하는지(typeOf: .recruit)
     }
     
-    ///  회사  정보 가져오는 API가 제대로 작동하는지  확인하는 테스트
-    func testCompanyAPI() throws {
-        try testAPI(typeOf: .cell)
+    func test_기업API가_제대로_동작하는지() throws {
+        try test_List타입에_따라_API가_제대로_동작하는지(typeOf: .cell)
     }
     
-    func testAPI(typeOf list: List) throws {
+    func test_List타입에_따라_API가_제대로_동작하는지(typeOf list: List) throws {
         // given
         let url = NetworkService.urlBuilder(of: list).url!
         let promise = expectation(description: "Completion handler invoked")

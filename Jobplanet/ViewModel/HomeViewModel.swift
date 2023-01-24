@@ -46,27 +46,27 @@ class HomeViewModel {
     func transform(input: Input) -> Output {
         input.requestRecruitItems
             .withUnretained(self)
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { (owner, _) in
                 Task {
-                    await self.recruitItems()
+                    await owner.recruitItems()
                 }
             })
             .disposed(by: disposeBag)
         
         input.requestCellItems
             .withUnretained(self)
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { (owner, _) in
                 Task {
-                    await self.cellItems()
+                    await owner.cellItems()
                 }
             })
             .disposed(by: disposeBag)
         
         input.requestRecruitItemsBySearching
             .withUnretained(self)
-            .subscribe(with: self, onNext: { _, result in
+            .subscribe(with: self, onNext: { owner, result in
                 let searchCodition = result.1
-                self.itemsBy(searchTerm: searchCodition.term, selectedListButton: searchCodition.list)
+                owner.itemsBy(searchTerm: searchCodition.term, selectedListButton: searchCodition.list)
             })
             .disposed(by: disposeBag)
         
@@ -107,12 +107,8 @@ class HomeViewModel {
             case .success(let data):
                 let transformer = CellItemsTransformer()
                 
-                guard let jsonObjects = try? transformer.transformDataToArrayOfJSONObject(data).get() else {
-                    errorRelay.accept(.failedDecoding)
-                    return
-                }
-                
-                guard let cellItems = try? transformer.transformArrayOfJSONObjectToArrayOfCellItem(jsonObjects) else {
+                guard let jsonObjects = try? transformer.transformDataToJSONObjects(data).get(),
+                      let cellItems = try? transformer.transformJSONObjectsToCellItems(jsonObjects) else {
                     errorRelay.accept(.failedDecoding)
                     return
                 }
@@ -144,7 +140,7 @@ class HomeViewModel {
             
             recruitItemsRelay.accept(result)
         case .cell:
-            let result = cellItems.compactMap({ $0 as? CellItemCompany })
+            let result = cellItems.compactMap({ $0 as? CellCompanyItem })
                 .filter({ $0.name.contains(searchTerm)
                     || searchTerm.contains($0.name)
                 })

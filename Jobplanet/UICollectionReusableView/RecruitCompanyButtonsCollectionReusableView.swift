@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
 
 class RecruitCompanyButtonsCollectionReusableView: UICollectionReusableView {
@@ -34,7 +33,6 @@ class RecruitCompanyButtonsCollectionReusableView: UICollectionReusableView {
                                                          font: .systemFont(ofSize: 15, weight: .regular))
     
     var disposeBag = DisposeBag()
-    let listButtonTapped = PublishSubject<List>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,19 +51,19 @@ class RecruitCompanyButtonsCollectionReusableView: UICollectionReusableView {
     func bind() {
         recruitButton.rx.tap
             .withUnretained(self)
-            .bind(with: self, onNext: { _, _ in
-                self.delegate?(.recruit)
-                self.setButtonUI(self.recruitButton, buttonUI: self.selectedButtonUI)
-                self.setButtonUI(self.companyButton, buttonUI: self.deselectedButtonUI)
+            .bind(with: self, onNext: { owner, _ in
+                owner.delegate?(.recruit)
+                owner.setButtonUI(owner.recruitButton, buttonUI: owner.selectedButtonUI)
+                owner.setButtonUI(owner.companyButton, buttonUI: owner.deselectedButtonUI)
             })
             .disposed(by: disposeBag)
         
         companyButton.rx.tap
             .withUnretained(self)
-            .bind(with: self, onNext: { _, _ in
-                self.delegate?(.cell)
-                self.setButtonUI(self.companyButton, buttonUI: self.selectedButtonUI)
-                self.setButtonUI(self.recruitButton, buttonUI: self.self.deselectedButtonUI)
+            .bind(with: self, onNext: { owner, _ in
+                owner.delegate?(.cell)
+                owner.setButtonUI(owner.companyButton, buttonUI: owner.selectedButtonUI)
+                owner.setButtonUI(owner.recruitButton, buttonUI: owner.deselectedButtonUI)
             })
             .disposed(by: disposeBag)
     }

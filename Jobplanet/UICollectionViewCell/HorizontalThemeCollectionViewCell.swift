@@ -30,7 +30,7 @@ class HorizontalThemeCollectionViewCell: UICollectionViewCell {
         collectionView.register(cell, forCellWithReuseIdentifier: RecruitCollectionViewCell.identifier)
     }
     
-    func setupCell(with horizontalTheme: CellItemHorizontalTheme) {
+    func setupCell(with horizontalTheme: CellHorizontalThemeItem) {
         sectionTitleLabel.text = horizontalTheme.sectionTitle
         recruitItems = horizontalTheme.recommendRecruit ?? []
         collectionView.reloadData()

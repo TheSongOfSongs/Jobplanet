@@ -70,6 +70,8 @@ class HomeViewController: UIViewController {
         setCollectionViewSize(with: listButtonSelectedValue)
         setupCollectionView()
         setupRefreshControll()
+        
+        navigationController?.navigationBar.topItem?.title = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,30 +93,30 @@ class HomeViewController: UIViewController {
         
         output.recruitItems
             .drive(with: self,
-                   onNext: { _, recruitItems in
-                self.recruitItems = recruitItems
-                self.setCollectionViewSize(with: .recruit)
-                self.endRefreshing()
-                self.emptyResultLabel.isHidden = !recruitItems.isEmpty
+                   onNext: { owner, recruitItems in
+                owner.recruitItems = recruitItems
+                owner.setCollectionViewSize(with: .recruit)
+                owner.endRefreshing()
+                owner.emptyResultLabel.isHidden = !recruitItems.isEmpty
             })
             .disposed(by: disposeBag)
         
         output.cellItems
-            .drive(with: self, onNext: { _, cellItems in
-                self.cellItems = cellItems
-                self.setCollectionViewSize(with: .cell)
-                self.endRefreshing()
-                self.emptyResultLabel.isHidden = !cellItems.isEmpty
+            .drive(with: self, onNext: { owner, cellItems in
+                owner.cellItems = cellItems
+                owner.setCollectionViewSize(with: .cell)
+                owner.endRefreshing()
+                owner.emptyResultLabel.isHidden = !cellItems.isEmpty
             })
             .disposed(by: disposeBag)
         
         listButtonSelected
             .asDriver()
             .drive(with: self,
-                   onNext: { _, list in
-                self.activityIndicatorView.startAnimating()
-                self.requestItems()
-                self.cancelImageDownloadingOfCells()
+                   onNext: { owner, list in
+                owner.activityIndicatorView.startAnimating()
+                owner.requestItems()
+                owner.cancelImageDownloadingOfCells()
             })
             .disposed(by: disposeBag)
     }
@@ -170,6 +172,8 @@ class HomeViewController: UIViewController {
         collectionView.refreshControl = refreshControl
     }
     
+    
+    // MARK: -
     @objc func reloadCollectionView() {
         activityIndicatorView.startAnimating()
         listButtonSelected.accept(listButtonSelectedValue)
@@ -215,7 +219,7 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    func pushCompanyDetailViewController(with companyItem: CellItemCompany) {
+    func pushCompanyDetailViewController(with companyItem: CellCompanyItem) {
         guard let detailVC = storyboard?.instantiateViewController(withIdentifier: CompanyDetailViewController.identifier) as? CompanyDetailViewController else {
             return
         }

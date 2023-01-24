@@ -26,7 +26,6 @@ class RecruitDetailViewController: UIViewController {
     let viewModel = RecruitDetailViewModel()
     
     let disposeBag = DisposeBag()
-    private let recruitItemRelay = PublishRelay<RecruitItem>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,6 @@ class RecruitDetailViewController: UIViewController {
         
         // navigation bar
         title = recruitItem.title
-        navigationController?.navigationBar.topItem?.title = ""
         
         // view
         titleLabel.text = recruitItem.title
@@ -70,22 +68,20 @@ class RecruitDetailViewController: UIViewController {
             return
         }
         
-        let companyName = recruitItemRelay.map({ $0.company.name })
+        let companyName = Observable.of(recruitItem.company.name)
         let input = RecruitDetailViewModel.Input(requestReviewsByCompanyName: companyName)
         viewModel.transform(input: input)
             .reviews
-            .drive(with: self, onNext: { _, result  in
-                self.reviewView.setup(review: result.first,
+            .drive(with: self, onNext: { owner, result  in
+                owner.reviewView.setup(review: result.first,
                                       totalCount: result.count,
                                       reward: recruitItem.reward
                 )
                 
                 if result.isEmpty {
-                    self.reviewViewHeightConstraint.constant = 100
+                    owner.reviewViewHeightConstraint.constant = 100
                 }
             })
             .disposed(by: disposeBag)
-        
-        recruitItemRelay.accept(recruitItem)
     }
 }

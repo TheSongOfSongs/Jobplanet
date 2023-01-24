@@ -14,11 +14,11 @@ class CompanyDetailViewModel {
     private let networkService = NetworkService()
     
     struct Input {
-        let requestReviewsRecruitsByCompanyName: Observable<String>
+        let requestReviewsAndRecruitsByCompanyName: Observable<String>
     }
     
     struct Output {
-        let reviews: Driver<[CellItemReview]>
+        let reviews: Driver<[CellReviewItem]>
         let recruits: Driver<[RecruitItem]>
         let error: Driver<APIServiceError>
     }
@@ -26,18 +26,18 @@ class CompanyDetailViewModel {
     let disposeBag = DisposeBag()
     
     private let requestReviewsRecruitsByCompanyNameRelay = PublishRelay<String>()
-    private let reviewsRelay = PublishRelay<[CellItemReview]>()
+    private let reviewsRelay = PublishRelay<[CellReviewItem]>()
     private let recruitsRelay = PublishRelay<[RecruitItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
     
     // MARK: -
     func transform(input: Input) -> Output {
-        input.requestReviewsRecruitsByCompanyName
+        input.requestReviewsAndRecruitsByCompanyName
             .withUnretained(self)
-            .subscribe(onNext: { (self, companyName) in
+            .subscribe(onNext: { (owner, companyName) in
                 Task {
-                    await self.reviews(with: companyName)
-                    await self.recruitItems(with: companyName)
+                    await owner.reviews(with: companyName)
+                    await owner.recruitItems(with: companyName)
                 }
             })
             .disposed(by: disposeBag)
@@ -55,8 +55,8 @@ class CompanyDetailViewModel {
             case .success(let data):
                 let transformer = CellItemsTransformer()
                 
-                guard let jsonObjects = try? transformer.transformDataToArrayOfJSONObject(data).get(),
-                      let reviews = try? transformer.transformArrayOfJSONObjectToArrayOfCellItemReview(jsonObjects, with: companyName) else {
+                guard let jsonObjects = try? transformer.transformDataToJSONObjects(data).get(),
+                      let reviews = try? transformer.transformJSONObjectsToCellItemReviews(jsonObjects, with: companyName) else {
                     errorRelay.accept(.failedDecoding)
                     return
                 }

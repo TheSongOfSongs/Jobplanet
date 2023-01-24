@@ -42,7 +42,7 @@ class CompanyCollectionViewCell: UICollectionViewCell {
         return layoutAttributes
     }
     
-    func setupCell(with item: CellItemCompany) {
+    func setupCell(with item: CellCompanyItem) {
         logoImageView.setImage(with: item.logoPath)
         nameLabel.text = item.name
         rateTotalAvgLabel.text = "\(item.rateTotalAvg)"
