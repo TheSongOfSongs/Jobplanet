@@ -21,7 +21,6 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch listButtonSelectedValue {
         case .recruit:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecruitCollectionViewCell.identifier, for: indexPath) as? RecruitCollectionViewCell else {
@@ -88,7 +87,6 @@ extension HomeViewController: UICollectionViewDelegate {
             guard let item = cellItems[indexPath.row] as? CellItemCompany else {
                 return
             }
-            
             pushCompanyDetailViewController(with: item)
         }
     }

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
 
 class RecruitCompanyButtonsCollectionReusableView: UICollectionReusableView {
@@ -34,7 +33,6 @@ class RecruitCompanyButtonsCollectionReusableView: UICollectionReusableView {
                                                          font: .systemFont(ofSize: 15, weight: .regular))
     
     var disposeBag = DisposeBag()
-    let listButtonTapped = PublishSubject<List>()
     
     override func awakeFromNib() {
         super.awakeFromNib()
