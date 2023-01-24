@@ -48,6 +48,8 @@ class CompanyDetailViewController: UIViewController, Toast {
         
         // view
         logoImageView.setImage(with: company.logoPath)
+        logoImageView.addBorder(color: .jpGray3, width: 1)
+        logoImageView.makeCornerRounded(radius: 5)
         nameLabel.text = company.name
         ratingLabel.text = "\(company.rateTotalAvg)"
         industryNameLabel.text = company.industryName

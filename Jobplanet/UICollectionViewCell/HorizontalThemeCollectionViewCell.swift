@@ -21,6 +21,16 @@ class HorizontalThemeCollectionViewCell: UICollectionViewCell {
         setupCollectionView()
     }
     
+    override func prepareForReuse() {
+        guard !recruitItems.isEmpty else {
+            return
+        }
+        
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
+                                    at: .left,
+                                    animated: false)
+    }
+    
     func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
