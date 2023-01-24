@@ -96,6 +96,21 @@
             </objects>
             <point key="canvasLocation" x="933.84615384615381" y="-2.1327014218009479"/>
         </scene>
+        <!--Recruit Detail View Controller-->
+        <scene sceneID="WzG-dS-Xxi">
+            <objects>
+                <viewController storyboardIdentifier="RecruitDetailViewController" id="DVa-k8-M86" customClass="RecruitDetailViewController" customModule="Jobplanet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hDj-xn-zLd">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tl1-Hk-nuS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81C-8K-fVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="733"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="EcS-Sp-cCT">
             <objects>
@@ -103,8 +118,7 @@
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WRg-tB-Fhm">
                         <autoresizingMask key="autoresizingMask"/>
-                        <navigationBarAppearance key="standardAppearance"/>
-                        <navigationBarAppearance key="scrollEdgeAppearance"/>
+                        <color key="tintColor" name="jpGray2"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -119,6 +133,9 @@
     <resources>
         <namedColor name="jpGray1">
             <color red="0.19699999690055847" green="0.20499999821186066" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="jpGray2">
+            <color red="0.40900000929832458" green="0.41600000858306885" blue="0.42899999022483826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="jpGreen">
             <color red="0.23199999332427979" green="0.76499998569488525" blue="0.38100001215934753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
