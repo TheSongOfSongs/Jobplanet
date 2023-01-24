@@ -25,7 +25,7 @@ class CompanyDetailViewController: UIViewController {
     @IBOutlet weak var recruitsCollectionViewHeightConstriant: NSLayoutConstraint!
     @IBOutlet weak var noRecruitsLabel: UILabel!
     
-    var company: CellItemCompany?
+    var company: CellCompanyItem?
     var recruitItems: [RecruitItem] = []
     var delegate: ((RecruitItem) -> Void)?
 

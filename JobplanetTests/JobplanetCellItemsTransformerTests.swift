@@ -59,13 +59,13 @@ final class JobplanetCellItemsTransformerTests: XCTestCase {
         let result = try transformer.transformArrayOfJSONObjectToArrayOfCellItem(jsonObjects)
         
         // then
-        let cellItemReview = result.filter({ $0 is CellItemReview })
-        let cellItemHorizontalThemes = result.filter({ $0 is CellItemHorizontalTheme })
+        let cellItemReview = result.filter({ $0 is CellReviewItem })
+        let cellItemHorizontalThemes = result.filter({ $0 is CellHorizontalThemeItem })
         
         XCTAssertEqual(result.count, 14)
         XCTAssertEqual(cellItemHorizontalThemes.count, 2)
         XCTAssertEqual(cellItemReview.count, 3)
-        XCTAssertEqual((result.first as! CellItemCompany).salaryAvg, 3483)
+        XCTAssertEqual((result.first as! CellCompanyItem).salaryAvg, 3483)
     }
     
     func testTransformArrayOfJSONObjectToArrayOfCellItemReview() throws {

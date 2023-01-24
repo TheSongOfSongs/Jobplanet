@@ -1,5 +1,5 @@
 //
-//  CellItemReview.swift
+//  CellReviewItem.swift
 //  Jobplanet
 //
 //  Created by Jinhyang Kim on 2023/01/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CellItemReview: CellItem {
+struct CellReviewItem: CellItem {
     let cellType: CellType = .review
     let logoPath: String
     let name: String

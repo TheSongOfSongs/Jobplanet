@@ -1,5 +1,5 @@
 //
-//  CellItemCompany.swift
+//  CellCompanyItem.swift
 //  Jobplanet
 //
 //  Created by Jinhyang Kim on 2023/01/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CellItemCompany: CellItem {
+struct CellCompanyItem: CellItem {
     let cellType: CellType = .company
     let logoPath: String
     let name: String

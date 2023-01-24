@@ -18,7 +18,7 @@ class CompanyDetailViewModel {
     }
     
     struct Output {
-        let reviews: Driver<[CellItemReview]>
+        let reviews: Driver<[CellReviewItem]>
         let recruits: Driver<[RecruitItem]>
         let error: Driver<APIServiceError>
     }
@@ -26,7 +26,7 @@ class CompanyDetailViewModel {
     let disposeBag = DisposeBag()
     
     private let requestReviewsRecruitsByCompanyNameRelay = PublishRelay<String>()
-    private let reviewsRelay = PublishRelay<[CellItemReview]>()
+    private let reviewsRelay = PublishRelay<[CellReviewItem]>()
     private let recruitsRelay = PublishRelay<[RecruitItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
     

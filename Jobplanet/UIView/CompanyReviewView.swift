@@ -42,7 +42,7 @@ class CompanyReviewView: UIView {
         backgroundView.makeCornerRounded(radius: 15)
     }
     
-    func setup(review: CellItemReview?, totalCount: Int, reward: Int? = nil) {
+    func setup(review: CellReviewItem?, totalCount: Int, reward: Int? = nil) {
         setup(review: review, totalCount: totalCount)
         
         if let reward = reward {
@@ -52,7 +52,7 @@ class CompanyReviewView: UIView {
         }
     }
     
-    private func setup(review: CellItemReview?, totalCount: Int) {
+    private func setup(review: CellReviewItem?, totalCount: Int) {
         guard let review = review else {
             reviewContentsView.isHidden = true
             noReviewLabel.isHidden = false

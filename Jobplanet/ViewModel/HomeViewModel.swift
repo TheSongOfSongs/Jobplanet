@@ -140,7 +140,7 @@ class HomeViewModel {
             
             recruitItemsRelay.accept(result)
         case .cell:
-            let result = cellItems.compactMap({ $0 as? CellItemCompany })
+            let result = cellItems.compactMap({ $0 as? CellCompanyItem })
                 .filter({ $0.name.contains(searchTerm)
                     || searchTerm.contains($0.name)
                 })

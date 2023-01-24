@@ -33,13 +33,13 @@ struct CellItemsTransformer {
             
             switch cellType {
             case CellType.horizontalTheme.dictionaryKey:
-                let item: CellItemHorizontalTheme = try CellItemHorizontalTheme.decode(with: jsonObject)
+                let item: CellHorizontalThemeItem = try CellHorizontalThemeItem.decode(with: jsonObject)
                 result.append(item)
             case CellType.review.dictionaryKey:
-                let item: CellItemReview = try CellItemReview.decode(with: jsonObject)
+                let item: CellReviewItem = try CellReviewItem.decode(with: jsonObject)
                 result.append(item)
             case CellType.company.dictionaryKey:
-                let item: CellItemCompany = try CellItemCompany.decode(with: jsonObject)
+                let item: CellCompanyItem = try CellCompanyItem.decode(with: jsonObject)
                 result.append(item)
             default:
                 continue
@@ -50,8 +50,8 @@ struct CellItemsTransformer {
     }
     
     /// [JSONObject] > [CellItemReview]
-    func transformArrayOfJSONObjectToArrayOfCellItemReview(_ jsonObjects: [JSONObject], with companyName: String) throws -> [CellItemReview] {
-        var result: [CellItemReview] = []
+    func transformArrayOfJSONObjectToArrayOfCellItemReview(_ jsonObjects: [JSONObject], with companyName: String) throws -> [CellReviewItem] {
+        var result: [CellReviewItem] = []
         
         for jsonObject in jsonObjects {
             guard let cellType = jsonObject["cell_type"] as? String,
@@ -59,7 +59,7 @@ struct CellItemsTransformer {
                 continue
             }
             
-            let item: CellItemReview = try CellItemReview.decode(with: jsonObject)
+            let item: CellReviewItem = try CellReviewItem.decode(with: jsonObject)
             
             if item.name == companyName {
                 result.append(item)

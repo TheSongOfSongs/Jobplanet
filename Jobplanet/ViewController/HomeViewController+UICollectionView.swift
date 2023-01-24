@@ -33,9 +33,9 @@ extension HomeViewController: UICollectionViewDataSource {
             let cellItem = cellItems[indexPath.row]
             
             // Company
-            if cellItem is CellItemCompany {
+            if cellItem is CellCompanyItem {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompanyCollectionViewCell.identifier, for: indexPath) as? CompanyCollectionViewCell,
-                      let cellItem = cellItem as? CellItemCompany else {
+                      let cellItem = cellItem as? CellCompanyItem else {
                     return UICollectionViewCell()
                 }
                 
@@ -43,9 +43,9 @@ extension HomeViewController: UICollectionViewDataSource {
                 return cell
             
             // Horizontal_Theme
-            } else if cellItem is CellItemHorizontalTheme {
+            } else if cellItem is CellHorizontalThemeItem {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HorizontalThemeCollectionViewCell.identifier, for: indexPath) as? HorizontalThemeCollectionViewCell,
-                      let cellItem = cellItem as? CellItemHorizontalTheme else {
+                      let cellItem = cellItem as? CellHorizontalThemeItem else {
                     return UICollectionViewCell()
                 }
                 
@@ -84,7 +84,7 @@ extension HomeViewController: UICollectionViewDelegate {
         case .recruit:
             pushRecruitDetailViewController(with: recruitItems[indexPath.row])
         case .cell:
-            guard let item = cellItems[indexPath.row] as? CellItemCompany else {
+            guard let item = cellItems[indexPath.row] as? CellCompanyItem else {
                 return
             }
             pushCompanyDetailViewController(with: item)

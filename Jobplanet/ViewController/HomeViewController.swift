@@ -219,7 +219,7 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    func pushCompanyDetailViewController(with companyItem: CellItemCompany) {
+    func pushCompanyDetailViewController(with companyItem: CellCompanyItem) {
         guard let detailVC = storyboard?.instantiateViewController(withIdentifier: CompanyDetailViewController.identifier) as? CompanyDetailViewController else {
             return
         }
