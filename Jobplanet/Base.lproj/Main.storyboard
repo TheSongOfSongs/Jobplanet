@@ -399,6 +399,7 @@
                         <outlet property="ratingLabel" destination="GnB-wL-mv2" id="E5G-P4-rXF"/>
                         <outlet property="reviewSummaryLabel" destination="BVv-Wg-u2N" id="cQg-re-DLz"/>
                         <outlet property="reviewView" destination="NfP-Qu-xvA" id="rQH-uV-wSO"/>
+                        <outlet property="reviewViewHeightConstraint" destination="1S2-Ih-uAw" id="rAR-rd-xno"/>
                         <outlet property="salaryAvgLabel" destination="vTR-IC-8Vd" id="Gw3-MU-5aa"/>
                         <outlet property="updateDateLabel" destination="B1h-6H-hPX" id="OKv-5m-8xu"/>
                     </connections>

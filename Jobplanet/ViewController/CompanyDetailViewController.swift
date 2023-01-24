@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class CompanyDetailViewController: UIViewController {
     
@@ -18,12 +20,17 @@ class CompanyDetailViewController: UIViewController {
     @IBOutlet weak var salaryAvgLabel: UILabel!
     @IBOutlet weak var interviewQuestionLabel: UILabel!
     @IBOutlet weak var reviewView: CompanyReviewView!
+    @IBOutlet weak var reviewViewHeightConstraint: NSLayoutConstraint!
     
     var company: CellItemCompany?
 
+    let viewModel = CompanyDetailViewModel()
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        bind()
     }
     
     func setup() {
@@ -49,5 +56,25 @@ class CompanyDetailViewController: UIViewController {
         reviewView.delegate = {
             // TODO: 리뷰 리스트 보여주는 페이지 개발
         }
+    }
+    
+    func bind() {
+        guard let companyName = company?.name else {
+            return
+        }
+        
+        let companyNameEvent = Observable.of(companyName)
+        let input = CompanyDetailViewModel.Input(requestReviewsRecruitsByCompanyName: companyNameEvent)
+        viewModel.transform(input: input)
+            .reviews
+            .drive(with: self, onNext: { _, reviews in
+                self.reviewView.setup(review: reviews.first,
+                                      totalCount: reviews.count)
+                
+                if reviews.isEmpty {
+                    self.reviewViewHeightConstraint.constant = 60
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
