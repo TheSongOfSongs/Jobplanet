@@ -81,26 +81,26 @@ class CompanyDetailViewController: UIViewController {
         let output = viewModel.transform(input: input)
         
         output.reviews
-            .drive(with: self, onNext: { _, reviews in
-                self.reviewView.setup(review: reviews.first,
+            .drive(with: self, onNext: { owner, reviews in
+                owner.reviewView.setup(review: reviews.first,
                                       totalCount: reviews.count)
                 
                 if reviews.isEmpty {
-                    self.reviewViewHeightConstraint.constant = 60
+                    owner.reviewViewHeightConstraint.constant = 60
                 }
             })
             .disposed(by: disposeBag)
         
         output.recruits
-            .drive(with: self, onNext: { _, recruitItems in
+            .drive(with: self, onNext: { owner, recruitItems in
                 guard !recruitItems.isEmpty else {
-                    self.noRecruitsLabel.isHidden = false
-                    self.recruitsCollectionViewHeightConstriant.constant = 20
+                    owner.noRecruitsLabel.isHidden = false
+                    owner.recruitsCollectionViewHeightConstriant.constant = 20
                     return
                 }
                 
-                self.recruitItems = recruitItems
-                self.recruitsCollectionView.reloadData()
+                owner.recruitItems = recruitItems
+                owner.recruitsCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
     }

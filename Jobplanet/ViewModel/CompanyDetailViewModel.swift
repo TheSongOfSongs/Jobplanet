@@ -34,10 +34,10 @@ class CompanyDetailViewModel {
     func transform(input: Input) -> Output {
         input.requestReviewsRecruitsByCompanyName
             .withUnretained(self)
-            .subscribe(onNext: { (self, companyName) in
+            .subscribe(onNext: { (owner, companyName) in
                 Task {
-                    await self.reviews(with: companyName)
-                    await self.recruitItems(with: companyName)
+                    await owner.reviews(with: companyName)
+                    await owner.recruitItems(with: companyName)
                 }
             })
             .disposed(by: disposeBag)

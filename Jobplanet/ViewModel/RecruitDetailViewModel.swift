@@ -37,9 +37,9 @@ class RecruitDetailViewModel {
     func transform(input: Input) -> Output {
         input.requestReviewsByCompanyName
             .withUnretained(self)
-            .subscribe(onNext: { (self, companyName) in
+            .subscribe(onNext: { (owner, companyName) in
                 Task {
-                    await self.reviews(with: companyName)
+                    await owner.reviews(with: companyName)
                 }
             })
             .disposed(by: disposeBag)

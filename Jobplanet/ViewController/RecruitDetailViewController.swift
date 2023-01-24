@@ -74,14 +74,14 @@ class RecruitDetailViewController: UIViewController {
         let input = RecruitDetailViewModel.Input(requestReviewsByCompanyName: companyName)
         viewModel.transform(input: input)
             .reviews
-            .drive(with: self, onNext: { _, result  in
-                self.reviewView.setup(review: result.first,
+            .drive(with: self, onNext: { owner, result  in
+                owner.reviewView.setup(review: result.first,
                                       totalCount: result.count,
                                       reward: recruitItem.reward
                 )
                 
                 if result.isEmpty {
-                    self.reviewViewHeightConstraint.constant = 100
+                    owner.reviewViewHeightConstraint.constant = 100
                 }
             })
             .disposed(by: disposeBag)
