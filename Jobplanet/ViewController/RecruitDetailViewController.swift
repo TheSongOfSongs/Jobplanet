@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RecruitDetailViewController: UIViewController {
+class RecruitDetailViewController: UIViewController, Toast {
     
     @IBOutlet weak var logoImageView: IdentifiableImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -70,17 +70,24 @@ class RecruitDetailViewController: UIViewController {
         
         let companyName = Observable.of(recruitItem.company.name)
         let input = RecruitDetailViewModel.Input(requestReviewsByCompanyName: companyName)
-        viewModel.transform(input: input)
-            .reviews
+        let output = viewModel.transform(input: input)
+        
+        output.reviews
             .drive(with: self, onNext: { owner, result  in
                 owner.reviewView.setup(review: result.first,
-                                      totalCount: result.count,
-                                      reward: recruitItem.reward
+                                       totalCount: result.count,
+                                       reward: recruitItem.reward
                 )
                 
                 if result.isEmpty {
                     owner.reviewViewHeightConstraint.constant = 100
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        output.error
+            .drive(with: self, onNext: { owner, error  in
+                owner.showAndHideToastview(with: error.description)
             })
             .disposed(by: disposeBag)
     }

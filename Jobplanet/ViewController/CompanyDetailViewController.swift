@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class CompanyDetailViewController: UIViewController {
+class CompanyDetailViewController: UIViewController, Toast {
     
     @IBOutlet weak var logoImageView: IdentifiableImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -82,7 +82,7 @@ class CompanyDetailViewController: UIViewController {
         output.reviews
             .drive(with: self, onNext: { owner, reviews in
                 owner.reviewView.setup(review: reviews.first,
-                                      totalCount: reviews.count)
+                                       totalCount: reviews.count)
                 
                 if reviews.isEmpty {
                     owner.reviewViewHeightConstraint.constant = 60
@@ -100,6 +100,12 @@ class CompanyDetailViewController: UIViewController {
                 
                 owner.recruitItems = recruitItems
                 owner.recruitsCollectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+        output.error
+            .drive(with: self, onNext: { owner, error in
+                owner.showAndHideToastview(with: error.description)
             })
             .disposed(by: disposeBag)
     }

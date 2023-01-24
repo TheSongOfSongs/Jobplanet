@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Toast {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -107,6 +107,12 @@ class HomeViewController: UIViewController {
                 owner.setCollectionViewSize(with: .cell)
                 owner.endRefreshing()
                 owner.emptyResultLabel.isHidden = !cellItems.isEmpty
+            })
+            .disposed(by: disposeBag)
+        
+        output.error
+            .drive(with: self, onNext: { owner, error in
+                owner.showAndHideToastview(with: error.description)
             })
             .disposed(by: disposeBag)
         
