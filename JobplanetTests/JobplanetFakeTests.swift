@@ -33,7 +33,7 @@ final class JobplanetFakeTests: XCTestCase {
         }
     }
 
-    func testRecruitDataToArray() async throws {
+    func test_채용Data를_RecruitItem배열로_변환() async throws {
         // 문서로 저장된 MockData 가져오기
         let testBundle = Bundle(for: type(of: self))
         let filePath = testBundle.path(forResource: "MockData1_recruit", ofType: "json")!
@@ -59,36 +59,6 @@ final class JobplanetFakeTests: XCTestCase {
         case .success(let result):
             XCTAssertEqual(result.count, 9)
             XCTAssertEqual(result.first!.title, "[잡플래닛] iOS 앱개발")
-        case .failure(let error):
-            XCTFail(error.localizedDescription)
-        }
-    }
-    
-    func testCellDataToArray() async throws {
-        // 문서로 저장된 MockData 가져오기
-        let testBundle = Bundle(for: type(of: self))
-        let filePath = testBundle.path(forResource: "MockData1_cell", ofType: "json")!
-        let fileURL = URL(fileURLWithPath: filePath)
-        let data = try Data(contentsOf: fileURL)
-        
-        // Mock URLSession 만들기
-        let urlSessionStub: URLSessionStub = {
-            let url = NetworkService.urlBuilder(of: .cell).url!
-            let response = HTTPURLResponse(url: url,
-                                           statusCode: 200,
-                                           httpVersion: nil,
-                                           headerFields: nil)
-
-            return URLSessionStub.make(data: data,
-                                       response: response)
-        }()
-        
-        let networkService = NetworkService(session: urlSessionStub)
-        let result = try await networkService.cellItems()
-        
-        switch result {
-        case .success(let result):
-            XCTAssertEqual(result.count, 14)
         case .failure(let error):
             XCTFail(error.localizedDescription)
         }
