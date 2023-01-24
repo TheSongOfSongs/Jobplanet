@@ -18,6 +18,7 @@ extension HorizontalThemeCollectionViewCell: UICollectionViewDataSource {
         }
         
         cell.setupCell(with: recruitItems[indexPath.row])
+        cell.bookMarkView.isHidden = true
         return cell
     }
     
