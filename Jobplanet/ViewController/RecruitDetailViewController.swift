@@ -40,7 +40,6 @@ class RecruitDetailViewController: UIViewController {
         
         // navigation bar
         title = recruitItem.title
-        navigationController?.navigationBar.topItem?.title = ""
         
         // view
         titleLabel.text = recruitItem.title

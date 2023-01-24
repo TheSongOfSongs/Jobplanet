@@ -45,7 +45,6 @@ class CompanyDetailViewController: UIViewController {
         
         // navigation bar
         title = company.name
-        navigationController?.navigationBar.topItem?.title = ""
         
         // view
         logoImageView.setImage(with: company.logoPath)

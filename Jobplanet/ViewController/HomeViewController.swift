@@ -70,6 +70,8 @@ class HomeViewController: UIViewController {
         setCollectionViewSize(with: listButtonSelectedValue)
         setupCollectionView()
         setupRefreshControll()
+        
+        navigationController?.navigationBar.topItem?.title = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
