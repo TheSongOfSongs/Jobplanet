@@ -8,7 +8,6 @@ target 'Jobplanet' do
   # Pods for Jobplanet
   pod 'Kingfisher'
   pod 'RxSwift'
-  pod 'RxCocoa'
 
   target 'JobplanetTests' do
     inherit! :search_paths
