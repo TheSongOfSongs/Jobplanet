@@ -32,7 +32,7 @@ extension HorizontalThemeCollectionViewCell: UICollectionViewDataSource {
 
 extension HorizontalThemeCollectionViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO:
+        delegate?(recruitItems[indexPath.row])
     }
 }
 

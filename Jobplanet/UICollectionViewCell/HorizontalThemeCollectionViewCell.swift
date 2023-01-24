@@ -13,6 +13,7 @@ class HorizontalThemeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var recruitItems: [RecruitItem] = []
+    var delegate: ((RecruitItem) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()

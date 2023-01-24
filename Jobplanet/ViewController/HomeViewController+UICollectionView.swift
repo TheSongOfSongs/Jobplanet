@@ -51,6 +51,10 @@ extension HomeViewController: UICollectionViewDataSource {
                 }
                 
                 cell.setupCell(with: cellItem)
+                cell.delegate = { [weak self] recruitItem in
+                    self?.pushRecruitDetailViewController(with: recruitItem)
+                }
+                
                 return cell
             }
             
@@ -79,12 +83,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch listButtonSelectedValue {
         case .recruit:
-            guard let detailVC = storyboard?.instantiateViewController(withIdentifier: RecruitDetailViewController.identifier) as? RecruitDetailViewController else {
-                return
-            }
-            
-            detailVC.recruitItem = recruitItems[indexPath.row]
-            navigationController?.pushViewController(detailVC, animated: true)
+            pushRecruitDetailViewController(with: recruitItems[indexPath.row])
         case .cell:
             break
         }
