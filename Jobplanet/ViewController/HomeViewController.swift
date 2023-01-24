@@ -205,4 +205,22 @@ class HomeViewController: UIViewController {
             requestCellItems.accept(())
         }
     }
+    
+    func pushRecruitDetailViewController(with recruitItem: RecruitItem) {
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: RecruitDetailViewController.identifier) as? RecruitDetailViewController else {
+            return
+        }
+        
+        detailVC.recruitItem = recruitItem
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func pushCompanyDetailViewController(with companyItem: CellItemCompany) {
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: CompanyDetailViewController.identifier) as? CompanyDetailViewController else {
+            return
+        }
+        
+        detailVC.company = companyItem
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

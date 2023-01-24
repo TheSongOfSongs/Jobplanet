@@ -57,6 +57,9 @@
 		76382874297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76382872297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib */; };
 		76465BB8297D504000415BAF /* Decodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76465BB7297D504000415BAF /* Decodable+Extensions.swift */; };
 		76465BBA297D510C00415BAF /* MockData1_cell_JSONObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */; };
+		764AE6CA297FDE1B00665D5E /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AE6C9297FDE1B00665D5E /* CompanyDetailViewController.swift */; };
+		764AE6CC297FEC4F00665D5E /* CompanyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AE6CB297FEC4F00665D5E /* CompanyDetailViewModel.swift */; };
+		764AE6D0297FF6C100665D5E /* CompanyDetailViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AE6CF297FF6C100665D5E /* CompanyDetailViewController+UICollectionView.swift */; };
 		7652745A297FA20E00D3CEA8 /* RecruitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76527459297FA20E00D3CEA8 /* RecruitDetailViewController.swift */; };
 		7652745C297FAB3900D3CEA8 /* RatingStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */; };
 		7652745E297FAB4100D3CEA8 /* RatingStarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */; };
@@ -150,6 +153,9 @@
 		76382872297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalThemeCollectionViewCell.xib; sourceTree = "<group>"; };
 		76465BB7297D504000415BAF /* Decodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Extensions.swift"; sourceTree = "<group>"; };
 		76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData1_cell_JSONObjects.swift; sourceTree = "<group>"; };
+		764AE6C9297FDE1B00665D5E /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
+		764AE6CB297FEC4F00665D5E /* CompanyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewModel.swift; sourceTree = "<group>"; };
+		764AE6CF297FF6C100665D5E /* CompanyDetailViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyDetailViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		76527459297FA20E00D3CEA8 /* RecruitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitDetailViewController.swift; sourceTree = "<group>"; };
 		7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarsView.swift; sourceTree = "<group>"; };
 		7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingStarsView.xib; sourceTree = "<group>"; };
@@ -404,6 +410,8 @@
 				76B61689297D86BA00925D73 /* HomeViewController+UICollectionView.swift */,
 				7620CD6C297EBFC8000B1C69 /* HomeViewController+UISearchBarDelegate.swift */,
 				76527459297FA20E00D3CEA8 /* RecruitDetailViewController.swift */,
+				764AE6C9297FDE1B00665D5E /* CompanyDetailViewController.swift */,
+				764AE6CF297FF6C100665D5E /* CompanyDetailViewController+UICollectionView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -413,6 +421,7 @@
 			children = (
 				76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */,
 				7652745F297FB48900D3CEA8 /* RecruitDetailViewModel.swift */,
+				764AE6CB297FEC4F00665D5E /* CompanyDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -687,6 +696,7 @@
 				761F59C2297BC93F005BE36B /* UILabel+Extensions.swift in Sources */,
 				761614C4297A6119008CAE86 /* List.swift in Sources */,
 				7616148E297A4E72008CAE86 /* HomeViewController.swift in Sources */,
+				764AE6CC297FEC4F00665D5E /* CompanyDetailViewModel.swift in Sources */,
 				761F59B5297AE40D005BE36B /* UIViewController+Extensions.swift in Sources */,
 				76527460297FB48900D3CEA8 /* RecruitDetailViewModel.swift in Sources */,
 				761614BD297A5DAF008CAE86 /* URLSessionStub.swift in Sources */,
@@ -697,6 +707,7 @@
 				76B61690297E400400925D73 /* CellImageDownloadCancelling.swift in Sources */,
 				761F59B3297AE3B3005BE36B /* UIView+Extensions.swift in Sources */,
 				760AFE68297D2C5900C757BD /* TypeAlias.swift in Sources */,
+				764AE6CA297FDE1B00665D5E /* CompanyDetailViewController.swift in Sources */,
 				7616148A297A4E72008CAE86 /* AppDelegate.swift in Sources */,
 				761F59BA297AE866005BE36B /* AppealsView.swift in Sources */,
 				76B6168E297E397A00925D73 /* Error+Extensions.swift in Sources */,
@@ -708,6 +719,7 @@
 				76527462297FBEB800D3CEA8 /* CompanyReviewView.swift in Sources */,
 				760AFE66297D27B800C757BD /* CellItemReview.swift in Sources */,
 				760AFE59297D0F1600C757BD /* CellItemsTransformer.swift in Sources */,
+				764AE6D0297FF6C100665D5E /* CompanyDetailViewController+UICollectionView.swift in Sources */,
 				761614DB297A8988008CAE86 /* Company.swift in Sources */,
 				761614DD297A89B0008CAE86 /* Rating.swift in Sources */,
 				7616148C297A4E72008CAE86 /* SceneDelegate.swift in Sources */,

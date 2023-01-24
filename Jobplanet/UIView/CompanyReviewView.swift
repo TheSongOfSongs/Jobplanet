@@ -18,6 +18,7 @@ class CompanyReviewView: UIView {
     @IBOutlet weak var consLabel: UILabel!
     @IBOutlet weak var rewardLabel: UILabel!
     @IBOutlet weak var noReviewLabel: UILabel!
+    @IBOutlet weak var rewardView: UIView!
     
     var delegate: (() -> Void)?
     
@@ -41,9 +42,17 @@ class CompanyReviewView: UIView {
         backgroundView.makeCornerRounded(radius: 15)
     }
     
-    func setup(review: CellItemReview?, totalCount: Int, reward: Int) {
-        rewardLabel.text = reward.withComma
+    func setup(review: CellItemReview?, totalCount: Int, reward: Int? = nil) {
+        setup(review: review, totalCount: totalCount)
         
+        if let reward = reward {
+            rewardLabel.text = reward.withComma
+        } else {
+            rewardView.isHidden = true
+        }
+    }
+    
+    private func setup(review: CellItemReview?, totalCount: Int) {
         guard let review = review else {
             reviewContentsView.isHidden = true
             noReviewLabel.isHidden = false

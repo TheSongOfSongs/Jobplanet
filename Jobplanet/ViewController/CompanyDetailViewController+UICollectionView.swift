@@ -1,13 +1,14 @@
 //
-//  HorizontalThemeCollectionView+Extension.swift
+//  CompanyDetailViewController+UICollectionView.swift
 //  Jobplanet
 //
-//  Created by Jinhyang Kim on 2023/01/21.
+//  Created by Jinhyang Kim on 2023/01/24.
 //
 
 import UIKit
 
-extension HorizontalThemeCollectionViewCell: UICollectionViewDataSource {
+// MARK: - UICollectionViewDataSource
+extension CompanyDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recruitItems.count
     }
@@ -30,14 +31,18 @@ extension HorizontalThemeCollectionViewCell: UICollectionViewDataSource {
     }
 }
 
-extension HorizontalThemeCollectionViewCell: UICollectionViewDelegate {
+
+// MARK: - UICollectionViewDelegate
+extension CompanyDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?(recruitItems[indexPath.row])
     }
 }
 
-extension HorizontalThemeCollectionViewCell: UICollectionViewDelegateFlowLayout {
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CompanyDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 220)
+        return CGSize(width: 160, height: 230)
     }
 }
