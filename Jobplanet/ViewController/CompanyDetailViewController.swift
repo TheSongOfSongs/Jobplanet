@@ -21,8 +21,13 @@ class CompanyDetailViewController: UIViewController {
     @IBOutlet weak var interviewQuestionLabel: UILabel!
     @IBOutlet weak var reviewView: CompanyReviewView!
     @IBOutlet weak var reviewViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var recruitsCollectionView: UICollectionView!
+    @IBOutlet weak var recruitsCollectionViewHeightConstriant: NSLayoutConstraint!
+    @IBOutlet weak var noRecruitsLabel: UILabel!
     
     var company: CellItemCompany?
+    var recruitItems: [RecruitItem] = []
+    var delegate: ((RecruitItem) -> Void)?
 
     let viewModel = CompanyDetailViewModel()
     let disposeBag = DisposeBag()
@@ -56,6 +61,14 @@ class CompanyDetailViewController: UIViewController {
         reviewView.delegate = {
             // TODO: 리뷰 리스트 보여주는 페이지 개발
         }
+        
+        setupCollectionView()
+    }
+    
+    func setupCollectionView() {
+        let cell = UINib(nibName: RecruitCollectionViewCell.identifier, bundle: nil)
+        recruitsCollectionView.register(cell, forCellWithReuseIdentifier: RecruitCollectionViewCell.identifier)
+        recruitsCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
     func bind() {
@@ -65,8 +78,9 @@ class CompanyDetailViewController: UIViewController {
         
         let companyNameEvent = Observable.of(companyName)
         let input = CompanyDetailViewModel.Input(requestReviewsRecruitsByCompanyName: companyNameEvent)
-        viewModel.transform(input: input)
-            .reviews
+        let output = viewModel.transform(input: input)
+        
+        output.reviews
             .drive(with: self, onNext: { _, reviews in
                 self.reviewView.setup(review: reviews.first,
                                       totalCount: reviews.count)
@@ -74,6 +88,19 @@ class CompanyDetailViewController: UIViewController {
                 if reviews.isEmpty {
                     self.reviewViewHeightConstraint.constant = 60
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        output.recruits
+            .drive(with: self, onNext: { _, recruitItems in
+                guard !recruitItems.isEmpty else {
+                    self.noRecruitsLabel.isHidden = false
+                    self.recruitsCollectionViewHeightConstriant.constant = 20
+                    return
+                }
+                
+                self.recruitItems = recruitItems
+                self.recruitsCollectionView.reloadData()
             })
             .disposed(by: disposeBag)
     }

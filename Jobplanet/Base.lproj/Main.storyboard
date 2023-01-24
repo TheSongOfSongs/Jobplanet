@@ -330,7 +330,17 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2BX-Dy-u2h" id="EAb-dU-jRW"/>
+                                            <outlet property="delegate" destination="2BX-Dy-u2h" id="Xwf-Fm-M4n"/>
+                                        </connections>
                                     </collectionView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 채용 중인 공고가 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-bc-0RS">
+                                        <rect key="frame" x="20" y="699.33333333333337" width="172.33333333333334" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <color key="textColor" name="jpGray2"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tP9-Eu-yAA" firstAttribute="top" secondItem="BVv-Wg-u2N" secondAttribute="bottom" constant="19" id="04r-LO-X1j"/>
@@ -339,12 +349,14 @@
                                     <constraint firstAttribute="trailing" secondItem="NfP-Qu-xvA" secondAttribute="trailing" constant="30" id="5Cf-SX-fwa"/>
                                     <constraint firstItem="B8U-lc-2ZH" firstAttribute="leading" secondItem="Qdd-EK-REN" secondAttribute="leading" constant="25" id="5MH-qI-Ajk"/>
                                     <constraint firstItem="UgQ-Jn-5ce" firstAttribute="top" secondItem="PIh-ft-FH3" secondAttribute="bottom" constant="16" id="8KX-SI-rqi"/>
+                                    <constraint firstItem="qTL-bc-0RS" firstAttribute="leading" secondItem="PIh-ft-FH3" secondAttribute="leading" id="8XU-8i-V8G"/>
                                     <constraint firstItem="9la-bE-ZY8" firstAttribute="leading" secondItem="B8U-lc-2ZH" secondAttribute="leading" id="AAE-wG-UQw"/>
                                     <constraint firstItem="BVv-Wg-u2N" firstAttribute="top" secondItem="9la-bE-ZY8" secondAttribute="bottom" constant="8" id="Anw-1c-KBV"/>
                                     <constraint firstItem="tP9-Eu-yAA" firstAttribute="leading" secondItem="BVv-Wg-u2N" secondAttribute="leading" id="DMH-tc-JnG"/>
                                     <constraint firstAttribute="trailing" secondItem="UgQ-Jn-5ce" secondAttribute="trailing" id="DhG-Zd-gJk"/>
                                     <constraint firstItem="NfP-Qu-xvA" firstAttribute="centerX" secondItem="Qdd-EK-REN" secondAttribute="centerX" id="EP8-Gu-1LO"/>
                                     <constraint firstItem="Cxr-zt-VCI" firstAttribute="top" secondItem="4nl-pD-Fuv" secondAttribute="bottom" constant="20" id="EyX-MG-3Ng"/>
+                                    <constraint firstItem="PIh-ft-FH3" firstAttribute="bottom" secondItem="qTL-bc-0RS" secondAttribute="top" constant="-15" id="Eyf-Vp-R1U"/>
                                     <constraint firstAttribute="trailing" secondItem="B8U-lc-2ZH" secondAttribute="trailing" constant="25" id="G4g-IU-vRd"/>
                                     <constraint firstItem="vTR-IC-8Vd" firstAttribute="centerY" secondItem="tP9-Eu-yAA" secondAttribute="centerY" id="GwA-GC-Mf2"/>
                                     <constraint firstItem="Cxr-zt-VCI" firstAttribute="trailing" secondItem="B8U-lc-2ZH" secondAttribute="trailing" id="HXL-8D-cLm"/>
@@ -396,7 +408,10 @@
                         <outlet property="interviewQuestionLabel" destination="4nl-pD-Fuv" id="fkf-mB-z83"/>
                         <outlet property="logoImageView" destination="zug-Vq-jD5" id="2st-gR-Tsi"/>
                         <outlet property="nameLabel" destination="k8P-oF-HDc" id="XT5-bj-5so"/>
+                        <outlet property="noRecruitsLabel" destination="qTL-bc-0RS" id="YcX-NC-F7P"/>
                         <outlet property="ratingLabel" destination="GnB-wL-mv2" id="E5G-P4-rXF"/>
+                        <outlet property="recruitsCollectionView" destination="UgQ-Jn-5ce" id="LWf-UY-x3w"/>
+                        <outlet property="recruitsCollectionViewHeightConstriant" destination="i8l-4k-CQh" id="PMI-xH-BwB"/>
                         <outlet property="reviewSummaryLabel" destination="BVv-Wg-u2N" id="cQg-re-DLz"/>
                         <outlet property="reviewView" destination="NfP-Qu-xvA" id="rQH-uV-wSO"/>
                         <outlet property="reviewViewHeightConstraint" destination="1S2-Ih-uAw" id="rAR-rd-xno"/>

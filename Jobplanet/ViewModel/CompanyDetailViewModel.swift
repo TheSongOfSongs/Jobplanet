@@ -37,6 +37,7 @@ class CompanyDetailViewModel {
             .subscribe(onNext: { (self, companyName) in
                 Task {
                     await self.reviews(with: companyName)
+                    await self.recruitItems(with: companyName)
                 }
             })
             .disposed(by: disposeBag)
@@ -79,10 +80,6 @@ class CompanyDetailViewModel {
                 let items = items.filter({ $0.company.name == companyName })
                 recruitsRelay.accept(items)
             case .failure(let error):
-                guard error != .cancelled else {
-                    return
-                }
-                
                 NSLog("❗️ 에러 - ", error.localizedDescription)
                 errorRelay.accept(error)
             }
