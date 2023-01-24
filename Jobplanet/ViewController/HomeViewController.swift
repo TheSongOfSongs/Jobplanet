@@ -14,14 +14,16 @@ class HomeViewController: UIViewController, Toast {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
-    @IBOutlet weak var emptyResultLabel: UILabel!
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var whiteOpaqueView: UIView!
+    @IBOutlet weak var retryButton: UIButton!
     
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
     let requestCellItems = PublishRelay<Void>()
     let requestItemsBySearching = PublishRelay<(HomeViewModel.SearchCondition)>()
     let listButtonSelected = BehaviorRelay(value: List.recruit)
+    let fetchingEmptyData = PublishRelay<Bool>()
     let disposeBag = DisposeBag()
     
     ///  '채용' 버튼 눌렸을 때 collection view 데이터소스
@@ -71,6 +73,8 @@ class HomeViewController: UIViewController, Toast {
         setupCollectionView()
         setupRefreshControll()
         
+        retryButton.makeCornerRounded(radius: 15)
+        
         navigationController?.navigationBar.topItem?.title = ""
     }
     
@@ -97,7 +101,7 @@ class HomeViewController: UIViewController, Toast {
                 owner.recruitItems = recruitItems
                 owner.setCollectionViewSize(with: .recruit)
                 owner.endRefreshing()
-                owner.emptyResultLabel.isHidden = !recruitItems.isEmpty
+                owner.fetchingEmptyData.accept(recruitItems.isEmpty)
             })
             .disposed(by: disposeBag)
         
@@ -106,13 +110,20 @@ class HomeViewController: UIViewController, Toast {
                 owner.cellItems = cellItems
                 owner.setCollectionViewSize(with: .cell)
                 owner.endRefreshing()
-                owner.emptyResultLabel.isHidden = !cellItems.isEmpty
+                owner.fetchingEmptyData.accept(cellItems.isEmpty)
             })
             .disposed(by: disposeBag)
         
         output.error
             .drive(with: self, onNext: { owner, error in
                 owner.showAndHideToastview(with: error.description)
+                owner.setCollectionViewSize(with: .cell)
+                owner.endRefreshing()
+                
+                if error == .disconnectedNetwork {
+                    owner.showWarningLabel(.disconnectedNetwork)
+                    owner.retryButton.isHidden = false
+                }
             })
             .disposed(by: disposeBag)
         
@@ -123,6 +134,18 @@ class HomeViewController: UIViewController, Toast {
                 owner.activityIndicatorView.startAnimating()
                 owner.requestItems()
                 owner.cancelImageDownloadingOfCells()
+            })
+            .disposed(by: disposeBag)
+        
+        fetchingEmptyData
+            .asDriver(onErrorJustReturn: false)
+            .drive(with: self, onNext: { owner, isEmpty in
+                if isEmpty {
+                    owner.showWarningLabel(.emptyData)
+                } else {
+                    owner.warningLabel.isHidden = true
+                    owner.retryButton.isHidden = true
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -176,6 +199,11 @@ class HomeViewController: UIViewController, Toast {
     func setupRefreshControll() {
         refreshControl.addTarget(self, action: #selector(reloadCollectionView), for: .valueChanged)
         collectionView.refreshControl = refreshControl
+    }
+    
+    func showWarningLabel(_ warning: Warning) {
+        warningLabel.text = warning.rawValue
+        warningLabel.isHidden = false
     }
     
     
@@ -232,5 +260,16 @@ class HomeViewController: UIViewController, Toast {
         
         detailVC.company = companyItem
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    @IBAction func retryRequestItems(_ sender: UIButton) {
+        requestItems()
+    }
+}
+
+extension HomeViewController {
+    enum Warning: String {
+        case emptyData = "검색결과가 없습니다."
+        case disconnectedNetwork = "서버와 연결이 불안정합니다.\n 잠시 후에 다시 시도해보세요"
     }
 }

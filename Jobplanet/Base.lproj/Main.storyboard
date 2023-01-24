@@ -50,11 +50,25 @@
                                 <rect key="frame" x="176.66666666666666" y="410" width="37" height="37"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색 결과가 없습니다. 검색어를 다시 확인해주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-yr-HPR">
-                                <rect key="frame" x="100.00000000000001" y="408.33333333333331" width="190.33333333333337" height="40.666666666666686"/>
+                                <rect key="frame" x="100.00000000000001" y="388.33333333333331" width="190.33333333333337" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="jpGray1"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8F-oC-dch">
+                                <rect key="frame" x="120" y="449" width="150" height="40"/>
+                                <color key="backgroundColor" name="jpGray2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="gyH-IF-K6p"/>
+                                    <constraint firstAttribute="height" constant="40" id="xPG-1o-iKW"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="재시도"/>
+                                <connections>
+                                    <action selector="retryRequestItems:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wnE-fM-gmN"/>
+                                </connections>
+                            </button>
                             <view hidden="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Wg-a2-d2x">
                                 <rect key="frame" x="0.0" y="100" width="390" height="710"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,11 +87,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SPU-AK-Pgc" secondAttribute="bottom" id="cqW-W0-VTg"/>
                             <constraint firstItem="J1k-nx-Jo7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dOK-sU-dXH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Wg-a2-d2x" secondAttribute="trailing" id="fAZ-jI-11c"/>
+                            <constraint firstItem="aoo-yr-HPR" firstAttribute="bottom" secondItem="K8F-oC-dch" secondAttribute="top" constant="-20" id="gDa-71-63S"/>
+                            <constraint firstItem="K8F-oC-dch" firstAttribute="centerX" secondItem="aoo-yr-HPR" secondAttribute="centerX" id="gMf-IP-iQO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SPU-AK-Pgc" secondAttribute="trailing" id="isq-3X-8P3"/>
                             <constraint firstItem="SPU-AK-Pgc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lae-HL-nYf"/>
                             <constraint firstItem="4Wg-a2-d2x" firstAttribute="top" secondItem="ZGo-5W-QQW" secondAttribute="bottom" id="mvm-XD-JVK"/>
                             <constraint firstItem="aoo-yr-HPR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ncz-c2-IiE"/>
-                            <constraint firstItem="aoo-yr-HPR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qba-uJ-RdS"/>
+                            <constraint firstItem="aoo-yr-HPR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-20" id="qba-uJ-RdS"/>
                             <constraint firstItem="J1k-nx-Jo7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qzl-kq-yvj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5s8-Gm-4Ax" secondAttribute="trailing" constant="10" id="uap-vr-kTh"/>
                             <constraint firstItem="ZGo-5W-QQW" firstAttribute="top" secondItem="5s8-Gm-4Ax" secondAttribute="bottom" id="w2U-hz-TPZ"/>
@@ -87,8 +103,9 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="J1k-nx-Jo7" id="jcQ-TQ-jzN"/>
                         <outlet property="collectionView" destination="SPU-AK-Pgc" id="37g-p9-Wwy"/>
-                        <outlet property="emptyResultLabel" destination="aoo-yr-HPR" id="jUz-P0-UAn"/>
+                        <outlet property="retryButton" destination="K8F-oC-dch" id="YGK-NS-lvB"/>
                         <outlet property="searchBar" destination="5s8-Gm-4Ax" id="0Or-18-HKe"/>
+                        <outlet property="warningLabel" destination="aoo-yr-HPR" id="jUz-P0-UAn"/>
                         <outlet property="whiteOpaqueView" destination="4Wg-a2-d2x" id="laV-KK-qVb"/>
                     </connections>
                 </viewController>

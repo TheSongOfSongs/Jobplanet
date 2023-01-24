@@ -59,6 +59,7 @@
 		76465BBA297D510C00415BAF /* MockData1_cell_JSONObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */; };
 		7648E2A729801BDE00DC6FF3 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7648E2A629801BDE00DC6FF3 /* ToastView.swift */; };
 		7648E2A929801BE300DC6FF3 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7648E2A829801BE300DC6FF3 /* ToastView.xib */; };
+		7648E2AB2980271B00DC6FF3 /* NetworkConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7648E2AA2980271B00DC6FF3 /* NetworkConnectionManager.swift */; };
 		764AE6CA297FDE1B00665D5E /* CompanyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AE6C9297FDE1B00665D5E /* CompanyDetailViewController.swift */; };
 		764AE6CC297FEC4F00665D5E /* CompanyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AE6CB297FEC4F00665D5E /* CompanyDetailViewModel.swift */; };
 		764AE6D0297FF6C100665D5E /* CompanyDetailViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764AE6CF297FF6C100665D5E /* CompanyDetailViewController+UICollectionView.swift */; };
@@ -158,6 +159,7 @@
 		76465BB9297D510C00415BAF /* MockData1_cell_JSONObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData1_cell_JSONObjects.swift; sourceTree = "<group>"; };
 		7648E2A629801BDE00DC6FF3 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		7648E2A829801BE300DC6FF3 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		7648E2AA2980271B00DC6FF3 /* NetworkConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectionManager.swift; sourceTree = "<group>"; };
 		764AE6C9297FDE1B00665D5E /* CompanyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewController.swift; sourceTree = "<group>"; };
 		764AE6CB297FEC4F00665D5E /* CompanyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailViewModel.swift; sourceTree = "<group>"; };
 		764AE6CF297FF6C100665D5E /* CompanyDetailViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompanyDetailViewController+UICollectionView.swift"; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				760AFE58297D0F1600C757BD /* CellItemsTransformer.swift */,
 				760AFE67297D2C5900C757BD /* TypeAlias.swift */,
+				7648E2AA2980271B00DC6FF3 /* NetworkConnectionManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				761614C4297A6119008CAE86 /* List.swift in Sources */,
 				764AE6D229801A4F00665D5E /* Toast.swift in Sources */,
 				7616148E297A4E72008CAE86 /* HomeViewController.swift in Sources */,
+				7648E2AB2980271B00DC6FF3 /* NetworkConnectionManager.swift in Sources */,
 				764AE6CC297FEC4F00665D5E /* CompanyDetailViewModel.swift in Sources */,
 				761F59B5297AE40D005BE36B /* UIViewController+Extensions.swift in Sources */,
 				76527460297FB48900D3CEA8 /* RecruitDetailViewModel.swift in Sources */,
