@@ -54,8 +54,8 @@ class RecruitDetailViewModel {
             case .success(let data):
                 let transformer = CellItemsTransformer()
                 
-                guard let jsonObjects = try? transformer.transformDataToArrayOfJSONObject(data).get(),
-                      let reviews = try? transformer.transformArrayOfJSONObjectToArrayOfCellItemReview(jsonObjects, with: companyName) else {
+                guard let jsonObjects = try? transformer.transformDataToJSONObjects(data).get(),
+                      let reviews = try? transformer.transformJSONObjectsToCellItemReviews(jsonObjects, with: companyName) else {
                     errorRelay.accept(.failedDecoding)
                     return
                 }

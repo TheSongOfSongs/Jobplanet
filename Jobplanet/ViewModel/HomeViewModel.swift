@@ -107,8 +107,8 @@ class HomeViewModel {
             case .success(let data):
                 let transformer = CellItemsTransformer()
                 
-                guard let jsonObjects = try? transformer.transformDataToArrayOfJSONObject(data).get(),
-                      let cellItems = try? transformer.transformArrayOfJSONObjectToArrayOfCellItem(jsonObjects) else {
+                guard let jsonObjects = try? transformer.transformDataToJSONObjects(data).get(),
+                      let cellItems = try? transformer.transformJSONObjectsToCellItems(jsonObjects) else {
                     errorRelay.accept(.failedDecoding)
                     return
                 }

@@ -37,7 +37,7 @@ final class JobplanetCellItemsTransformerTests: XCTestCase {
         let data = try Data(contentsOf: fileURL)
         
         // when
-        let result = try transformer.transformDataToArrayOfJSONObject(data)
+        let result = try transformer.transformDataToJSONObjects(data)
         
         // then
         switch result {
@@ -56,7 +56,7 @@ final class JobplanetCellItemsTransformerTests: XCTestCase {
         let jsonObjects: [JSONObject] = mockData1_cell_JSONObjects
         
         // when
-        let result = try transformer.transformArrayOfJSONObjectToArrayOfCellItem(jsonObjects)
+        let result = try transformer.transformJSONObjectsToCellItems(jsonObjects)
         
         // then
         let cellItemReview = result.filter({ $0 is CellReviewItem })
