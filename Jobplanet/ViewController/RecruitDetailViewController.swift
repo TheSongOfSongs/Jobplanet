@@ -18,6 +18,8 @@ class RecruitDetailViewController: UIViewController {
     @IBOutlet weak var ratingStarView: RatingStarsView!
     @IBOutlet weak var appealsView: AppealsView!
     @IBOutlet weak var appealsViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var reviewView: CompanyReviewView!
+    @IBOutlet weak var reviewViewHeightConstraint: NSLayoutConstraint!
     
     var recruitItem: RecruitItem?
     
@@ -29,6 +31,7 @@ class RecruitDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        bind()
     }
     
     func setup() {
@@ -55,17 +58,34 @@ class RecruitDetailViewController: UIViewController {
         let appeals = recruitItem.appeals.filter({ !$0.isEmpty })
         appealsView.texts = appeals
         appealsViewHeightConstraint.constant = appeals.isEmpty ? 0 : 20
+        
+        // reviewView delegate 설정
+        reviewView.delegate = {
+            // TODO: 리뷰 리스트 보여주는 페이지 개발
+        }
     }
     
     func bind() {
+        guard let recruitItem = recruitItem else {
+            return
+        }
+        
         let companyName = recruitItemRelay.map({ $0.company.name })
         let input = RecruitDetailViewModel.Input(requestReviewsByCompanyName: companyName)
         viewModel.transform(input: input)
             .reviews
-            .compactMap({ $0.first })
             .drive(with: self, onNext: { _, result  in
+                self.reviewView.setup(review: result.first,
+                                      totalCount: result.count,
+                                      reward: recruitItem.reward
+                )
                 
+                if result.isEmpty {
+                    self.reviewViewHeightConstraint.constant = 100
+                }
             })
             .disposed(by: disposeBag)
+        
+        recruitItemRelay.accept(recruitItem)
     }
 }

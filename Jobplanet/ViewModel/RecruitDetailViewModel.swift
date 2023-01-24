@@ -39,7 +39,7 @@ class RecruitDetailViewModel {
             .withUnretained(self)
             .subscribe(onNext: { (self, companyName) in
                 Task {
-                    await self.reviews()
+                    await self.reviews(with: companyName)
                 }
             })
             .disposed(by: disposeBag)
@@ -48,7 +48,7 @@ class RecruitDetailViewModel {
                       error: errorRelay.asDriver(onErrorJustReturn: .unknown))
     }
     
-    func reviews() async {
+    func reviews(with companyName: String) async {
         do {
             let results = try await networkService.cellItems()
             
@@ -57,17 +57,13 @@ class RecruitDetailViewModel {
                 let transformer = CellItemsTransformer()
                 
                 guard let jsonObjects = try? transformer.transformDataToArrayOfJSONObject(data).get(),
-                      let reviews = try? transformer.transformArrayOfJSONObjectToArrayOfCellItemReview(jsonObjects) else {
+                      let reviews = try? transformer.transformArrayOfJSONObjectToArrayOfCellItemReview(jsonObjects, with: companyName) else {
                     errorRelay.accept(.failedDecoding)
                     return
                 }
                 
                 reviewsRelay.accept(reviews)
             case .failure(let error):
-                guard error != .cancelled else {
-                    return
-                }
-                
                 NSLog("❗️ 에러 - ", error.localizedDescription)
                 errorRelay.accept(error)
             }

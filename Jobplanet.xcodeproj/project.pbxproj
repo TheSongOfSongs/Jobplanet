@@ -61,6 +61,8 @@
 		7652745C297FAB3900D3CEA8 /* RatingStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */; };
 		7652745E297FAB4100D3CEA8 /* RatingStarsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */; };
 		76527460297FB48900D3CEA8 /* RecruitDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652745F297FB48900D3CEA8 /* RecruitDetailViewModel.swift */; };
+		76527462297FBEB800D3CEA8 /* CompanyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76527461297FBEB800D3CEA8 /* CompanyReviewView.swift */; };
+		76527464297FBEC300D3CEA8 /* CompanyReviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76527463297FBEC300D3CEA8 /* CompanyReviewView.xib */; };
 		76B6168A297D86BA00925D73 /* HomeViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B61689297D86BA00925D73 /* HomeViewController+UICollectionView.swift */; };
 		76B6168C297E2E0A00925D73 /* IdentifiableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */; };
 		76B6168E297E397A00925D73 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168D297E397A00925D73 /* Error+Extensions.swift */; };
@@ -152,6 +154,8 @@
 		7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarsView.swift; sourceTree = "<group>"; };
 		7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingStarsView.xib; sourceTree = "<group>"; };
 		7652745F297FB48900D3CEA8 /* RecruitDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitDetailViewModel.swift; sourceTree = "<group>"; };
+		76527461297FBEB800D3CEA8 /* CompanyReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyReviewView.swift; sourceTree = "<group>"; };
+		76527463297FBEC300D3CEA8 /* CompanyReviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyReviewView.xib; sourceTree = "<group>"; };
 		76B61689297D86BA00925D73 /* HomeViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableImageView.swift; sourceTree = "<group>"; };
 		76B6168D297E397A00925D73 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
@@ -375,6 +379,8 @@
 			children = (
 				761F59B9297AE866005BE36B /* AppealsView.swift */,
 				761F59B7297AE84E005BE36B /* AppealsView.xib */,
+				76527461297FBEB800D3CEA8 /* CompanyReviewView.swift */,
+				76527463297FBEC300D3CEA8 /* CompanyReviewView.xib */,
 				76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */,
 				7652745B297FAB3900D3CEA8 /* RatingStarsView.swift */,
 				7652745D297FAB4100D3CEA8 /* RatingStarsView.xib */,
@@ -539,6 +545,7 @@
 				761F59B8297AE84E005BE36B /* AppealsView.xib in Resources */,
 				76161493297A4E73008CAE86 /* Assets.xcassets in Resources */,
 				76161491297A4E72008CAE86 /* Main.storyboard in Resources */,
+				76527464297FBEC300D3CEA8 /* CompanyReviewView.xib in Resources */,
 				76382870297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.xib in Resources */,
 				7652745E297FAB4100D3CEA8 /* RatingStarsView.xib in Resources */,
 				761614E8297AD6C4008CAE86 /* RecruitCollectionViewCell.xib in Resources */,
@@ -698,6 +705,7 @@
 				761614C1297A5DDC008CAE86 /* URLSessionDataTaskProtocol.swift in Sources */,
 				76B6168A297D86BA00925D73 /* HomeViewController+UICollectionView.swift in Sources */,
 				761614BB297A5CE3008CAE86 /* NetworkService.swift in Sources */,
+				76527462297FBEB800D3CEA8 /* CompanyReviewView.swift in Sources */,
 				760AFE66297D27B800C757BD /* CellItemReview.swift in Sources */,
 				760AFE59297D0F1600C757BD /* CellItemsTransformer.swift in Sources */,
 				761614DB297A8988008CAE86 /* Company.swift in Sources */,
