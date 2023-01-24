@@ -16,15 +16,22 @@ class RecruitCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var appealsView: AppealsView!
     @IBOutlet weak var rewardLabel: UILabel!
     @IBOutlet weak var ratingsLabel: UILabel!
-    
+    @IBOutlet weak var bookMarkBlackView: UIView!
+    @IBOutlet weak var bookMarkImageView: UIImageView!
     @IBOutlet weak var appealsViewFrameHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var appealsViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bookMarkView: UIView!
+    
+    let bookMarkOffImage = UIImage(named: "icon_bookmark_off")
+    let bookMarkOnImage = UIImage(named: "icon_bookmark_on")
+    var bookMarkDelegate: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         imageView.makeCornerRounded(radius: 8)
         titleLabel.setLineHeight(lineHeight: 24)
+        bookMarkBlackView.makeCornerRounded(radius: 4)
     }
     
     override func prepareForReuse() {
@@ -65,6 +72,10 @@ class RecruitCollectionViewCell: UICollectionViewCell {
             appealsViewFrameHeightConstraint.constant = 0
             appealsViewTopConstraint.constant = 0
         }
+    }
+    
+    @IBAction func bookMark(_ sender: UIButton) {
+        bookMarkDelegate?()
     }
 }
 

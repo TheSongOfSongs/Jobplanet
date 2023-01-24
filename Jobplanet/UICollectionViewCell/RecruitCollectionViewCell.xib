@@ -70,6 +70,49 @@
                         <color key="textColor" name="jpGray1"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4F-bm-9O3">
+                        <rect key="frame" x="430" y="52" width="20" height="20"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVd-qf-Drq">
+                                <rect key="frame" x="-1.3333333333333144" y="-1.3333333333333357" width="23" height="23"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="U5F-kg-dX1"/>
+                                    <constraint firstAttribute="width" secondItem="tVd-qf-Drq" secondAttribute="height" id="odQ-az-o4Q"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_bookmark_off" translatesAutoresizingMaskIntoConstraints="NO" id="7qK-r6-nmJ">
+                                <rect key="frame" x="2.6666666666666856" y="2.6666666666666643" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="V3V-OT-pBG"/>
+                                    <constraint firstAttribute="width" secondItem="7qK-r6-nmJ" secondAttribute="height" multiplier="1:1" id="fAW-p0-6ai"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tos-D2-Lf3">
+                                <rect key="frame" x="-10" y="-10" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="k2K-5g-vK9"/>
+                                    <constraint firstAttribute="width" secondItem="tos-D2-Lf3" secondAttribute="height" id="m3g-cU-kU8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="bookMark:" destination="gTV-IL-0wX" eventType="touchUpInside" id="VR9-lL-V7R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7qK-r6-nmJ" firstAttribute="centerX" secondItem="H4F-bm-9O3" secondAttribute="centerX" id="08N-fT-2Ue"/>
+                            <constraint firstItem="tVd-qf-Drq" firstAttribute="centerX" secondItem="H4F-bm-9O3" secondAttribute="centerX" id="1TY-7K-qsl"/>
+                            <constraint firstItem="tos-D2-Lf3" firstAttribute="centerY" secondItem="H4F-bm-9O3" secondAttribute="centerY" id="Arx-xn-bWp"/>
+                            <constraint firstItem="tos-D2-Lf3" firstAttribute="centerX" secondItem="H4F-bm-9O3" secondAttribute="centerX" id="N7r-KP-GiZ"/>
+                            <constraint firstAttribute="width" secondItem="H4F-bm-9O3" secondAttribute="height" id="ZUP-9G-6IK"/>
+                            <constraint firstItem="7qK-r6-nmJ" firstAttribute="centerY" secondItem="H4F-bm-9O3" secondAttribute="centerY" id="cnw-xH-BQc"/>
+                            <constraint firstAttribute="width" constant="20" id="m6c-Dz-ZHG"/>
+                            <constraint firstItem="tVd-qf-Drq" firstAttribute="centerY" secondItem="H4F-bm-9O3" secondAttribute="centerY" id="t06-bp-HgK"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -86,17 +129,22 @@
                 <constraint firstItem="u9I-3C-b6M" firstAttribute="leading" secondItem="QZD-Yx-JZ2" secondAttribute="leading" id="LEx-Td-mrU"/>
                 <constraint firstItem="QZD-Yx-JZ2" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="VXz-gy-R3y"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="Rwv-uQ-Ep0" secondAttribute="trailing" id="X1w-MU-Opb"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="H4F-bm-9O3" secondAttribute="trailing" constant="5" id="b3O-Ra-vYF"/>
                 <constraint firstItem="rLr-yq-PbN" firstAttribute="leading" secondItem="u9I-3C-b6M" secondAttribute="trailing" constant="4.5" id="bhd-33-h4j"/>
                 <constraint firstItem="QZD-Yx-JZ2" firstAttribute="top" secondItem="Rwv-uQ-Ep0" secondAttribute="bottom" constant="8" id="ceM-7J-HVh"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="Rwv-uQ-Ep0" secondAttribute="top" id="myh-zg-WLl"/>
                 <constraint firstItem="cQq-fg-QSH" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="pSC-MU-sbC"/>
                 <constraint firstItem="CYd-RS-gC0" firstAttribute="top" secondItem="cQq-fg-QSH" secondAttribute="bottom" constant="5" id="wfG-E7-vln"/>
+                <constraint firstItem="H4F-bm-9O3" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="5" id="yll-0o-2uu"/>
             </constraints>
             <size key="customSize" width="455" height="441"/>
             <connections>
                 <outlet property="appealsView" destination="cQq-fg-QSH" id="Wmv-6c-sgC"/>
                 <outlet property="appealsViewFrameHeightConstraint" destination="AOX-ML-Cdy" id="QFT-LX-cN5"/>
                 <outlet property="appealsViewTopConstraint" destination="Ayq-LW-gls" id="eFf-HI-zRv"/>
+                <outlet property="bookMarkBlackView" destination="tVd-qf-Drq" id="Edg-cA-OGl"/>
+                <outlet property="bookMarkImageView" destination="7qK-r6-nmJ" id="tB9-rM-pC0"/>
+                <outlet property="bookMarkView" destination="H4F-bm-9O3" id="4CA-sV-H1Q"/>
                 <outlet property="companyNameLabel" destination="ni3-bd-MgY" id="BSS-7U-XRP"/>
                 <outlet property="imageView" destination="Rwv-uQ-Ep0" id="XgL-Ea-h0F"/>
                 <outlet property="ratingsLabel" destination="rLr-yq-PbN" id="riL-Le-VQh"/>
@@ -107,6 +155,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="icon_bookmark_off" width="14" height="14"/>
         <image name="icon_star" width="12" height="12"/>
         <namedColor name="jpGray1">
             <color red="0.19699999690055847" green="0.20499999821186066" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
