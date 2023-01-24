@@ -12,6 +12,7 @@ final class NetworkService {
     var session: URLSessionProtocol
     
     private let decoder = JSONDecoder()
+    private let networkConnectionManager = NetworkConnectionManager.shared
     
     var currentTask: Task<(Data, URLResponse), Error>?
     
@@ -73,6 +74,10 @@ final class NetworkService {
 extension NetworkService {
     private func data(of list: List) async throws -> Result<Data, APIServiceError> {
         currentTask?.cancel()
+        
+        guard networkConnectionManager.isReachable else {
+            return .failure(.disconnectedNetwork)
+        }
         
         let urlComponents = NetworkService.urlBuilder(of: list)
         
