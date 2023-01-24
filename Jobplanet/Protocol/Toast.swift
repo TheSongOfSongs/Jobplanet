@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol Toast {
+protocol Toast where Self: UIViewController {
     var view: UIView! { get }
 }
 
