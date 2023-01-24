@@ -24,7 +24,7 @@ class RecruitDetailViewController: UIViewController {
     let viewModel = RecruitDetailViewModel()
     
     let disposeBag = DisposeBag()
-    let recruitItemRelay = PublishRelay<RecruitItem>().share()
+    private let recruitItemRelay = PublishRelay<RecruitItem>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
