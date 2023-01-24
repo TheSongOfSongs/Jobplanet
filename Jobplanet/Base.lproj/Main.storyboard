@@ -55,6 +55,10 @@
                                 <color key="textColor" name="jpGray1"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Wg-a2-d2x">
+                                <rect key="frame" x="0.0" y="100" width="390" height="710"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,12 +66,16 @@
                             <constraint firstItem="ZGo-5W-QQW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IEE-5E-A18"/>
                             <constraint firstItem="5s8-Gm-4Ax" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TBP-ga-dvv"/>
                             <constraint firstItem="SPU-AK-Pgc" firstAttribute="top" secondItem="ZGo-5W-QQW" secondAttribute="bottom" id="VTh-MQ-TE8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Wg-a2-d2x" secondAttribute="bottom" id="ZF9-KD-Ilb"/>
                             <constraint firstItem="5s8-Gm-4Ax" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="avc-dh-ZZk"/>
+                            <constraint firstItem="4Wg-a2-d2x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cFd-Gl-wum"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZGo-5W-QQW" secondAttribute="trailing" id="cNf-TQ-GDQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SPU-AK-Pgc" secondAttribute="bottom" id="cqW-W0-VTg"/>
                             <constraint firstItem="J1k-nx-Jo7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dOK-sU-dXH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Wg-a2-d2x" secondAttribute="trailing" id="fAZ-jI-11c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SPU-AK-Pgc" secondAttribute="trailing" id="isq-3X-8P3"/>
                             <constraint firstItem="SPU-AK-Pgc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lae-HL-nYf"/>
+                            <constraint firstItem="4Wg-a2-d2x" firstAttribute="top" secondItem="ZGo-5W-QQW" secondAttribute="bottom" id="mvm-XD-JVK"/>
                             <constraint firstItem="aoo-yr-HPR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ncz-c2-IiE"/>
                             <constraint firstItem="aoo-yr-HPR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qba-uJ-RdS"/>
                             <constraint firstItem="J1k-nx-Jo7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qzl-kq-yvj"/>
@@ -80,6 +88,7 @@
                         <outlet property="collectionView" destination="SPU-AK-Pgc" id="37g-p9-Wwy"/>
                         <outlet property="emptyResultLabel" destination="aoo-yr-HPR" id="jUz-P0-UAn"/>
                         <outlet property="searchBar" destination="5s8-Gm-4Ax" id="0Or-18-HKe"/>
+                        <outlet property="whiteOpaqueView" destination="4Wg-a2-d2x" id="laV-KK-qVb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

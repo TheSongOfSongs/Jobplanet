@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var emptyResultLabel: UILabel!
+    @IBOutlet weak var whiteOpaqueView: UIView!
     
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
