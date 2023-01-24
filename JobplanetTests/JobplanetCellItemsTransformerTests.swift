@@ -22,13 +22,6 @@ final class JobplanetCellItemsTransformerTests: XCTestCase {
         transformer = nil
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
     func test_Data를_JSONObject배열로_변환() throws {
         let testBundle = Bundle(for: type(of: self))
         let filePath = testBundle.path(forResource: "MockData1_cell", ofType: "json")!
