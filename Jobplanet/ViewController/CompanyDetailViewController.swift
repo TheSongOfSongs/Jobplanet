@@ -76,7 +76,7 @@ class CompanyDetailViewController: UIViewController {
         }
         
         let companyNameEvent = Observable.of(companyName)
-        let input = CompanyDetailViewModel.Input(requestReviewsRecruitsByCompanyName: companyNameEvent)
+        let input = CompanyDetailViewModel.Input(requestReviewsAndRecruitsByCompanyName: companyNameEvent)
         let output = viewModel.transform(input: input)
         
         output.reviews

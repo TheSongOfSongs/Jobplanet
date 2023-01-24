@@ -14,7 +14,7 @@ class CompanyDetailViewModel {
     private let networkService = NetworkService()
     
     struct Input {
-        let requestReviewsRecruitsByCompanyName: Observable<String>
+        let requestReviewsAndRecruitsByCompanyName: Observable<String>
     }
     
     struct Output {
@@ -32,7 +32,7 @@ class CompanyDetailViewModel {
     
     // MARK: -
     func transform(input: Input) -> Output {
-        input.requestReviewsRecruitsByCompanyName
+        input.requestReviewsAndRecruitsByCompanyName
             .withUnretained(self)
             .subscribe(onNext: { (owner, companyName) in
                 Task {

@@ -70,7 +70,7 @@
 		76B6168C297E2E0A00925D73 /* IdentifiableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */; };
 		76B6168E297E397A00925D73 /* Error+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168D297E397A00925D73 /* Error+Extensions.swift */; };
 		76B61690297E400400925D73 /* CellImageDownloadCancelling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B6168F297E400400925D73 /* CellImageDownloadCancelling.swift */; };
-		76E2D893297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D892297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift */; };
+		76E2D893297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D892297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift */; };
 		76E2D8D2297C2E200033F5D1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */; };
 		76E2D8D4297C3B440033F5D1 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */; };
 		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
@@ -166,7 +166,7 @@
 		76B6168B297E2E0A00925D73 /* IdentifiableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableImageView.swift; sourceTree = "<group>"; };
 		76B6168D297E397A00925D73 /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		76B6168F297E400400925D73 /* CellImageDownloadCancelling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageDownloadCancelling.swift; sourceTree = "<group>"; };
-		76E2D892297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalThemeCollectionView+Extension.swift"; sourceTree = "<group>"; };
+		76E2D892297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalThemeCollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 				761F59C3297BCC03005BE36B /* CompanyCollectionViewCell.swift */,
 				761F59C4297BCC03005BE36B /* CompanyCollectionViewCell.xib */,
 				76382871297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.swift */,
-				76E2D892297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift */,
+				76E2D892297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift */,
 				76382872297C0DD000C42FAC /* HorizontalThemeCollectionViewCell.xib */,
 			);
 			path = UICollectionViewCell;
@@ -703,7 +703,7 @@
 				761614C6297A6314008CAE86 /* APIServiceError.swift in Sources */,
 				7652745A297FA20E00D3CEA8 /* RecruitDetailViewController.swift in Sources */,
 				76E2D8D2297C2E200033F5D1 /* HomeViewModel.swift in Sources */,
-				76E2D893297C10230033F5D1 /* HorizontalThemeCollectionView+Extension.swift in Sources */,
+				76E2D893297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift in Sources */,
 				76B61690297E400400925D73 /* CellImageDownloadCancelling.swift in Sources */,
 				761F59B3297AE3B3005BE36B /* UIView+Extensions.swift in Sources */,
 				760AFE68297D2C5900C757BD /* TypeAlias.swift in Sources */,
