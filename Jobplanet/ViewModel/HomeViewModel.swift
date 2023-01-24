@@ -11,13 +11,15 @@ import RxSwift
 
 class HomeViewModel {
     
+    typealias SearchCondition = (term: String, list: List)
+    
     private let networkService = NetworkService()
     
     struct Input {
         let requestRecruitItems: Observable<Void>
         let requestCellItems: Observable<Void>
         /// 검색어, 채용/기업 중 선택된 버튼 타입
-        let requestRecruitItemsBySearching: Observable<(String, List)>
+        let requestRecruitItemsBySearching: Observable<SearchCondition>
     }
     
     struct Output {
@@ -63,7 +65,8 @@ class HomeViewModel {
         input.requestRecruitItemsBySearching
             .withUnretained(self)
             .subscribe(with: self, onNext: { _, result in
-                self.itemsBy(searchTerm: result.1.0, selectedListButton: result.1.1)
+                let searchCodition = result.1
+                self.itemsBy(searchTerm: searchCodition.term, selectedListButton: searchCodition.list)
             })
             .disposed(by: disposeBag)
         

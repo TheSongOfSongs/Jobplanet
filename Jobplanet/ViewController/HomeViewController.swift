@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     let viewModel = HomeViewModel()
     let requestRecruitItems = PublishRelay<Void>()
     let requestCellItems = PublishRelay<Void>()
-    let requestItemsBySearching = PublishRelay<(String, List)>()
+    let requestItemsBySearching = PublishRelay<(HomeViewModel.SearchCondition)>()
     let listButtonSelected = BehaviorRelay(value: List.recruit)
     let disposeBag = DisposeBag()
     
