@@ -9,8 +9,6 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-
-
 class RecruitDetailViewModel {
     
     private let networkService = NetworkService()

@@ -172,6 +172,8 @@ class HomeViewController: UIViewController {
         collectionView.refreshControl = refreshControl
     }
     
+    
+    // MARK: -
     @objc func reloadCollectionView() {
         activityIndicatorView.startAnimating()
         listButtonSelected.accept(listButtonSelectedValue)
