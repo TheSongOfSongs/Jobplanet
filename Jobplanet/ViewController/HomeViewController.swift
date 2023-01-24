@@ -85,7 +85,6 @@ class HomeViewController: UIViewController {
             .drive(with: self,
                    onNext: { _, recruitItems in
                 self.recruitItems = recruitItems
-                self.collectionView.reloadData()
                 self.setCollectionViewSize(with: .recruit)
                 self.endRefreshing()
                 self.emptyResultLabel.isHidden = !recruitItems.isEmpty
@@ -96,7 +95,6 @@ class HomeViewController: UIViewController {
             .drive(with: self, onNext: { _, cellItems in
                 self.cellItems = cellItems
                 self.setCollectionViewSize(with: .cell)
-                self.collectionView.reloadData()
                 self.endRefreshing()
                 self.emptyResultLabel.isHidden = !cellItems.isEmpty
             })
@@ -144,7 +142,7 @@ class HomeViewController: UIViewController {
     }
     
     func setCollectionViewSize(with list: List) {
-        collectionView.collectionViewLayout = {
+        let newLayout: UICollectionViewLayout = {
             switch list {
             case .recruit:
                 return recruitCollectionViewFlowLayout
@@ -152,6 +150,11 @@ class HomeViewController: UIViewController {
                 return companyCollectionViewFlowLayout
             }
         }()
+        
+        collectionView.reloadData()
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.collectionViewLayout = newLayout
+        collectionView.collectionViewLayout.invalidateLayout()
     }
     
     func setupRefreshControll() {
