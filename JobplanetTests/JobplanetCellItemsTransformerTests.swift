@@ -67,4 +67,15 @@ final class JobplanetCellItemsTransformerTests: XCTestCase {
         XCTAssertEqual(cellItemReview.count, 3)
         XCTAssertEqual((result.first as! CellItemCompany).salaryAvg, 3483)
     }
+    
+    func testTransformArrayOfJSONObjectToArrayOfCellItemReview() throws {
+        let jsonObjects: [JSONObject] = mockData1_cell_JSONObjects
+        let result = try transformer.transformArrayOfJSONObjectToArrayOfCellItemReview(jsonObjects)
+
+        XCTAssertEqual(result.count, 3)
+        XCTAssertEqual(result.first!.rateTotalAvg, 4.25)
+        XCTAssertEqual(result.first!.updateDate, "2022-06-01T11:01:11.000+09:00")
+        XCTAssertEqual(result.last!.rateTotalAvg, 2.52)
+        XCTAssertEqual(result.last!.updateDate, "2021-12-21T19:02:11.000+09:00")
+    }
 }

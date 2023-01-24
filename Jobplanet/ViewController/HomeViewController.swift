@@ -72,6 +72,14 @@ class HomeViewController: UIViewController {
         setupRefreshControll()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     // MARK: setup
     func setupBinding() {
         let input = HomeViewModel

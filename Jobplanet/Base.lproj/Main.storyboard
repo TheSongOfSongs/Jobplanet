@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zb5-Hh-HGx">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -83,6 +83,7 @@
                             <constraint firstItem="ZGo-5W-QQW" firstAttribute="top" secondItem="5s8-Gm-4Ax" secondAttribute="bottom" id="w2U-hz-TPZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="x4d-8u-B7u"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="J1k-nx-Jo7" id="jcQ-TQ-jzN"/>
                         <outlet property="collectionView" destination="SPU-AK-Pgc" id="37g-p9-Wwy"/>
@@ -93,12 +94,127 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="933.84615384615381" y="-2.1327014218009479"/>
+        </scene>
+        <!--Recruit Detail View Controller-->
+        <scene sceneID="WzG-dS-Xxi">
+            <objects>
+                <viewController storyboardIdentifier="RecruitDetailViewController" id="DVa-k8-M86" customClass="RecruitDetailViewController" customModule="Jobplanet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hDj-xn-zLd">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NuS-4I-8eq" customClass="IdentifiableImageView" customModule="Jobplanet" customModuleProvider="target">
+                                <rect key="frame" x="30" y="87" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="4ns-Kq-kIk"/>
+                                    <constraint firstAttribute="width" secondItem="NuS-4I-8eq" secondAttribute="height" id="en2-SR-Hhn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TV2-t8-2Cw">
+                                <rect key="frame" x="95" y="87" width="265" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pn-yz-e4F">
+                                <rect key="frame" x="95" y="111.33333333333333" width="35.333333333333343" height="16.999999999999986"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUD-ib-XWb">
+                                <rect key="frame" x="30.000000000000004" y="157" width="44.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIh-Xo-0XV" customClass="RatingStarsView" customModule="Jobplanet" customModuleProvider="target">
+                                <rect key="frame" x="82.333333333333329" y="158" width="76.999999999999986" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ITr-p2-IDd"/>
+                                    <constraint firstAttribute="width" constant="77" id="mtY-XH-A9U"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0u-gq-j3d" customClass="AppealsView" customModule="Jobplanet" customModuleProvider="target">
+                                <rect key="frame" x="30" y="188" width="330" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="wZM-D8-COa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIt-yq-FtP" customClass="CompanyReviewView" customModule="Jobplanet" customModuleProvider="target">
+                                <rect key="frame" x="30" y="238" width="330" height="260"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="RSU-AL-yw7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tl1-Hk-nuS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tl1-Hk-nuS" firstAttribute="trailing" secondItem="yIt-yq-FtP" secondAttribute="trailing" constant="30" id="1hF-3j-jzy"/>
+                            <constraint firstItem="fIh-Xo-0XV" firstAttribute="bottom" secondItem="FUD-ib-XWb" secondAttribute="bottom" id="3w9-K5-ZHa"/>
+                            <constraint firstItem="yIt-yq-FtP" firstAttribute="top" secondItem="w0u-gq-j3d" secondAttribute="bottom" constant="30" id="5bC-Qw-gUF"/>
+                            <constraint firstItem="NuS-4I-8eq" firstAttribute="top" secondItem="tl1-Hk-nuS" secondAttribute="top" constant="40" id="8wo-PF-v2t"/>
+                            <constraint firstItem="tl1-Hk-nuS" firstAttribute="trailing" secondItem="TV2-t8-2Cw" secondAttribute="trailing" constant="30" id="Gyj-Cb-auY"/>
+                            <constraint firstItem="w0u-gq-j3d" firstAttribute="leading" secondItem="tl1-Hk-nuS" secondAttribute="leading" constant="30" id="Jn1-3p-5L8"/>
+                            <constraint firstItem="w0u-gq-j3d" firstAttribute="top" secondItem="FUD-ib-XWb" secondAttribute="bottom" constant="10" id="R7G-wM-e0y"/>
+                            <constraint firstItem="fIh-Xo-0XV" firstAttribute="leading" secondItem="FUD-ib-XWb" secondAttribute="trailing" constant="8" symbolic="YES" id="SgA-0w-EnK"/>
+                            <constraint firstItem="tl1-Hk-nuS" firstAttribute="trailing" secondItem="w0u-gq-j3d" secondAttribute="trailing" constant="30" id="UgN-Wl-61c"/>
+                            <constraint firstItem="FUD-ib-XWb" firstAttribute="top" secondItem="NuS-4I-8eq" secondAttribute="bottom" constant="25" id="ZZR-bd-IKo"/>
+                            <constraint firstItem="NuS-4I-8eq" firstAttribute="leading" secondItem="tl1-Hk-nuS" secondAttribute="leading" constant="30" id="gxj-YJ-ITn"/>
+                            <constraint firstItem="yIt-yq-FtP" firstAttribute="leading" secondItem="tl1-Hk-nuS" secondAttribute="leading" constant="30" id="gzC-Cg-fpF"/>
+                            <constraint firstItem="FUD-ib-XWb" firstAttribute="leading" secondItem="NuS-4I-8eq" secondAttribute="leading" id="ksO-gT-8at"/>
+                            <constraint firstItem="3pn-yz-e4F" firstAttribute="top" secondItem="TV2-t8-2Cw" secondAttribute="bottom" constant="4" id="mb5-sf-fEB"/>
+                            <constraint firstItem="TV2-t8-2Cw" firstAttribute="top" secondItem="NuS-4I-8eq" secondAttribute="top" id="tqW-7B-iHS"/>
+                            <constraint firstItem="3pn-yz-e4F" firstAttribute="leading" secondItem="TV2-t8-2Cw" secondAttribute="leading" id="wX1-ID-BEK"/>
+                            <constraint firstItem="TV2-t8-2Cw" firstAttribute="leading" secondItem="NuS-4I-8eq" secondAttribute="trailing" constant="20" id="wXy-6H-xVE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appealsView" destination="w0u-gq-j3d" id="IpP-B8-A1Y"/>
+                        <outlet property="appealsViewHeightConstraint" destination="wZM-D8-COa" id="4xF-TL-S0l"/>
+                        <outlet property="companyNameLabel" destination="3pn-yz-e4F" id="KkC-BY-gq2"/>
+                        <outlet property="logoImageView" destination="NuS-4I-8eq" id="YOO-Mn-2Nu"/>
+                        <outlet property="ratingLabel" destination="FUD-ib-XWb" id="DWk-li-w7t"/>
+                        <outlet property="ratingStarView" destination="fIh-Xo-0XV" id="my6-Qk-8dI"/>
+                        <outlet property="reviewView" destination="yIt-yq-FtP" id="eMZ-9t-RyM"/>
+                        <outlet property="reviewViewHeightConstraint" destination="RSU-AL-yw7" id="VY6-y3-64c"/>
+                        <outlet property="titleLabel" destination="TV2-t8-2Cw" id="ecP-8d-ly5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81C-8K-fVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="733"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EcS-Sp-cCT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="zb5-Hh-HGx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WRg-tB-Fhm">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="jpGray2"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eHS-ls-iia"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hB6-rd-K2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="4.615384615384615" y="-2.1327014218009479"/>
         </scene>
     </scenes>
     <resources>
         <namedColor name="jpGray1">
             <color red="0.19699999690055847" green="0.20499999821186066" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="jpGray2">
+            <color red="0.40900000929832458" green="0.41600000858306885" blue="0.42899999022483826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="jpGreen">
             <color red="0.23199999332427979" green="0.76499998569488525" blue="0.38100001215934753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
