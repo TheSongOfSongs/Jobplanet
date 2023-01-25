@@ -463,19 +463,28 @@
                                     <outlet property="delegate" destination="GZc-Z3-akt" id="YyD-uX-hpK"/>
                                 </connections>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북마크된 채용이 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwY-Lf-pQ3">
+                                <rect key="frame" x="124.66666666666669" y="395.66666666666669" width="141" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="jpGray2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ea8-Ib-VG0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ea8-Ib-VG0" firstAttribute="trailing" secondItem="Oit-F5-ZFq" secondAttribute="trailing" id="0VC-CP-brb"/>
                             <constraint firstItem="Oit-F5-ZFq" firstAttribute="top" secondItem="Ea8-Ib-VG0" secondAttribute="top" id="1c1-mT-VRZ"/>
+                            <constraint firstItem="JwY-Lf-pQ3" firstAttribute="centerY" secondItem="Ea8-Ib-VG0" secondAttribute="centerY" id="9wn-NX-5aX"/>
                             <constraint firstItem="Oit-F5-ZFq" firstAttribute="leading" secondItem="Ea8-Ib-VG0" secondAttribute="leading" id="Jje-2G-74E"/>
                             <constraint firstItem="Ea8-Ib-VG0" firstAttribute="bottom" secondItem="Oit-F5-ZFq" secondAttribute="bottom" id="euW-2J-vKx"/>
+                            <constraint firstItem="JwY-Lf-pQ3" firstAttribute="centerX" secondItem="Ea8-Ib-VG0" secondAttribute="centerX" id="r9b-Us-Vle"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My" image="person.fill" catalog="system" id="lv0-ra-J36"/>
                     <connections>
                         <outlet property="collectionView" destination="Oit-F5-ZFq" id="KPP-CY-amt"/>
+                        <outlet property="noDataLabel" destination="JwY-Lf-pQ3" id="5K8-X3-A7f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oA2-10-h4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

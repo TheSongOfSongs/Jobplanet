@@ -12,6 +12,7 @@ import RxCocoa
 class MyViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noDataLabel: UILabel!
     
     let viewModel = MyViewModel()
     
@@ -39,6 +40,7 @@ class MyViewController: UIViewController {
             .drive(with: self, onNext: { owner, recruitItems in
                 owner.recruits = recruitItems
                 owner.collectionView.reloadData()
+                owner.noDataLabel.isHidden = !recruitItems.isEmpty
             })
             .disposed(by: disposeBag)
     }
