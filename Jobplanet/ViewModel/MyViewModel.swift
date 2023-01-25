@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MyViewModel: ViewModel {
+final class MyViewModel: ViewModel {
     struct Input { }
     
     struct Output {
@@ -42,14 +42,16 @@ class MyViewModel: ViewModel {
             guard let self = self else { return }
             
             do {
-                let ids = self.fetchBookMarkedRecruitIds()
+                // 북마크된 채용 아이템 Id를 UserDefaults에서 가져오고
+                // 채용 정보를 API로부터 받아온 후, 채용정보 아이템에 북마크 여부를 업데이트 시켜줌
+                let ids = self.fetchBookMarkedRecruitItemIds()
                 let result = try await self.fetchRecruitItems()
                 
                 switch result {
                 case .success(let items):
                     self.recruitItems = items
                     
-                    let items =  self.filterRequestItems(items, with: ids)
+                    let items =  self.filter(items, with: ids)
                     self.bookedRecruitItemsRelay.accept(items)
                 case .failure(let error):
                     self.errorRelay.accept(error)
@@ -66,12 +68,7 @@ class MyViewModel: ViewModel {
                       error: error)
     }
     
-    private func fetchBookMarkedRecruitIds() -> [Int] {
-        let ids = UserDefaultsHelper.getData(type: [Int].self, forKey: .recruitIdsBookMarkOn) ?? []
-        self.bookMarkedRecruitItemIds = ids
-        return ids
-    }
-    
+    /// 채용 API로부터 데이터를 받아와 결과값을 전달하는 메서드
     private func fetchRecruitItems() async throws -> Result<[RecruitItem], APIServiceError> {
         do {
             let results = try await networkService.recruitItems()
@@ -88,7 +85,15 @@ class MyViewModel: ViewModel {
         }
     }
     
-    private func filterRequestItems(_ recruitItems: [RecruitItem], with ids: [Int]) -> [RecruitItem] {
+    /// UserDefaults에 저장된 채용아이템 Id를 배열 형태로 가져오는 메서드
+    private func fetchBookMarkedRecruitItemIds() -> [Int] {
+        let ids = UserDefaultsHelper.getData(type: [Int].self, forKey: .recruitIdsBookMarkOn) ?? []
+        self.bookMarkedRecruitItemIds = ids
+        return ids
+    }
+    
+    // 채용 아이템을 id로 필터링하여 반환하는 메서드
+    private func filter(_ recruitItems: [RecruitItem], with ids: [Int]) -> [RecruitItem] {
         let result = recruitItems
             .filter({ ids.contains($0.id) })
             .map { item in
@@ -133,8 +138,8 @@ extension MyViewModel: NotificationBookMarkedRecruitItems {
             return
         }
         
-        let ids = fetchBookMarkedRecruitIds()
-        let recruitItems = filterRequestItems(recruitItems, with: ids)
+        let ids = fetchBookMarkedRecruitItemIds()
+        let recruitItems = filter(recruitItems, with: ids)
         bookedRecruitItemsRelay.accept(recruitItems)
     }
 }

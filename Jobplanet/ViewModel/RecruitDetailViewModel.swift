@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RecruitDetailViewModel: ViewModel {
+final class RecruitDetailViewModel: ViewModel {
     
     private let networkService = NetworkService()
     
@@ -22,7 +22,6 @@ class RecruitDetailViewModel: ViewModel {
         let error: Driver<APIServiceError>
     }
     
-    private let requestReviewItemsByCompanyNameRelay = PublishRelay<String>()
     private let reviewsRelay = PublishRelay<[CellReviewItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
     
@@ -37,7 +36,7 @@ class RecruitDetailViewModel: ViewModel {
             .withUnretained(self)
             .subscribe(onNext: { (owner, companyName) in
                 Task {
-                    await owner.reviews(with: companyName)
+                    await owner.fetchReviews(with: companyName)
                 }
             })
             .disposed(by: disposeBag)
@@ -46,7 +45,8 @@ class RecruitDetailViewModel: ViewModel {
                       error: errorRelay.asDriver(onErrorJustReturn: .unknown))
     }
     
-    func reviews(with companyName: String) async {
+    /// 기업 API에 데이터를 요청하여 [CellReviewItem]을 얻는 메서드
+    func fetchReviews(with companyName: String) async {
         do {
             let results = try await networkService.cellItems()
             

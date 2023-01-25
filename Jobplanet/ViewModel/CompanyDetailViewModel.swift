@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class CompanyDetailViewModel: ViewModel {
+final class CompanyDetailViewModel: ViewModel {
     
     private let networkService = NetworkService()
     
@@ -25,9 +25,8 @@ class CompanyDetailViewModel: ViewModel {
     
     let disposeBag = DisposeBag()
     
-    private let requestReviewsRecruitsByCompanyNameRelay = PublishRelay<String>()
-    private let reviewsRelay = PublishRelay<[CellReviewItem]>()
-    private let recruitsRelay = PublishRelay<[RecruitItem]>()
+    private let cellReviewItemsRelay = PublishRelay<[CellReviewItem]>()
+    private let recruitItemsRelay = PublishRelay<[RecruitItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
     
     // MARK: -
@@ -36,18 +35,19 @@ class CompanyDetailViewModel: ViewModel {
             .withUnretained(self)
             .subscribe(onNext: { (owner, companyName) in
                 Task {
-                    await owner.reviews(with: companyName)
-                    await owner.recruitItems(with: companyName)
+                    await owner.fetchReviews(with: companyName)
+                    await owner.fetchRecruitItems(with: companyName)
                 }
             })
             .disposed(by: disposeBag)
         
-        return Output(reviews: reviewsRelay.asDriver(onErrorJustReturn: []),
-                      recruits: recruitsRelay.asDriver(onErrorJustReturn: []),
+        return Output(reviews: cellReviewItemsRelay.asDriver(onErrorJustReturn: []),
+                      recruits: recruitItemsRelay.asDriver(onErrorJustReturn: []),
                       error: errorRelay.asDriver(onErrorJustReturn: .unknown))
     }
     
-    func reviews(with companyName: String) async {
+    /// 기업 API에 데이터를 요청 후, 회사 이름으로 필터링하여 기업 리뷰 [CellReviewItem]을 얻는 메서드
+    func fetchReviews(with companyName: String) async {
         do {
             let results = try await networkService.cellItems()
             
@@ -61,7 +61,7 @@ class CompanyDetailViewModel: ViewModel {
                     return
                 }
                 
-                reviewsRelay.accept(reviews)
+                cellReviewItemsRelay.accept(reviews)
             case .failure(let error):
                 NSLog("❗️ 에러 - ", error.localizedDescription)
                 errorRelay.accept(error)
@@ -72,13 +72,14 @@ class CompanyDetailViewModel: ViewModel {
         }
     }
     
-    func recruitItems(with companyName: String) async {
+    /// 채용 API에 데이터를 요청 후, 회사 이름으로 필터링하여 기업 리뷰 [RecruitItem]을 얻는 메서드
+    func fetchRecruitItems(with companyName: String) async {
         do {
             let results = try await networkService.recruitItems()
             switch results {
             case .success(let items):
                 let items = items.filter({ $0.company.name == companyName })
-                recruitsRelay.accept(items)
+                recruitItemsRelay.accept(items)
             case .failure(let error):
                 NSLog("❗️ 에러 - ", error.localizedDescription)
                 errorRelay.accept(error)

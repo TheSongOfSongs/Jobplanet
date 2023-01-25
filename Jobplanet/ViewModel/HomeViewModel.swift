@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class HomeViewModel: ViewModel {
+final class HomeViewModel: ViewModel {
     
     typealias SearchCondition = (term: String, list: List)
     
@@ -28,7 +28,6 @@ class HomeViewModel: ViewModel {
         let error: Driver<APIServiceError>
     }
     
-    private let fetchRecruitItems = PublishRelay<Void>()
     private let recruitItemsRelay = PublishRelay<[RecruitItem]>()
     private let cellItemsRelay = PublishRelay<[CellItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
@@ -38,9 +37,6 @@ class HomeViewModel: ViewModel {
     private var bookMarkedRecruitItemIds: [Int] = []
     
     let disposeBag = DisposeBag()
-    
-    
-    
     
     // MARK: - init
     init() {
@@ -57,7 +53,7 @@ class HomeViewModel: ViewModel {
             .withUnretained(self)
             .subscribe(onNext: { (owner, _) in
                 Task {
-                    await owner.recruitItems()
+                    await owner.fetchRecruitItems()
                 }
             })
             .disposed(by: disposeBag)
@@ -66,7 +62,7 @@ class HomeViewModel: ViewModel {
             .withUnretained(self)
             .subscribe(onNext: { (owner, _) in
                 Task {
-                    await owner.cellItems()
+                    await owner.fetchCellItems()
                 }
             })
             .disposed(by: disposeBag)
@@ -75,7 +71,7 @@ class HomeViewModel: ViewModel {
             .withUnretained(self)
             .subscribe(with: self, onNext: { owner, result in
                 let searchCodition = result.1
-                owner.itemsBy(searchTerm: searchCodition.term, selectedListButton: searchCodition.list)
+                owner.fetchItemsBy(searchTerm: searchCodition.term, selectedListButton: searchCodition.list)
             })
             .disposed(by: disposeBag)
         
@@ -87,15 +83,15 @@ class HomeViewModel: ViewModel {
                       error: error)
     }
     
-    func recruitItems() async {
+    /// 채용 API에 데이터를 요청하여 [RecruitItem]을 얻는 메서드
+    func fetchRecruitItems() async {
         do {
             let results = try await networkService.recruitItems()
             switch results {
             case .success(let items):
                 let bookMarkedIds = fetchBookMarkedRecruitIds()
-                let items = recruitItems(items: items, with: bookMarkedIds)
-                recruitItemsRelay.accept(items)
-                recruitItems = items
+                recruitItems = recruitItems(items: items, with: bookMarkedIds)
+                recruitItemsRelay.accept(recruitItems)
             case .failure(let error):
                 guard error != .cancelled else {
                     return
@@ -110,12 +106,15 @@ class HomeViewModel: ViewModel {
         }
     }
     
-    func cellItems() async {
+    /// 기업 API에 데이터를 요청하여 [CellItem]을 얻는 메서드
+    func fetchCellItems() async {
         do {
+            // API로 데이터 요청
             let results = try await networkService.cellItems()
             
             switch results {
             case .success(let data):
+                // 받아온 데이터를 [CellItem] 형태로 가공
                 let transformer = CellItemsTransformer()
                 
                 guard let jsonObjects = try? transformer.transformDataToJSONObjects(data).get(),
@@ -124,9 +123,9 @@ class HomeViewModel: ViewModel {
                     return
                 }
                 
-                let items = cellItems.filter({ $0.cellType != .review })
-                cellItemsRelay.accept(items)
-                self.cellItems = items
+                self.cellItems = cellItems.filter({ $0.cellType != .review })
+                cellItemsRelay.accept(self.cellItems)
+            
             case .failure(let error):
                 guard error != .cancelled else {
                     return
@@ -141,7 +140,8 @@ class HomeViewModel: ViewModel {
         }
     }
     
-    func itemsBy(searchTerm: String, selectedListButton: List) {
+    /// 채용/기업 선택 여부와 검색어에 따라 결과 이벤트를 발생시키는 메서드
+    func fetchItemsBy(searchTerm: String, selectedListButton: List) {
         switch selectedListButton {
         case .recruit:
             let result = recruitItems.filter({ $0.company.name.contains(searchTerm)
@@ -202,6 +202,7 @@ class HomeViewModel: ViewModel {
 }
 
 
+// MARK: - NotificationUserInfoForViewModel
 extension HomeViewModel: NotificationUserInfoForViewModel {
     func setObserver() {
         NotificationCenter.default.addObserver(self,
