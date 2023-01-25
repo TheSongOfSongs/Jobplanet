@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 뷰모델에서 Notification을 사용할 때, userInfo로 보내는 딕셔너리 객체를 위한 프로토콜
 protocol NotificationUserInfoForViewModel where Self: ViewModel {
     var identifierKey: String { get }
     var identifier: String { get }

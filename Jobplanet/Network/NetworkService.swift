@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// API 통신을 담당하는 클래스
 final class NetworkService {
     
     var session: URLSessionProtocol
@@ -14,6 +15,8 @@ final class NetworkService {
     private let decoder = JSONDecoder()
     private let networkConnectionManager = NetworkConnectionManager.shared
     
+    /// 현재 실행되는 네트워킹 테스크를 담는 프로퍼티
+    /// 이후 task를 취소하기 위해 사용됨
     var currentTask: Task<(Data, URLResponse), Error>?
     
     init(session: URLSessionProtocol = URLSession.shared) {

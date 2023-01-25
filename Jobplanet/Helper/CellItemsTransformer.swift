@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// JSON 형태로 받아오는 데이터를 가공하여 모델화시켜주는 구조체
 struct CellItemsTransformer {
     
     let decoder = JSONDecoder()

@@ -16,4 +16,3 @@ extension Toast {
         ToastView.shared.showToast(with: text, view: view)
     }
 }
-

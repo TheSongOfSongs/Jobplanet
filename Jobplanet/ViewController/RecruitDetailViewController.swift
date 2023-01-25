@@ -57,7 +57,6 @@ class RecruitDetailViewController: UIViewController, Toast {
         appealsView.texts = appeals
         appealsViewHeightConstraint.constant = appeals.isEmpty ? 0 : 20
         
-        // reviewView delegate 설정
         reviewView.delegate = {
             // TODO: 리뷰 리스트 보여주는 페이지 개발
         }

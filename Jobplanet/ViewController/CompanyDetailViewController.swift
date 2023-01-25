@@ -58,7 +58,6 @@ class CompanyDetailViewController: UIViewController, Toast {
         salaryAvgLabel.text = company.salaryAvg.withComma
         interviewQuestionLabel.text = company.interviewQuestion
         
-        // reviewView delegate 설정
         reviewView.delegate = {
             // TODO: 리뷰 리스트 보여주는 페이지 개발
         }
