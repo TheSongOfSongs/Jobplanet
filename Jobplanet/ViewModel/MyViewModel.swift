@@ -77,7 +77,13 @@ class MyViewModel: ViewModel {
     }
     
     private func filterRequestItems(_ recruitItems: [RecruitItem], with ids: [Int]) -> [RecruitItem] {
-        let result = recruitItems.filter({ ids.contains($0.id) })
+        let result = recruitItems
+            .filter({ ids.contains($0.id) })
+            .map { item in
+                var item = item
+                item.updateIsBookMarked(true)
+                return item
+            }
         return result
     }
 }
