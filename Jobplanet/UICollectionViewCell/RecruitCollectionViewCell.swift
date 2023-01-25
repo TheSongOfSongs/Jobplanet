@@ -24,7 +24,9 @@ class RecruitCollectionViewCell: UICollectionViewCell {
     
     let bookMarkOffImage = UIImage(named: "icon_bookmark_off")
     let bookMarkOnImage = UIImage(named: "icon_bookmark_on")
-    var bookMarkDelegate: (() -> Void)?
+    var bookMarkDelegate: ((_ isBookMarked: Bool) -> Void)?
+    
+    var recruitItem: RecruitItem?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,10 +51,12 @@ class RecruitCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell(with item: RecruitItem) {
+        self.recruitItem = item
         titleLabel.text = item.title
         companyNameLabel.text = item.company.name
         rewardLabel.text = "축하금: \(item.reward.withComma)원"
         imageView.setImage(with: item.imageURLString)
+        bookMarkImageView.image = item.isBookMarked ? bookMarkOnImage : bookMarkOffImage
         
         if let highestRating = item.company.maxRatings {
             ratingsLabel.text = "\(highestRating)"
@@ -75,7 +79,15 @@ class RecruitCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func bookMark(_ sender: UIButton) {
-        bookMarkDelegate?()
+        guard let recruitItem = recruitItem else {
+            return
+        }
+        
+        let newValue = !recruitItem.isBookMarked
+        self.recruitItem?.updateIsBookMarked(newValue)
+        bookMarkImageView.image = newValue ? bookMarkOnImage : bookMarkOffImage
+        
+        bookMarkDelegate?(newValue)
     }
 }
 

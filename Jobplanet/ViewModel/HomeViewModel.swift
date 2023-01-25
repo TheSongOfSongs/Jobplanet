@@ -35,6 +35,7 @@ class HomeViewModel: ViewModel {
     
     private var recruitItems: [RecruitItem] = []
     private var cellItems: [CellItem] = []
+    private var bookMarkedRecruitItemIds: [Int] = []
     
     let disposeBag = DisposeBag()
     
@@ -83,6 +84,8 @@ class HomeViewModel: ViewModel {
             let results = try await networkService.recruitItems()
             switch results {
             case .success(let items):
+                let bookMarkedIds = fetchBookMarkdRecruitIds()
+                let items = recruitItems(items: items, with: bookMarkedIds)
                 recruitItemsRelay.accept(items)
                 recruitItems = items
             case .failure(let error):
@@ -147,5 +150,41 @@ class HomeViewModel: ViewModel {
             
             cellItemsRelay.accept(result)
         }
+    }
+    
+    /// 채용아이템의 북마크 여부 property를 업데이트해주는 메서드
+    func recruitItems(items: [RecruitItem], with bookMarekdIds: [Int]) -> [RecruitItem] {
+        var result: [RecruitItem] = []
+        for item in items {
+            var item = item
+            if bookMarekdIds.contains(item.id) {
+                item.updateIsBookMarked(true)
+            }
+            result.append(item)
+        }
+        
+        return result
+    }
+    
+    /// 북마크 저장/삭제 요청 시 UserDefaults에 업데이트하고 viewModel이 갖고 있는 데이터 업데이트해주는 메서드
+    func updateBookMark(recruitItem: RecruitItem, isBookMarkOn: Bool) {
+        let id = recruitItem.id
+        var ids = bookMarkedRecruitItemIds
+        
+        if isBookMarkOn {
+            ids.insert(id, at: 0)
+        } else {
+            ids.removeAll(where: { $0 == id })
+        }
+        
+        UserDefaultsHelper.setData(value: ids, key: .recruitIdsBookMarkOn)
+        bookMarkedRecruitItemIds = ids
+    }
+    
+    /// UserDefaults에서 북마크된 채용아이템 id 배열을 가져오는 메서드
+    func fetchBookMarkdRecruitIds() -> [Int] {
+        let result = UserDefaultsHelper.getData(type: [Int].self, forKey: .recruitIdsBookMarkOn) ?? []
+        self.bookMarkedRecruitItemIds = result
+        return result
     }
 }

@@ -27,7 +27,14 @@ extension HomeViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             
-            cell.setupCell(with: recruitItems[indexPath.row])
+            let item = recruitItems[indexPath.row]
+            cell.setupCell(with: item)
+            cell.bookMarkDelegate = { [weak self] isBookMarked in
+                guard let self = self else { return }
+                self.viewModel.updateBookMark(recruitItem: item, isBookMarkOn: isBookMarked)
+                self.recruitItems[indexPath.row].updateIsBookMarked(isBookMarked)
+            }
+            
             return cell
         case .cell:
             let cellItem = cellItems[indexPath.row]
