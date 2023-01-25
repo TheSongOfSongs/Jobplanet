@@ -449,7 +449,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oit-F5-ZFq">
-                                <rect key="frame" x="0.0" y="47" width="390" height="714"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="gNZ-tF-XQl">
                                     <size key="itemSize" width="128" height="128"/>
@@ -464,7 +464,7 @@
                                 </connections>
                             </collectionView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북마크된 채용이 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwY-Lf-pQ3">
-                                <rect key="frame" x="124.66666666666669" y="395.66666666666669" width="141" height="17"/>
+                                <rect key="frame" x="124.66666666666669" y="417.66666666666669" width="141" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="jpGray2"/>
                                 <nil key="highlightedColor"/>
@@ -481,7 +481,7 @@
                             <constraint firstItem="JwY-Lf-pQ3" firstAttribute="centerX" secondItem="Ea8-Ib-VG0" secondAttribute="centerX" id="r9b-Us-Vle"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My" image="person.fill" catalog="system" id="lv0-ra-J36"/>
+                    <navigationItem key="navigationItem" id="xDn-PB-d7q"/>
                     <connections>
                         <outlet property="collectionView" destination="Oit-F5-ZFq" id="KPP-CY-amt"/>
                         <outlet property="noDataLabel" destination="JwY-Lf-pQ3" id="5K8-X3-A7f"/>
@@ -489,7 +489,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oA2-10-h4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="934" y="719"/>
+            <point key="canvasLocation" x="1863.0769230769231" y="718.72037914691941"/>
         </scene>
         <!--채용-->
         <scene sceneID="EcS-Sp-cCT">
@@ -529,12 +529,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="zb5-Hh-HGx" kind="relationship" relationship="viewControllers" id="kna-wF-MgJ"/>
-                        <segue destination="GZc-Z3-akt" kind="relationship" relationship="viewControllers" id="ijv-e8-kxY"/>
+                        <segue destination="f4a-Ie-nbc" kind="relationship" relationship="viewControllers" id="ijv-e8-kxY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wep-Ye-XEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4.615384615384615" y="-2.1327014218009479"/>
+        </scene>
+        <!--My-->
+        <scene sceneID="3Ts-Yd-udt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f4a-Ie-nbc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My" image="person.fill" catalog="system" id="lv0-ra-J36"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dmj-W6-VEx">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="jpGray2"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GZc-Z3-akt" kind="relationship" relationship="rootViewController" id="9Yn-b4-3La"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XXA-zl-gx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="933.84615384615381" y="718.72037914691941"/>
         </scene>
     </scenes>
     <resources>

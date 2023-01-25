@@ -28,8 +28,10 @@ class MyViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         setupBinding()
+        
+        navigationController?.navigationBar.topItem?.title = ""
+        title = "저장된 채용"
     }
-    
     
     // MARK: - setup
     func setupBinding() {
