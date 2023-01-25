@@ -143,6 +143,7 @@ class HomeViewController: UIViewController, Toast {
             .merge()
             .subscribe(with: self, onNext: { owner, _ in
                 owner.endRefreshing()
+                owner.collectionView.isUserInteractionEnabled = true
             })
             .disposed(by: disposeBag)
         
@@ -151,6 +152,7 @@ class HomeViewController: UIViewController, Toast {
             .asDriver()
             .drive(with: self,
                    onNext: { owner, list in
+                owner.collectionView.isUserInteractionEnabled = false
                 owner.activityIndicatorView.startAnimating()
                 owner.requestItems()
                 owner.cancelImageDownloadingOfCells()
