@@ -973,6 +973,7 @@
 				DEVELOPMENT_TEAM = XH796T6N5H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Jobplanet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "잡플래닛";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1004,6 +1005,7 @@
 				DEVELOPMENT_TEAM = XH796T6N5H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Jobplanet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "잡플래닛";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
