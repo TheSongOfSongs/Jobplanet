@@ -78,6 +78,8 @@
 		76E2D893297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D892297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift */; };
 		76E2D8D2297C2E200033F5D1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */; };
 		76E2D8D4297C3B440033F5D1 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */; };
+		76FC36C12980C84700033A4B /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36C02980C84700033A4B /* UserDefaultsHelper.swift */; };
+		76FC36C32980C8DC00033A4B /* JobPlanetUserDefaultsHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36C22980C8DC00033A4B /* JobPlanetUserDefaultsHelperTest.swift */; };
 		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
 		B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */; };
 /* End PBXBuildFile section */
@@ -179,6 +181,8 @@
 		76E2D892297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HorizontalThemeCollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		76E2D8D1297C2E200033F5D1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		76E2D8D3297C3B440033F5D1 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		76FC36C02980C84700033A4B /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		76FC36C22980C8DC00033A4B /* JobPlanetUserDefaultsHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPlanetUserDefaultsHelperTest.swift; sourceTree = "<group>"; };
 		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet_JobplanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				760AFE58297D0F1600C757BD /* CellItemsTransformer.swift */,
 				760AFE67297D2C5900C757BD /* TypeAlias.swift */,
 				7648E2AA2980271B00DC6FF3 /* NetworkConnectionManager.swift */,
+				76FC36C02980C84700033A4B /* UserDefaultsHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				761614A0297A4E73008CAE86 /* JobplanetTests.swift */,
 				760AFE5A297D142900C757BD /* JobplanetCellItemsTransformerTests.swift */,
 				761614CF297A750C008CAE86 /* JobplanetFakeTests.swift */,
+				76FC36C22980C8DC00033A4B /* JobPlanetUserDefaultsHelperTest.swift */,
 			);
 			path = JobplanetTests;
 			sourceTree = "<group>";
@@ -717,6 +723,7 @@
 				7648E2AB2980271B00DC6FF3 /* NetworkConnectionManager.swift in Sources */,
 				764AE6CC297FEC4F00665D5E /* CompanyDetailViewModel.swift in Sources */,
 				761F59B5297AE40D005BE36B /* UIViewController+Extensions.swift in Sources */,
+				76FC36C12980C84700033A4B /* UserDefaultsHelper.swift in Sources */,
 				76527460297FB48900D3CEA8 /* RecruitDetailViewModel.swift in Sources */,
 				761614BD297A5DAF008CAE86 /* URLSessionStub.swift in Sources */,
 				761614C6297A6314008CAE86 /* APIServiceError.swift in Sources */,
@@ -760,6 +767,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76FC36C32980C8DC00033A4B /* JobPlanetUserDefaultsHelperTest.swift in Sources */,
 				761614D0297A750C008CAE86 /* JobplanetFakeTests.swift in Sources */,
 				761614C9297A6898008CAE86 /* JobplanetSlowTests.swift in Sources */,
 				760AFE5B297D142900C757BD /* JobplanetCellItemsTransformerTests.swift in Sources */,
