@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class CompanyDetailViewModel {
+class CompanyDetailViewModel: ViewModel {
     
     private let networkService = NetworkService()
     

@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class HomeViewModel {
+class HomeViewModel: ViewModel {
     
     typealias SearchCondition = (term: String, list: List)
     

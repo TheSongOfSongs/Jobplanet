@@ -82,6 +82,7 @@
 		76FC36C32980C8DC00033A4B /* JobPlanetUserDefaultsHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36C22980C8DC00033A4B /* JobPlanetUserDefaultsHelperTest.swift */; };
 		76FC36C52980CED400033A4B /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36C42980CED400033A4B /* MyViewController.swift */; };
 		76FC36C72980CEE900033A4B /* MyViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36C62980CEE900033A4B /* MyViewController+UICollectionView.swift */; };
+		76FC36CC2980D17E00033A4B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36CB2980D17E00033A4B /* ViewModel.swift */; };
 		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
 		B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */; };
 /* End PBXBuildFile section */
@@ -187,6 +188,7 @@
 		76FC36C22980C8DC00033A4B /* JobPlanetUserDefaultsHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobPlanetUserDefaultsHelperTest.swift; sourceTree = "<group>"; };
 		76FC36C42980CED400033A4B /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		76FC36C62980CEE900033A4B /* MyViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyViewController+UICollectionView.swift"; sourceTree = "<group>"; };
+		76FC36CB2980D17E00033A4B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet_JobplanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				760AFE5D297D17BF00C757BD /* CellItem.swift */,
 				76B6168F297E400400925D73 /* CellImageDownloadCancelling.swift */,
 				764AE6D129801A4F00665D5E /* Toast.swift */,
+				76FC36CB2980D17E00033A4B /* ViewModel.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				761F59C2297BC93F005BE36B /* UILabel+Extensions.swift in Sources */,
 				761614C4297A6119008CAE86 /* List.swift in Sources */,
 				764AE6D229801A4F00665D5E /* Toast.swift in Sources */,
+				76FC36CC2980D17E00033A4B /* ViewModel.swift in Sources */,
 				7616148E297A4E72008CAE86 /* HomeViewController.swift in Sources */,
 				76FC36C52980CED400033A4B /* MyViewController.swift in Sources */,
 				76BCB059298041BC004E87AD /* UIApplication+Extensions.swift in Sources */,
