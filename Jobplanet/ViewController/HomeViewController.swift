@@ -23,7 +23,6 @@ class HomeViewController: UIViewController, Toast {
     let requestCellItems = PublishRelay<Void>()
     let requestItemsBySearching = PublishRelay<(HomeViewModel.SearchCondition)>()
     let listButtonSelected = BehaviorRelay(value: List.recruit)
-    let fetchingEmptyData = PublishRelay<Bool>()
     let disposeBag = DisposeBag()
     
     ///  '채용' 버튼 눌렸을 때 collection view 데이터소스
@@ -100,8 +99,6 @@ class HomeViewController: UIViewController, Toast {
                    onNext: { owner, recruitItems in
                 owner.recruitItems = recruitItems
                 owner.setCollectionViewSize(with: .recruit)
-                owner.endRefreshing()
-                owner.fetchingEmptyData.accept(recruitItems.isEmpty)
             })
             .disposed(by: disposeBag)
         
@@ -109,8 +106,6 @@ class HomeViewController: UIViewController, Toast {
             .drive(with: self, onNext: { owner, cellItems in
                 owner.cellItems = cellItems
                 owner.setCollectionViewSize(with: .cell)
-                owner.endRefreshing()
-                owner.fetchingEmptyData.accept(cellItems.isEmpty)
             })
             .disposed(by: disposeBag)
         
@@ -118,7 +113,6 @@ class HomeViewController: UIViewController, Toast {
             .drive(with: self, onNext: { owner, error in
                 owner.showAndHideToastview(with: error.description)
                 owner.setCollectionViewSize(with: .cell)
-                owner.endRefreshing()
                 
                 if error == .disconnectedNetwork {
                     owner.showWarningLabel(.disconnectedNetwork)
@@ -127,25 +121,41 @@ class HomeViewController: UIViewController, Toast {
             })
             .disposed(by: disposeBag)
         
+        Observable
+            .of(output.cellItems.map({ !$0.isEmpty }),
+                output.recruitItems.map({ !$0.isEmpty }))
+            .merge()
+            .asDriver(onErrorJustReturn: false)
+            .drive(with: self, onNext: { owner, isNotEmpty in
+                if isNotEmpty {
+                    owner.warningLabel.isHidden = true
+                    owner.retryButton.isHidden = true
+                } else {
+                    owner.showWarningLabel(.emptyData)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        Observable
+            .of(output.cellItems.map({ _ in Void() }),
+                output.recruitItems.map({ _ in Void() }),
+                output.error.map({ _ in Void() }))
+            .merge()
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.endRefreshing()
+                owner.collectionView.isUserInteractionEnabled = true
+            })
+            .disposed(by: disposeBag)
+        
+        
         listButtonSelected
             .asDriver()
             .drive(with: self,
                    onNext: { owner, list in
+                owner.collectionView.isUserInteractionEnabled = false
                 owner.activityIndicatorView.startAnimating()
                 owner.requestItems()
                 owner.cancelImageDownloadingOfCells()
-            })
-            .disposed(by: disposeBag)
-        
-        fetchingEmptyData
-            .asDriver(onErrorJustReturn: false)
-            .drive(with: self, onNext: { owner, isEmpty in
-                if isEmpty {
-                    owner.showWarningLabel(.emptyData)
-                } else {
-                    owner.warningLabel.isHidden = true
-                    owner.retryButton.isHidden = true
-                }
             })
             .disposed(by: disposeBag)
     }
