@@ -17,7 +17,14 @@ extension MyViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        let item = recruits[indexPath.row]
         cell.setupCell(with: recruits[indexPath.row])
+        cell.bookMarkDelegate = { [weak self] _ in
+            guard let self = self else { return }
+            self.viewModel.deleteBookMark(recruitItem: item)
+            self.collectionView.deleteItems(at: [indexPath])
+            self.recruits.remove(at: indexPath.row)
+        }
         return cell
     }
 }

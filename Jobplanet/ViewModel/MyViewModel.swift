@@ -19,6 +19,7 @@ class MyViewModel: ViewModel {
     
     private let bookedRecruitItemsRelay = PublishRelay<[RecruitItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
+    private var bookMarkedRecruitItemIds: [Int] = []
     
     let disposeBag = DisposeBag()
     
@@ -85,6 +86,14 @@ class MyViewModel: ViewModel {
                 return item
             }
         return result
+    }
+    
+    /// 북마크 삭제 요청 시 UserDefaults에 업데이트하고 viewModel이 갖고 있는 데이터 업데이트해주는 메서드
+    func deleteBookMark(recruitItem: RecruitItem) {
+        let id = recruitItem.id
+        let ids = bookMarkedRecruitItemIds.filter({ $0 != id })
+        UserDefaultsHelper.setData(value: ids, key: .recruitIdsBookMarkOn)
+        bookMarkedRecruitItemIds = ids
     }
 }
 
