@@ -40,6 +40,7 @@ class RecruitCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         cancelDownloadImage()
         imageView.image = nil
+        bookMarkImageView.image = bookMarkOffImage
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
