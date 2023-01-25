@@ -516,6 +516,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XPq-X5-Iu8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iP3-rO-lpF">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" name="jpGray2"/>
@@ -536,11 +537,11 @@
             </objects>
             <point key="canvasLocation" x="4.615384615384615" y="-2.1327014218009479"/>
         </scene>
-        <!--My-->
+        <!--저장된 채용-->
         <scene sceneID="3Ts-Yd-udt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f4a-Ie-nbc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My" image="person.fill" catalog="system" id="lv0-ra-J36"/>
+                    <tabBarItem key="tabBarItem" title="저장된 채용" image="person.fill" catalog="system" id="lv0-ra-J36"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dmj-W6-VEx">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
