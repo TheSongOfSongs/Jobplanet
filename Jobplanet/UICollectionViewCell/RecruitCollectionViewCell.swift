@@ -41,6 +41,7 @@ class RecruitCollectionViewCell: UICollectionViewCell {
         cancelDownloadImage()
         imageView.image = nil
         bookMarkImageView.image = bookMarkOffImage
+        bookMarkDelegate = nil
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {

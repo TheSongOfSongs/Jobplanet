@@ -21,9 +21,14 @@ extension MyViewController: UICollectionViewDataSource {
         cell.setupCell(with: recruits[indexPath.row])
         cell.bookMarkDelegate = { [weak self] _ in
             guard let self = self else { return }
-            self.viewModel.deleteBookMark(recruitItem: item)
-            self.collectionView.deleteItems(at: [indexPath])
-            self.recruits.remove(at: indexPath.row)
+            self.collectionView.performBatchUpdates ({
+                self.viewModel.deleteBookMark(recruitItem: item)
+                self.collectionView.deleteItems(at: [indexPath])
+                self.recruits.remove(at: indexPath.row)
+            }) { _ in
+                self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
+            }
+            
         }
         return cell
     }
