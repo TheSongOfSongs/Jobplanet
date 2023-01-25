@@ -92,7 +92,7 @@ class HomeViewModel: ViewModel {
             let results = try await networkService.recruitItems()
             switch results {
             case .success(let items):
-                let bookMarkedIds = fetchBookMarkdRecruitIds()
+                let bookMarkedIds = fetchBookMarkedRecruitIds()
                 let items = recruitItems(items: items, with: bookMarkedIds)
                 recruitItemsRelay.accept(items)
                 recruitItems = items
@@ -194,7 +194,7 @@ class HomeViewModel: ViewModel {
     }
     
     /// UserDefaults에서 북마크된 채용아이템 id 배열을 가져오는 메서드
-    func fetchBookMarkdRecruitIds() -> [Int] {
+    func fetchBookMarkedRecruitIds() -> [Int] {
         let result = UserDefaultsHelper.getData(type: [Int].self, forKey: .recruitIdsBookMarkOn) ?? []
         self.bookMarkedRecruitItemIds = result
         return result
@@ -218,11 +218,11 @@ extension HomeViewModel: NotificationUserInfoForViewModel {
     
     @objc func updateBookMarkedRecruitIds(notification: Notification) {
         guard let identifier = notification.userInfo?[identifierKey] as? String,
-              identifier != identifier else {
+              identifier != self.identifier else {
             return
         }
         
-        let ids = fetchBookMarkdRecruitIds()
+        let ids = fetchBookMarkedRecruitIds()
         let recruitItems = recruitItems(items: recruitItems, with: ids)
         recruitItemsRelay.accept(recruitItems)
     }

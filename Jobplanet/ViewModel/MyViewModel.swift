@@ -25,8 +25,16 @@ class MyViewModel: ViewModel {
     
     private let networkService = NetworkService()
     
+    var recruitItems: [RecruitItem] = []
+    
     // MARK: -
-    init() { }
+    init() {
+        setObserver()
+    }
+    
+    deinit {
+        removeObserver()
+    }
     
     // MARK: -
     func transform(input: Input) -> Output {
@@ -39,6 +47,8 @@ class MyViewModel: ViewModel {
                 
                 switch result {
                 case .success(let items):
+                    self.recruitItems = items
+                    
                     let items =  self.filterRequestItems(items, with: ids)
                     self.bookedRecruitItemsRelay.accept(items)
                 case .failure(let error):
@@ -58,6 +68,7 @@ class MyViewModel: ViewModel {
     
     private func fetchBookMarkedRecruitIds() -> [Int] {
         let ids = UserDefaultsHelper.getData(type: [Int].self, forKey: .recruitIdsBookMarkOn) ?? []
+        self.bookMarkedRecruitItemIds = ids
         return ids
     }
     
@@ -85,6 +96,7 @@ class MyViewModel: ViewModel {
                 item.updateIsBookMarked(true)
                 return item
             }
+        
         return result
     }
     
@@ -94,6 +106,35 @@ class MyViewModel: ViewModel {
         let ids = bookMarkedRecruitItemIds.filter({ $0 != id })
         UserDefaultsHelper.setData(value: ids, key: .recruitIdsBookMarkOn)
         bookMarkedRecruitItemIds = ids
+        
+        NotificationCenter.default.post(name: .UpdatedBookMarkRecruitItmIds,
+                                        object: nil,
+                                        userInfo: [identifierKey: identifier])
     }
 }
 
+extension MyViewModel: NotificationBookMarkedRecruitItems {
+    func setObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateBookMarkedRecruitIds),
+                                               name: Notification.Name.UpdatedBookMarkRecruitItmIds,
+                                               object: nil)
+    }
+    
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: Notification.Name.UpdatedBookMarkRecruitItmIds,
+                                                  object: nil)
+    }
+    
+    @objc func updateBookMarkedRecruitIds(notification: Notification) {
+        guard let identifier = notification.userInfo?[identifierKey] as? String,
+              identifier != self.identifier else {
+            return
+        }
+        
+        let ids = fetchBookMarkedRecruitIds()
+        let recruitItems = filterRequestItems(recruitItems, with: ids)
+        bookedRecruitItemsRelay.accept(recruitItems)
+    }
+}
