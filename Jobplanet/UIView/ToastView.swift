@@ -33,7 +33,7 @@ class ToastView: UIView {
         let bottomPadding = UIApplication.shared.safeAreaInsets?.bottom ?? 0
         let screenBounds = UIScreen.main.bounds
         let toastViewFrame = CGRect(x: leftPadding,
-                                    y: screenBounds.height - bottomPadding - 100,
+                                    y: screenBounds.height - bottomPadding - 150,
                                     width: screenBounds.width - leftPadding*2,
                                     height: 50)
         let toastView = ToastView(frame: toastViewFrame)
