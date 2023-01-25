@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zb5-Hh-HGx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XPq-X5-Iu8">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -36,7 +36,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SPU-AK-Pgc">
-                                <rect key="frame" x="0.0" y="100" width="390" height="710"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="661"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="15" id="mOW-Tj-Uvc">
                                     <size key="itemSize" width="128" height="128"/>
@@ -47,16 +47,16 @@
                                 <cells/>
                             </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="J1k-nx-Jo7">
-                                <rect key="frame" x="176.66666666666666" y="410" width="37" height="37"/>
+                                <rect key="frame" x="176.66666666666666" y="385.66666666666669" width="37" height="37"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색 결과가 없습니다. 검색어를 다시 확인해주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoo-yr-HPR">
-                                <rect key="frame" x="100.00000000000001" y="388.33333333333331" width="190.33333333333337" height="40.666666666666686"/>
+                                <rect key="frame" x="100.00000000000001" y="363.66666666666669" width="190.33333333333337" height="40.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="jpGray1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8F-oC-dch">
-                                <rect key="frame" x="120" y="449" width="150" height="40"/>
+                                <rect key="frame" x="120" y="424.33333333333331" width="150" height="40"/>
                                 <color key="backgroundColor" name="jpGray2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="gyH-IF-K6p"/>
@@ -70,7 +70,7 @@
                                 </connections>
                             </button>
                             <view hidden="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Wg-a2-d2x">
-                                <rect key="frame" x="0.0" y="100" width="390" height="710"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="661"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933.84615384615381" y="-2.1327014218009479"/>
+            <point key="canvasLocation" x="1863.0769230769231" y="-2.1327014218009479"/>
         </scene>
         <!--Recruit Detail View Controller-->
         <scene sceneID="WzG-dS-Xxi">
@@ -205,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81C-8K-fVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="733"/>
+            <point key="canvasLocation" x="5" y="1403"/>
         </scene>
         <!--Company Detail View Controller-->
         <scene sceneID="B5x-no-aTC">
@@ -438,12 +438,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0z-tZ-0a8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933.84615384615381" y="732.93838862559244"/>
+            <point key="canvasLocation" x="934" y="1403"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--My View Controller-->
+        <scene sceneID="rGn-oX-4nP">
+            <objects>
+                <viewController storyboardIdentifier="MyViewController" id="GZc-Z3-akt" userLabel="My View Controller" customClass="MyViewController" customModule="Jobplanet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wba-i2-XY4">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Oit-F5-ZFq">
+                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="15" id="gNZ-tF-XQl">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GZc-Z3-akt" id="pfT-Nf-pcY"/>
+                                    <outlet property="delegate" destination="GZc-Z3-akt" id="YyD-uX-hpK"/>
+                                </connections>
+                            </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북마크된 채용이 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwY-Lf-pQ3">
+                                <rect key="frame" x="124.66666666666669" y="417.66666666666669" width="141" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="jpGray2"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ea8-Ib-VG0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ea8-Ib-VG0" firstAttribute="trailing" secondItem="Oit-F5-ZFq" secondAttribute="trailing" id="0VC-CP-brb"/>
+                            <constraint firstItem="Oit-F5-ZFq" firstAttribute="top" secondItem="Ea8-Ib-VG0" secondAttribute="top" id="1c1-mT-VRZ"/>
+                            <constraint firstItem="JwY-Lf-pQ3" firstAttribute="centerY" secondItem="Ea8-Ib-VG0" secondAttribute="centerY" id="9wn-NX-5aX"/>
+                            <constraint firstItem="Oit-F5-ZFq" firstAttribute="leading" secondItem="Ea8-Ib-VG0" secondAttribute="leading" id="Jje-2G-74E"/>
+                            <constraint firstItem="Ea8-Ib-VG0" firstAttribute="bottom" secondItem="Oit-F5-ZFq" secondAttribute="bottom" id="euW-2J-vKx"/>
+                            <constraint firstItem="JwY-Lf-pQ3" firstAttribute="centerX" secondItem="Ea8-Ib-VG0" secondAttribute="centerX" id="r9b-Us-Vle"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xDn-PB-d7q"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Oit-F5-ZFq" id="KPP-CY-amt"/>
+                        <outlet property="noDataLabel" destination="JwY-Lf-pQ3" id="5K8-X3-A7f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oA2-10-h4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1863.0769230769231" y="718.72037914691941"/>
+        </scene>
+        <!--채용-->
         <scene sceneID="EcS-Sp-cCT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="zb5-Hh-HGx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="채용" image="case.fill" catalog="system" id="Rz0-Gk-nUg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WRg-tB-Fhm">
                         <autoresizingMask key="autoresizingMask"/>
@@ -456,12 +508,60 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hB6-rd-K2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="933.84615384615381" y="-2.1327014218009479"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="p7m-HH-da1">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XPq-X5-Iu8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iP3-rO-lpF">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="jpGray2"/>
+                        <tabBarAppearance key="standardAppearance"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" name="jpGray1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="zb5-Hh-HGx" kind="relationship" relationship="viewControllers" id="kna-wF-MgJ"/>
+                        <segue destination="f4a-Ie-nbc" kind="relationship" relationship="viewControllers" id="ijv-e8-kxY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wep-Ye-XEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="4.615384615384615" y="-2.1327014218009479"/>
+        </scene>
+        <!--My-->
+        <scene sceneID="3Ts-Yd-udt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f4a-Ie-nbc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My" image="person.fill" catalog="system" id="lv0-ra-J36"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dmj-W6-VEx">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="jpGray2"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GZc-Z3-akt" kind="relationship" relationship="rootViewController" id="9Yn-b4-3La"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XXA-zl-gx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="933.84615384615381" y="718.72037914691941"/>
         </scene>
     </scenes>
     <resources>
+        <image name="case.fill" catalog="system" width="128" height="100"/>
         <image name="icon_quote" width="28" height="28"/>
         <image name="icon_star" width="12" height="12"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="jpGray1">
             <color red="0.19699999690055847" green="0.20499999821186066" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

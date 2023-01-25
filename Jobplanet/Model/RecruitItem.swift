@@ -15,6 +15,9 @@ struct RecruitItem: Codable {
     let imageURLString: String
     let company: Company
     
+    /// 채용 아이템 북마크 여부로 채용정보API에는 존재하지 않는 프로퍼티
+    var isBookMarked = false
+    
     var appeals: [String] {
         return appeal
             .components(separatedBy: ", ")
@@ -28,5 +31,9 @@ struct RecruitItem: Codable {
         case appeal = "appeal"
         case imageURLString = "image_url"
         case company = "company"
+    }
+    
+    mutating func updateIsBookMarked(_ isBookMarked: Bool) {
+        self.isBookMarked = isBookMarked
     }
 }
