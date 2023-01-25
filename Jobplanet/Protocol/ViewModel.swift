@@ -13,3 +13,9 @@ protocol ViewModel {
     
     func transform(input: Input) -> Output
 }
+
+extension ViewModel {
+    static var identifier: String {
+        return String(describing: self)
+    }
+}

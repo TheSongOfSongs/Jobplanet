@@ -84,6 +84,9 @@
 		76FC36C72980CEE900033A4B /* MyViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36C62980CEE900033A4B /* MyViewController+UICollectionView.swift */; };
 		76FC36CC2980D17E00033A4B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36CB2980D17E00033A4B /* ViewModel.swift */; };
 		76FC36CE2980D1D000033A4B /* MyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36CD2980D1D000033A4B /* MyViewModel.swift */; };
+		76FC36D02980ECAD00033A4B /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36CF2980ECAD00033A4B /* NotificationName+Extensions.swift */; };
+		76FC36D22980F1A500033A4B /* NotificationBookMarkedRecruitItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36D12980F1A500033A4B /* NotificationBookMarkedRecruitItems.swift */; };
+		76FC36D42980F2DE00033A4B /* NotificationUserInfoForViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FC36D32980F2DE00033A4B /* NotificationUserInfoForViewModel.swift */; };
 		96086958B301B3A0347DDA81 /* Pods_JobplanetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE88546DFA4195B46D47CD4 /* Pods_JobplanetTests.framework */; };
 		B6B8FC47A279E9CFE9802A77 /* Pods_Jobplanet_JobplanetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */; };
 /* End PBXBuildFile section */
@@ -191,6 +194,9 @@
 		76FC36C62980CEE900033A4B /* MyViewController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		76FC36CB2980D17E00033A4B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		76FC36CD2980D1D000033A4B /* MyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewModel.swift; sourceTree = "<group>"; };
+		76FC36CF2980ECAD00033A4B /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
+		76FC36D12980F1A500033A4B /* NotificationBookMarkedRecruitItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBookMarkedRecruitItems.swift; sourceTree = "<group>"; };
+		76FC36D32980F2DE00033A4B /* NotificationUserInfoForViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUserInfoForViewModel.swift; sourceTree = "<group>"; };
 		A51037131678DCEBA6B83339 /* Pods-Jobplanet-JobplanetUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; path = "Target Support Files/Pods-Jobplanet-JobplanetUITests/Pods-Jobplanet-JobplanetUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC80A4630CE217A9926DB8DD /* Pods_Jobplanet_JobplanetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobplanet_JobplanetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6900E05B36EE79C29C3AE74 /* Pods-Jobplanet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobplanet.release.xcconfig"; path = "Target Support Files/Pods-Jobplanet/Pods-Jobplanet.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +259,8 @@
 				76B6168F297E400400925D73 /* CellImageDownloadCancelling.swift */,
 				764AE6D129801A4F00665D5E /* Toast.swift */,
 				76FC36CB2980D17E00033A4B /* ViewModel.swift */,
+				76FC36D32980F2DE00033A4B /* NotificationUserInfoForViewModel.swift */,
+				76FC36D12980F1A500033A4B /* NotificationBookMarkedRecruitItems.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -403,6 +411,7 @@
 				761F59B2297AE3B3005BE36B /* UIView+Extensions.swift */,
 				761F59B4297AE40D005BE36B /* UIViewController+Extensions.swift */,
 				76BCB058298041BC004E87AD /* UIApplication+Extensions.swift */,
+				76FC36CF2980ECAD00033A4B /* NotificationName+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -727,6 +736,7 @@
 				761614BF297A5DC3008CAE86 /* URLSessionProtocol.swift in Sources */,
 				761614D5297A7D9E008CAE86 /* RecruitItems.swift in Sources */,
 				7638286F297BEC5F00C42FAC /* RecruitCompanyButtonsCollectionReusableView.swift in Sources */,
+				76FC36D22980F1A500033A4B /* NotificationBookMarkedRecruitItems.swift in Sources */,
 				760AFE60297D17DD00C757BD /* CellType.swift in Sources */,
 				761F59C2297BC93F005BE36B /* UILabel+Extensions.swift in Sources */,
 				761614C4297A6119008CAE86 /* List.swift in Sources */,
@@ -743,6 +753,7 @@
 				761614BD297A5DAF008CAE86 /* URLSessionStub.swift in Sources */,
 				761614C6297A6314008CAE86 /* APIServiceError.swift in Sources */,
 				7652745A297FA20E00D3CEA8 /* RecruitDetailViewController.swift in Sources */,
+				76FC36D02980ECAD00033A4B /* NotificationName+Extensions.swift in Sources */,
 				7648E2A729801BDE00DC6FF3 /* ToastView.swift in Sources */,
 				76E2D8D2297C2E200033F5D1 /* HomeViewModel.swift in Sources */,
 				76E2D893297C10230033F5D1 /* HorizontalThemeCollectionViewCell+Extension.swift in Sources */,
@@ -776,6 +787,7 @@
 				761614E7297AD6C4008CAE86 /* RecruitCollectionViewCell.swift in Sources */,
 				761F59C5297BCC03005BE36B /* CompanyCollectionViewCell.swift in Sources */,
 				76FC36CE2980D1D000033A4B /* MyViewModel.swift in Sources */,
+				76FC36D42980F2DE00033A4B /* NotificationUserInfoForViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,8 +40,16 @@ class HomeViewModel: ViewModel {
     let disposeBag = DisposeBag()
     
     
+    
+    
     // MARK: - init
-    init() { }
+    init() {
+        setObserver()
+    }
+    
+    deinit {
+        removeObserver()
+    }
     
     // MARK: -
     func transform(input: Input) -> Output {
@@ -179,6 +187,10 @@ class HomeViewModel: ViewModel {
         
         UserDefaultsHelper.setData(value: ids, key: .recruitIdsBookMarkOn)
         bookMarkedRecruitItemIds = ids
+        
+        NotificationCenter.default.post(name: .UpdatedBookMarkRecruitItmIds,
+                                        object: nil,
+                                        userInfo: [identifierKey: identifier])
     }
     
     /// UserDefaults에서 북마크된 채용아이템 id 배열을 가져오는 메서드
@@ -186,5 +198,32 @@ class HomeViewModel: ViewModel {
         let result = UserDefaultsHelper.getData(type: [Int].self, forKey: .recruitIdsBookMarkOn) ?? []
         self.bookMarkedRecruitItemIds = result
         return result
+    }
+}
+
+
+extension HomeViewModel: NotificationUserInfoForViewModel {
+    func setObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateBookMarkedRecruitIds),
+                                               name: Notification.Name.UpdatedBookMarkRecruitItmIds,
+                                               object: nil)
+    }
+    
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: Notification.Name.UpdatedBookMarkRecruitItmIds,
+                                                  object: nil)
+    }
+    
+    @objc func updateBookMarkedRecruitIds(notification: Notification) {
+        guard let identifier = notification.userInfo?[identifierKey] as? String,
+              identifier != identifier else {
+            return
+        }
+        
+        let ids = fetchBookMarkdRecruitIds()
+        let recruitItems = recruitItems(items: recruitItems, with: ids)
+        recruitItemsRelay.accept(recruitItems)
     }
 }
