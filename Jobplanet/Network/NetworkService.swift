@@ -86,7 +86,6 @@ extension NetworkService {
         }
         
         currentTask = Task { () -> (Data, URLResponse) in
-            currentTask = nil
             return try await URLSession.shared.data(from: url)
         }
         
@@ -103,6 +102,10 @@ extension NetworkService {
             
             guard response.statusCode == 200 else {
                 return .failure(.failedRequest)
+            }
+            
+            guard !currentTask.isCancelled else {
+                return .failure(.cancelled)
             }
             
             return .success(data)
