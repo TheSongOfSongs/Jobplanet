@@ -64,9 +64,9 @@
 ### 1. MVVM 패턴과 Input/Output 바인딩 구조
 - View Controller는 View를 소유하고 있으며 둘은 긴밀하게 엮여있습니다
 - View Controller는 ViewModel을 소유하며 둘은 Input과 Output을 통해 소통합니다  
-- View Controller는 ViewModel의 input을 통해 데이터를 가져오는 액션을 요구하고 ViewModel은 Output을 통해 Model에서 가져온 데이터를 가공하여 전달합니다  
+- View Controller는 ViewModel의 input을 통해 데이터를 가져오는 액션을 요구하고 ViewModel은 output을 통해 가져온 데이터를 가공하여 전달합니다  
     #### ✅ Input, Output 도입 이유
-    ViewModel에서 Model로부터 받은 값들은 private하게 선언되어 View Controller에서 임의로 접근하여 값을 변질시킬 수 없습니다. Input, Output 객체로부터 바인딩해서 얻은 값들로 View Controller는 사용하기 때문에 데이터의 안전성이 보장됩니다. 더불어 함수 *transform(input:)* 를 통해 로직의 분리시켜 데이터 흐름을 파악하기 쉬워 코드 파악에 용이하다는 장점이 있습니다.
+    ViewModel의 Model은 private하게 선언되어 View Controller에서 임의로 접근하여 값을 변질시킬 수 없습니다. View Controller는 Input, Output 객체로부터 바인딩하여 얻은 값을 사용하기 때문에 데이터의 안전성이 보장됩니다. 더불어 함수 *transform(input:)* 를 통해 로직의 분리시키기 때문에, 데이터 흐름을 파악하기 쉽고 코드 파악이 용이하다는 장점이 있습니다.
 
 ```swift
 final class HomeViewModel: ViewModel {
@@ -93,32 +93,32 @@ final class HomeViewModel: ViewModel {
 
 ### 2. NetworkService
 - API 종류를 enum 형태로 갖고, NetworkService는 enum 값에 따라 URL을 생성하는 static 메서드 urlBuilder()로 URLComponents를 생성합니다
-- class NetworkService를 두어 채용 정보 API, 기업 정보 API로 JSON 형태의 데이터를 받습니다. 이 때 URL을 통해 Data를 가져오는 기능은 같으므로 extension으로 따로 분리하여 private 메서드로 구현하였습니다
+- class NetworkService는 채용 정보 API, 기업 정보 API로부터 Json형태의 데이터를 가져오는 역할을 합니다. 두 API에서 URL을 통해 Data를 가져오는 코드는 동일하므로 extension으로 따로 분리하여 private 메서드로 구현하였습니다
 - 각 API가 제대로 동작하는지 확인하기 위해 Mock URLSession과 Mock Data로 테스트하는 코드를 작성했습니다. 데이터가 원하는 형태로 변환되는지 확인하는 테스트입니다
-- HomeVC에서 현재 네트워킹이 이뤄지고 있는 도중에 채용/버튼 혹은 검색 기능을 눌러 새로운 요청을 할 수 있습니다. 이에 대비하여 새로운 요청이 들어오면 현재 작업을 변수로 할당하고, 새로운 요청이 들어올 경우 갖고 있던 작업을 취소합니다.
+- HomeVC에서 현재 네트워킹이 이뤄지고 있는 도중에 채용/버튼 혹은 검색 기능을 눌러 새로운 요청을 할 수 있습니다. 이에 대비하여 새로운 요청이 들어오면 현재 진행 중이던 작업은 취소하고, 새로운 요청을 현재 진행 중인 작업에 할당하고 진행합니다.
 <br/>   
 
 ### 3. 기업 API 객체 생성
 <p align="center">
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/46002818/214516684-584d9452-1046-46dd-a4db-fa13ace71852.png">
 </p>  
-기업 정보는 cell_type_company, cell_type_horizontal_theme, cell_type_theme 총 3가지 key값으로 모델이 구분됩니다. API를 통해 받은 Json에서는 이 3가지가 모두 한 배열에 담겨져 전달되지만, 각 cell 디자인과 내용이 다르기 때문에 다른 종류의 객체로 구성하는 것이 좋습니다. 따라서 Codable을 이용해 객체를 생성할 수 없어 처음 개발 계획 시, 아래와 같이 구상하였습니다.  
+기업 정보는 Json의 key값인 type에 따라 cell_type_company, cell_type_horizontal_theme, cell_type_theme 총 3가지로 모델이 구분됩니다. API를 통해 받은 Json에서는 이 3가지가 모두 한 배열에 담겨져있으나, 각 cell의 디자인과 내용이 다르기 때문에 다른 종류의 객체로 구성하는 것이 좋습니다. 따라서 Codable을 이용해 객체를 생성할 수 없어 처음 개발 계획 시 아래와 같이 구상하였습니다.  
   
 <br/>
   
-  1. cell_type_company, cell_type_horizontal_theme, cell_type_theme의 프로퍼티들을 모두 포함한 Codable한 구조체를 만듭니다. 이 때 3가지 형태의 데이터가 갖고 있는 프로퍼티는 type 밖에 없으므로 type 이외의 프로퍼티들은 옵셔널로 선언합니다.
+  1. cell_type_company, cell_type_horizontal_theme, cell_type_theme의 프로퍼티들을 모두 포함한 Codable한 구조체를 만듭니다. 이 때 3가지 형태의 데이터가 공통으로 갖고 있는 프로퍼티는 type 밖에 없으므로 type 이외의 프로퍼티들은 옵셔널로 선언합니다.
   2. 가져온 데이터들은 type으로 구분하여 각각의 구조체를 통해 객체를 생성해줍니다.  
    
-위와 같이 구현했을 때의 단점은 새로운 셀 타입(cell_type_XXX)이 추가될 때마다, 많은 프로퍼티들이 추가되어야 합니다. JSON 객체를 Codable 기능을 이용해 구조체로 가져오기 위해서인데 객체 관리가 어렵다는 것이 단점입니다. 그래서 아래와 같이 구조를 변경하였습니다.
-  1. API를 통해 받은 데이터는 딕셔너리([String: Any]) 형태로 변환합니다
-  2. 딕셔너리의 key값을 통해 value형태로 저장된 기업 정보 배열을 가져옵니다 (이 때 배열 역시 동일한 딕셔너리 타입입니다)
+위와 같이 구현했을 때의 단점은 새로운 셀 타입(cell_type_XXX)이 추가될 때마다, 많은 프로퍼티들이 추가되어야 합니다. Json 객체를 Codable 기능을 이용해 구조체로 가져오기 위함이 이유인데 객체 관리가 어렵다는 것이 단점입니다. 그래서 아래와 같이 구조를 변경하였습니다.
+  1. API를 통해 받은 데이터를 딕셔너리([String: Any]) 형태로 변환합니다
+  2. 딕셔너리의 key값을 통해 기업 정보 데이터 배열을 가져옵니다 (이 때 배열 역시 동일한 딕셔너리 타입입니다)
   3. 배열을 순회하며 딕셔너리에서 key 값으로 type을 확인하고, 동일한 프로토콜을 준수하는 각 타입의 객체로 변환하여 줍니다. 동일한 프로토콜을 준수하므로 한 배열에 담을 수 있습니다
 
 #### ✅ CellItemsTransformer
-데이터 변환하는 CellItemTransformer를 두어 각 단계별로 데이터 가공을 도와 ViewModel에서 데이터 변환 로직을 분리시켰습니다. 각 메서드별로 잘 동작하는지 확인하는 유닛테스트 코드를 작성하였습니다.  
+CellItemsTransformer로 각 단계별로 데이터 가공을 하여 ViewModel에서 데이터 변환 로직을 분리시켰습니다. 각 메서드별로 잘 동작하는지 확인하는 유닛테스트 코드를 작성하였습니다.  
 
 #### ✅ protocol CellItem
-CellItem을 준수하는 아이템이면 JSON에서 배열로 함께 담은 채로 가져와, 원하는 모델로 변환할 수 있습니다. 이후 cell_type_XXX 형태의 새로운 셀 타입이 추가되었을 때에도 쉽게 관리할 수 있습니다.
+CellItem을 준수하는 아이템들은 type이 다르더라도 배열에 함께 담을 수 있습니다. 배열의 원소들은 CellItem을 준수하는 Model로 다운캐스팅이 가능합니다. 따라서 추후에 cell_type_XXX 형태의 새로운 셀 타입이 추가되었을 때에 Model이 CellItem을 준수하도록 설계하면 쉽게 확장할 수 있습니다.
 
 <br/>  
 
@@ -141,14 +141,15 @@ CellItem을 준수하는 아이템이면 JSON에서 배열로 함께 담은 채�
 - UserDefaults를 사용하여 저장된 채용 아이템의 id 값을 저장합니다
 - UserDefaultsHelper라는 클래스를 두어 UserDefaults에 채용 아이템 id를 저장/삭제 할 수 있도록 구현하였습니다 
 - 홈탭과 저장된채용탭에서 북마크 저장/삭제가 발생했을 때 서로 변경 여부를 통신해야 합니다. 이 때 Notificaiton을 이용하여 데이터를 주고받습니다
-- 프로토콜 NotificationBookMarkedRecruitItems을 뷰모델만 채택할 수 있도록 제약을 걸었으며, 이를 채택한 뷰모델에서 북마크 리스트 업데이트 이벤트를 받습니다
+- protocol NotificationBookMarkedRecruitItems은 뷰모델만 채택할 수 있도록 제약을 걸었으며, 이를 채택한 뷰모델에서 북마크 리스트 업데이트 이벤트를 받습니다
 <br/>  
 
 ### 6. 이미지 캐싱 처리
 - Kingfisher를 이용하여 이미지 캐싱처리를 합니다
-- 셀이 재사용될 때 이미지가 깜빡이는 이슈가 있어 UIImageView를 상속받아 identifier를 둔 IdentifiableImageView를 두었습니다
-- 또한 셀 재사용 시, 이전에 이미지를 다운받는 것은 취소해주기 위해 프로토콜 CellImageDownloadCancelling을 만들었습니다
-- CollectionViewCell에서는 이를 준수하여 prepareForReuse() 때 이미지 다운 취소 메서드를 호출합니다
+- 셀이 재사용될 때 이미지가 깜빡이는 이슈가 있어, UIImageView를 상속받은 IdentifiableImageView를 두었습니다
+- IdentifiableImageView는 identifer가 있기 때문에 셀 재사용 시, identifier를 확인하여 현재 셀에서 요구하는 이미지가 맞는지 확인합니다
+- 또한 셀 재사용 시, 이미지 다운로드 중이던 작업을 취소하기 위해 protocol CellImageDownloadCancelling을 만들었습니다
+- CollectionViewCell에서는 CellImageDownloadCancelling을 준수하여 prepareForReuse() 때 이미지 다운 취소 메서드를 호출합니다
 <br/>  
 <br/>  
 
