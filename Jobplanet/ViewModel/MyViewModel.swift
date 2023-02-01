@@ -17,7 +17,7 @@ final class MyViewModel: ViewModel {
         let error: Driver<APIServiceError>
     }
     
-    private let bookedRecruitItemsRelay = PublishRelay<[RecruitItem]>()
+    private let bookMarkedRecruitItemsRelay = PublishRelay<[RecruitItem]>()
     private let errorRelay = PublishRelay<APIServiceError>()
     private var bookMarkedRecruitItemIds: [Int] = []
     
@@ -52,7 +52,7 @@ final class MyViewModel: ViewModel {
                     self.recruitItems = items
                     
                     let items =  self.filter(items, with: ids)
-                    self.bookedRecruitItemsRelay.accept(items)
+                    self.bookMarkedRecruitItemsRelay.accept(items)
                 case .failure(let error):
                     self.errorRelay.accept(error)
                 }
@@ -62,7 +62,7 @@ final class MyViewModel: ViewModel {
             }
         }
         
-        let recruitItems = bookedRecruitItemsRelay.asDriver(onErrorJustReturn: [])
+        let recruitItems = bookMarkedRecruitItemsRelay.asDriver(onErrorJustReturn: [])
         let error = errorRelay.asDriver(onErrorJustReturn: APIServiceError.unknown)
         return Output(recruitItems: recruitItems,
                       error: error)
@@ -140,6 +140,6 @@ extension MyViewModel: NotificationBookMarkedRecruitItems {
         
         let ids = fetchBookMarkedRecruitItemIds()
         let recruitItems = filter(recruitItems, with: ids)
-        bookedRecruitItemsRelay.accept(recruitItems)
+        bookMarkedRecruitItemsRelay.accept(recruitItems)
     }
 }
