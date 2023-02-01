@@ -40,14 +40,7 @@ final class NetworkService {
     }
     
     func cellItems() async throws -> Result<Data, APIServiceError> {
-        let result = try await data(of: .cell)
-        
-        switch result {
-        case .success(let data):
-            return .success(data)
-        case .failure(let error):
-            return .failure(error)
-        }
+        return try await data(of: .cell)
     }
     
     static func urlBuilder(of list: List) -> URLComponents {
@@ -82,9 +75,7 @@ extension NetworkService {
             return .failure(.disconnectedNetwork)
         }
         
-        let urlComponents = NetworkService.urlBuilder(of: list)
-        
-        guard let url = urlComponents.url else {
+        guard let url = NetworkService.urlBuilder(of: list).url else {
             return .failure(.invalidURL)
         }
         
