@@ -165,9 +165,8 @@ final class HomeViewModel: ViewModel {
         var result: [RecruitItem] = []
         for item in items {
             var item = item
-            if bookMarekdIds.contains(item.id) {
-                item.updateIsBookMarked(true)
-            }
+            let isBookMarked = bookMarekdIds.contains(item.id)
+            item.updateIsBookMarked(isBookMarked)
             result.append(item)
         }
         
