@@ -28,12 +28,18 @@ final class HomeViewModel: ViewModel {
         let error: Driver<APIServiceError>
     }
     
-    private let recruitItemsRelay = PublishRelay<[RecruitItem]>()
-    private let cellItemsRelay = PublishRelay<[CellItem]>()
+    private let recruitItemsRelay = BehaviorRelay(value: [RecruitItem]())
+    private let cellItemsRelay = BehaviorRelay(value: [CellItem]())
     private let errorRelay = PublishRelay<APIServiceError>()
     
-    private var recruitItems: [RecruitItem] = []
-    private var cellItems: [CellItem] = []
+    private var recruitItems: [RecruitItem] {
+        return recruitItemsRelay.value
+    }
+    
+    private var cellItems: [CellItem] {
+        return cellItemsRelay.value
+    }
+    
     private var bookMarkedRecruitItemIds: [Int] = []
     
     let disposeBag = DisposeBag()
@@ -90,7 +96,7 @@ final class HomeViewModel: ViewModel {
             switch results {
             case .success(let items):
                 let bookMarkedIds = fetchBookMarkedRecruitIds()
-                recruitItems = recruitItems(items: items, with: bookMarkedIds)
+                let recruitItems = recruitItems(items: items, with: bookMarkedIds)
                 recruitItemsRelay.accept(recruitItems)
             case .failure(let error):
                 guard error != .cancelled else {
@@ -118,14 +124,13 @@ final class HomeViewModel: ViewModel {
                 let transformer = CellItemsTransformer()
                 
                 guard let jsonObjects = try? transformer.transformDataToJSONObjects(data).get(),
-                      let cellItems = try? transformer.transformJSONObjectsToCellItems(jsonObjects) else {
+                      let cellItems = try? transformer.transformJSONObjectsToCellItems(jsonObjects).filter({ $0.cellType != .review }) else {
                     errorRelay.accept(.failedDecoding)
                     return
                 }
                 
-                self.cellItems = cellItems.filter({ $0.cellType != .review })
-                cellItemsRelay.accept(self.cellItems)
-            
+                cellItemsRelay.accept(cellItems)
+                
             case .failure(let error):
                 guard error != .cancelled else {
                     return
@@ -165,9 +170,8 @@ final class HomeViewModel: ViewModel {
         var result: [RecruitItem] = []
         for item in items {
             var item = item
-            if bookMarekdIds.contains(item.id) {
-                item.updateIsBookMarked(true)
-            }
+            let isBookMarked = bookMarekdIds.contains(item.id)
+            item.updateIsBookMarked(isBookMarked)
             result.append(item)
         }
         

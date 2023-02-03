@@ -95,6 +95,7 @@ class HomeViewController: UIViewController, Toast {
         let output = viewModel.transform(input: input)
         
         output.recruitItems
+            .skip(1)
             .drive(with: self,
                    onNext: { owner, recruitItems in
                 owner.recruitItems = recruitItems
@@ -103,6 +104,7 @@ class HomeViewController: UIViewController, Toast {
             .disposed(by: disposeBag)
         
         output.cellItems
+            .skip(1)
             .drive(with: self, onNext: { owner, cellItems in
                 owner.cellItems = cellItems
                 owner.setCollectionViewSize(with: .cell)
